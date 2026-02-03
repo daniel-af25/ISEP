@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\Debug\AssemblerApplication21.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication21.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication21.map</FILE>
+  <FILE>AssemblerApplication21.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <inic><FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</FILE><LINE>6</LINE></inic>
+  <sw1><FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</FILE><LINE>14</LINE></sw1>
+  <sw2><FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</FILE><LINE>21</LINE></sw2>
+  <sw3><FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</FILE><LINE>28</LINE></sw3>
+  <sw4><FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</FILE><LINE>35</LINE></sw4>
+  <sw6><FILE>C:\Users\danie\Desktop\Assembly Projects Arduino\Trabalho 1\Submeter\Func1\AssemblerApplication21\main.asm</FILE><LINE>49</LINE></sw6>
+ </LABELS>
+</ASSEMBLER_INFO>

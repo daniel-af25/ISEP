@@ -1,0 +1,54 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\Debug\AssemblerApplication20.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication20.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication20.map</FILE>
+  <FILE>AssemblerApplication20.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <init><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>15</LINE></init>
+  <ciclo><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>28</LINE></ciclo>
+  <wait_for_start><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>32</LINE></wait_for_start>
+  <handle_sw1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>41</LINE></handle_sw1>
+  <handle_sw2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>58</LINE></handle_sw2>
+  <sw1_loop><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>46</LINE></sw1_loop>
+  <check_pause><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>75</LINE></check_pause>
+  <delay><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>170</LINE></delay>
+  <sw2_loop><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>63</LINE></sw2_loop>
+  <pause_sequence><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>80</LINE></pause_sequence>
+  <wait_pause_release><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>82</LINE></wait_pause_release>
+  <pause_wait><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>85</LINE></pause_wait>
+  <resume_with_sw1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>93</LINE></resume_with_sw1>
+  <resume_with_sw2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>130</LINE></resume_with_sw2>
+  <continue_sequence><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>166</LINE></continue_sequence>
+  <count_on_leds><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>105</LINE></count_on_leds>
+  <skip_on_count><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>109</LINE></skip_on_count>
+  <mask_setup_sw1_done><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>121</LINE></mask_setup_sw1_done>
+  <shift_mask_sw1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>117</LINE></shift_mask_sw1>
+  <resume1_done><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>127</LINE></resume1_done>
+  <count_off_leds><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>142</LINE></count_off_leds>
+  <skip_off_count><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>146</LINE></skip_off_count>
+  <mask_setup_sw2_done><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>158</LINE></mask_setup_sw2_done>
+  <shift_mask_sw2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>154</LINE></shift_mask_sw2>
+  <resume2_done><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>164</LINE></resume2_done>
+  <d_loop0><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>176</LINE></d_loop0>
+  <d_loop1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>178</LINE></d_loop1>
+  <d_loop2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication20\AssemblerApplication20\main.asm</FILE><LINE>180</LINE></d_loop2>
+ </LABELS>
+</ASSEMBLER_INFO>

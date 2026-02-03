@@ -1,0 +1,58 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\Debug\AssemblerApplication30.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication30.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication30.map</FILE>
+  <FILE>AssemblerApplication30.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <main><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>74</LINE></main>
+  <inttimer><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>179</LINE></inttimer>
+  <table><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>30</LINE></table>
+  <table_display><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>31</LINE></table_display>
+  <init><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>34</LINE></init>
+  <start><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>83</LINE></start>
+  <loop><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>88</LINE></loop>
+  <state1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>98</LINE></state1>
+  <state2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>148</LINE></state2>
+  <state3><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>158</LINE></state3>
+  <check_next><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>108</LINE></check_next>
+  <Delay20><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>278</LINE></Delay20>
+  <valor><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>267</LINE></valor>
+  <save0><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>124</LINE></save0>
+  <save1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>127</LINE></save1>
+  <save2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>130</LINE></save2>
+  <adv_next><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>133</LINE></adv_next>
+  <wait_rel><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>142</LINE></wait_rel>
+  <scan><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>201</LINE></scan>
+  <flag_show><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>195</LINE></flag_show>
+  <flag_blink><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>198</LINE></flag_blink>
+  <show_saved><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>220</LINE></show_saved>
+  <next_digit><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>250</LINE></next_digit>
+  <show_digits_normally><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>227</LINE></show_digits_normally>
+  <show_blank><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>246</LINE></show_blank>
+  <show0><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>236</LINE></show0>
+  <show1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>239</LINE></show1>
+  <show2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>242</LINE></show2>
+  <endint><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>256</LINE></endint>
+  <d3><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>283</LINE></d3>
+  <d4><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>284</LINE></d4>
+  <d5><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication30\AssemblerApplication30\main.asm</FILE><LINE>285</LINE></d5>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,48 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\Debug\AssemblerApplication23.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication23.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication23.map</FILE>
+  <FILE>AssemblerApplication23.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <main><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>47</LINE></main>
+  <interrupt><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>85</LINE></interrupt>
+  <tabela><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>24</LINE></tabela>
+  <init><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>27</LINE></init>
+  <ciclo><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>54</LINE></ciclo>
+  <estado1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>60</LINE></estado1>
+  <loop1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>63</LINE></loop1>
+  <TestarTransicao><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>158</LINE></TestarTransicao>
+  <estado2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>72</LINE></estado2>
+  <estado3><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>79</LINE></estado3>
+  <end><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>137</LINE></end>
+  <atuarEstado1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>101</LINE></atuarEstado1>
+  <atuarEstado2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>111</LINE></atuarEstado2>
+  <atuarEstado3><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>135</LINE></atuarEstado3>
+  <LigarDisplay><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>143</LINE></LigarDisplay>
+  <desligar><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>120</LINE></desligar>
+  <DarSetFlag><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>128</LINE></DarSetFlag>
+  <salto><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>151</LINE></salto>
+  <delay><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>165</LINE></delay>
+  <ciclo0><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>171</LINE></ciclo0>
+  <ciclo1><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>172</LINE></ciclo1>
+  <ciclo2><FILE>C:\Users\danie\Documents\Atmel Studio\7.0\AssemblerApplication23\AssemblerApplication23\main.asm</FILE><LINE>173</LINE></ciclo2>
+ </LABELS>
+</ASSEMBLER_INFO>

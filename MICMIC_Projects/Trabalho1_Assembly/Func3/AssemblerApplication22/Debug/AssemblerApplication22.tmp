@@ -1,0 +1,52 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega128"</DEVICE>
+ <WORKING_DIR>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\avrasm\inc\m128def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\Debug\AssemblerApplication22.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>AssemblerApplication22.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>AssemblerApplication22.map</FILE>
+  <FILE>AssemblerApplication22.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <init><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>22</LINE></init>
+  <update_display><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>113</LINE></update_display>
+  <main_loop><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>47</LINE></main_loop>
+  <displayNumbers><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>43</LINE></displayNumbers>
+  <check_dec_btn><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>60</LINE></check_dec_btn>
+  <delay_2ms><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>140</LINE></delay_2ms>
+  <update_inc_display><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>57</LINE></update_inc_display>
+  <wait_for_release_inc><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>125</LINE></wait_for_release_inc>
+  <check_start_btn><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>74</LINE></check_start_btn>
+  <update_dec_display><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>70</LINE></update_dec_display>
+  <wait_for_release_dec><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>129</LINE></wait_for_release_dec>
+  <wait_for_release_start><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>133</LINE></wait_for_release_start>
+  <run_action_loop><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>85</LINE></run_action_loop>
+  <for_loop_start><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>88</LINE></for_loop_start>
+  <wait_sensor_low><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>96</LINE></wait_sensor_low>
+  <delay_500ms><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>155</LINE></delay_500ms>
+  <delay_2000ms><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>176</LINE></delay_2000ms>
+  <no_carry><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>119</LINE></no_carry>
+  <d2_loop1><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>144</LINE></d2_loop1>
+  <d2_loop2><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>146</LINE></d2_loop2>
+  <d500_loop1><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>160</LINE></d500_loop1>
+  <d500_loop2><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>162</LINE></d500_loop2>
+  <d500_loop3><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>164</LINE></d500_loop3>
+  <d2s_loop1><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>181</LINE></d2s_loop1>
+  <d2s_loop2><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>183</LINE></d2s_loop2>
+  <d2s_loop3><FILE>C:\Users\danie\Desktop\MICMIC _ Local\MICMIC_Local\Trabalho_1_Assembly\Func3\AssemblerApplication22\main.asm</FILE><LINE>185</LINE></d2s_loop3>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        @page { size: A4; margin: 1cm; }
+        body { font-family: Helvetica, sans-serif; color: #333; font-size: 10px; }
+        .header-container { background-color: #1a1a1a; padding: 25px; color: #fff; border-radius: 5px; }
+        .brand-name { color: #f89406; font-size: 24px; font-weight: bold; margin-bottom: 5px; }
+        .store-details { color: #ccc; border-top: 1px solid #333; padding-top: 10px; }
+        .client-section { margin: 20px 0; padding: 15px; border: 1px solid #eee; background: #fafafa; }
+        .section-title { color: #f89406; font-size: 12px; font-weight: bold; border-bottom: 2px solid #f89406; margin-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th { background-color: #f89406; color: white; padding: 10px; text-align: left; text-transform: uppercase; }
+        td { padding: 10px; border-bottom: 1px solid #eee; vertical-align: middle; } 
+        .product-img { width: 45px; height: 45px; border-radius: 4px; }
+        .totals-table { width: 250px; margin-left: auto; margin-top: 20px; }
+        .totals-table td { border: none; padding: 5px; }
+        .grand-total { background-color: #1a1a1a; color: #f89406; font-weight: bold; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="brand-name">FANS FANS BEER SHOP</div>
+        <div class="store-details">
+            
+            Rua da Cevada, 123, Porto | Tel: +351 220000000<br>
+            Email: fansfansbeers@gmail.com
+        </div>
+    </div>
+
+    <div class="client-section">
+        <div class="section-title">GUIA DE REMESSA #{{ order.id }}</div>
+        <table style="border: none;">
+            <tr>
+                <td style="border: none; padding: 0;"><strong>Cliente:</strong> {{ order.full_name }}</td>
+                <td style="border: none; padding: 0; text-align: right;"><strong>Data:</strong> {{ order.created|date:"d/m/Y" }}</td>
+            </tr>
+            <tr>
+                <td style="border: none; padding: 0;"><strong>Morada:</strong> {{ order.address1 }}, {{ order.city }}</td>
+                <td style="border: none; padding: 0; text-align: right;"><strong>Email:</strong> {{ order.email }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>*</th>
+                <th>Cerveja</th>
+                <th>Qtd</th>
+                <th>Preço Un.</th>
+                <th>IVA (23%)</th>
+                <th style="text-align: right;">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+            <tr>
+                <td>
+                    {% if item.product.image %}
+                        <img src="{{ item.product.image.path }}" class="product-img">
+                    {% else %}
+                        <div style="color: #ccc;">N/A</div>
+                    {% endif %}
+                </td>
+                <td><strong>{{ item.product.name }}</strong></td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}€</td>
+                <td>{{ item.get_iva_item }}€</td>
+                <td style="text-align: right;">{{ item.get_total }}€</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="totals-table">
+        <tr>
+            <td>Base Tributável (sem IVA):</td>
+            <td style="text-align: right;">{{ order.get_subtotal_sem_iva }}€</td>
+        </tr>
+        <tr>
+            <td>IVA Total (23%):</td>
+            <td style="text-align: right;">{{ order.get_total_iva }}€</td>
+        </tr>
+        <tr class="grand-total">
+            <td>TOTAL FINAL:</td>
+            <td style="text-align: right;">{{ order.total_paid }}€</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 40px; text-align: center; color: #999; font-size: 8px;">
+        FansFans Beers - Bebe com moderação. Documento processado por computador.
+    </div>
+</body>
+</html>

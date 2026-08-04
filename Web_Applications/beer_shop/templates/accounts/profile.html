@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 50px; max-width: 900px;">
+    
+    <div class="tabs-wrapper" style="display: flex; gap: 10px; margin-bottom: -1px; position: relative; z-index: 1;">
+        <button onclick="openTab('dados')" id="btn-dados" class="tab-btn active">Os Meus Dados</button>
+        <button onclick="openTab('encomendas')" id="btn-encomendas" class="tab-btn">Encomendas</button>
+    </div>
+
+    <div class="profile-main-card">
+        
+        <div id="tab-dados" class="tab-content">
+            <div class="profile-header">
+                <p style="color: #888; font-size: 0.9rem;">Gere as tuas informações de conta e morada.</p>
+                <hr>
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="profile-alert">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" class="profile-form">
+                {% csrf_token %}
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Username</label>
+                        <input type="text" value="{{ request.user.username }}" disabled class="input-disabled">
+                    </div>
+
+                    {% for field in form %}
+                        <div class="form-group {% if field.name == 'address1' or forloop.first or forloop.last %}full-width{% endif %}">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <small style="color: #e74c3c;">{{ field.errors.0 }}</small>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn-update">ATUALIZAR INFORMAÇÕES</button>
+            </form>
+        </div>
+
+        <div id="tab-encomendas" class="tab-content" style="display: none; animation: fadeIn 0.4s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="font-family: 'Montserrat'; font-weight: 700; margin: 0;">Histórico de Encomendas</h2>
+                <span style="background: var(--amber-light); color: var(--amber); padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.8rem;">
+                    {{ orders.count }} Encomendas
+                </span>
+            </div>
+            <hr>
+
+            {% if orders %}
+                {% for order in orders %}
+                <div class="order-card">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div style="background: #f8f8f8; padding: 15px; border-radius: 12px; text-align: center; min-width: 70px;">
+                            <span style="display: block; font-size: 1.1rem; font-weight: bold;">#{{ order.id }}</span>
+                            <small style="color: #999; text-transform: uppercase; font-size: 0.6rem;">ID</small>
+                        </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span style="font-weight: bold; font-size: 1rem; color: #333; line-height: 1.2;">
+                            Realizada em {{ order.created|date:"d M Y" }}
+                        </span>
+                        <div>
+                            <span class="status-badge status-{{ order.delivery_status }}" style="display: inline-block;">
+                                {{ order.get_delivery_status_display }}
+                            </span>
+                        </div>
+                    </div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="display: block; font-size: 1.2rem; font-weight: 800; color: #000; margin-bottom: 5px;">{{ order.total_paid }}€</span>
+                        
+                        <small class="payment-status" style="color: {% if order.billing_status %}#2ecc71{% else %}#e74c3c{% endif %};">
+                            {% if order.billing_status %}Pago<br>{% else %}Pendente de Pagamento<br>{% endif %}
+                        </small>
+
+                        <a href="{% url 'order_detail' order.id %}" style="color: var(--amber); font-weight: bold; text-decoration: none; font-size: 0.8rem; text-transform: uppercase;">
+                            Ver Detalhes ➔
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div style="text-align: center; padding: 60px 20px;">
+                    <p style="color: #666; font-size: 1.1rem;">Sem encomendas? Sem problema!</p>
+                    <a href="{% url 'product_list' %}" style="color: var(--amber); font-weight: bold; text-decoration: none;">Veja o nosso Catálogo</a>
+                </div>
+            {% endif %}
+        </div> 
+
+    </div> 
+</div>
+
+<script>
+    function openTab(tabName) {
+        var contents = document.getElementsByClassName('tab-content');
+        for (var i = 0; i < contents.length; i++) { contents[i].style.display = 'none'; }
+        var buttons = document.getElementsByClassName('tab-btn');
+        for (var i = 0; i < buttons.length; i++) { buttons[i].classList.remove('active'); }
+        document.getElementById('tab-' + tabName).style.display = 'block';
+        document.getElementById('btn-' + tabName).classList.add('active');
+    }
+
+    setTimeout(function() {
+        let alerts = document.querySelectorAll('.profile-alert');
+        alerts.forEach(function(alert) {
+            alert.style.opacity = "0";
+            alert.style.transform = "translateY(-10px)";
+            setTimeout(() => alert.remove(), 500);
+        });
+    }, 3000);
+</script>
+{% endblock %}

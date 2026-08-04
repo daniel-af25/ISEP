@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block content %}
+
+<div class="container" style="text-align: center; margin-top: 100px;">
+    <h1 style="color: var(--amber);">Obrigado pela tua encomenda!</h1>
+    <p>A tua encomenda <strong>#{{ order.id }}</strong> foi registada com sucesso.</p>
+    <p>Estado: <span style="color: #d9534f; font-weight: bold;">Aguarda Pagamento</span></p>
+    <hr style="max-width: 400px; margin: 30px auto;">
+    <p>Enviámos um email para <strong>{{ order.email }}</strong> com os dados para pagamento.</p>
+    
+    <a href="{% url 'product_list' %}" style="display: inline-block; margin-top: 20px; padding: 12px 25px; background: var(--dark-coal); color: white; text-decoration: none; border-radius: 8px;">
+        Voltar à Loja
+    </a>
+</div>
+{% endblock %}

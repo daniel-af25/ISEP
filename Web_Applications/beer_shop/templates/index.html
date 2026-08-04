@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block content %}
+
+<div class="page-header">
+    <h2>Os nossos produtos</h2>
+    <div class="underline"></div>
+</div>
+
+<div class="filter-controls">
+    <div class="filter-group">
+        <input type="text" id="beerSearchInput" placeholder="Procura por uma cerveja...">
+        <button type="button" id="resetBtn" class="btn-reset">Limpar Filtros</button>
+    </div>
+
+    <div class="filter-group">
+        <label for="abvRange">ABV Max: <span id="abvValue">15</span>%</label>
+        <input type="range" id="abvRange" min="0" max="15" step="0.5" value="15">
+    </div>
+
+    <div class="filter-group">
+        <select id="priceSort">
+            <option value="default">Default</option>
+            <option value="asc">Preço: Menor para Maior</option>
+            <option value="desc">Preço: Maior para Menor</option>
+        </select>
+    </div>
+</div>
+
+<div id="noResults" class="no-results-container">
+    <div class="no-results-icon">🍺</div>
+    <p>Nenhuma cerveja com o critério do seu filtro.</p>
+</div>
+
+<div class="beer-grid" id="beerGrid">
+    {% for beer in beers %}
+    <div class="beer-card" 
+         data-price="{% if beer.promotion_percentage > 0 %}{{ beer.promotion_price }}{% else %}{{ beer.price }}{% endif %}" 
+         data-abv="{{ beer.abv }}">
+        
+        <div class="beer-image-wrapper">
+            {% if beer.image %}
+            <img src="{{ beer.image.url }}" alt="{{ beer.name }}">
+            {% else %}
+            <img src="https://media.istockphoto.com/id/519728153/photo/mug-of-beer.jpg?s=612x612&w=0&k=20&c=DM6bXiXQ9edkP3tqjKiZG8ztbT0-ePgorYvgJnQLUWc=">
+            {% endif %}
+
+            <span class="stock-badge {% if beer.stock == 0 %}stock-out{% endif %}">
+                {% if beer.stock > 0 %}Em stock{% else %}Esgotado{% endif %}
+            </span>
+        </div>
+
+        <div class="beer-details">
+            <div>
+                <h3 class="beer-name">{{ beer.name }}</h3>
+                
+                <div class="price-wrapper" style="margin-bottom: 10px;">
+                    {% if beer.promotion_percentage > 0 %}
+                        <span class="old-price">{{ beer.price }}€</span>
+                        <div class="promo-price" style="justify-content: center;">
+                            {{ beer.promotion_price }}€
+                            <span class="promo-badge-mini">-{{ beer.promotion_percentage }}%</span>
+                        </div>
+                    {% else %}
+                        <div class="beer-price">{{ beer.price }}€</div>
+                    {% endif %}
+                </div>
+                <small style="color: #666;">ABV: {{ beer.abv }}%</small>
+            </div>
+
+            <a href="{% url 'beer_detail' beer.pk %}" class="btn-details">Ver Detalhes</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('beerSearchInput');
+        const abvRange = document.getElementById('abvRange');
+        const abvValueLabel = document.getElementById('abvValue');
+        const priceSort = document.getElementById('priceSort');
+        const beerGrid = document.getElementById('beerGrid');
+        const noResults = document.getElementById('noResults');
+        const resetBtn = document.getElementById('resetBtn');
+
+        const initialCards = Array.from(document.querySelectorAll('.beer-card'));
+
+        function applyFilters() {
+            const query = searchInput.value.toLowerCase().trim();
+            const maxAbv = parseFloat(abvRange.value);
+            abvValueLabel.textContent = maxAbv;
+
+            let visibleCount = 0;
+            const allCards = Array.from(document.querySelectorAll('.beer-card'));
+
+            allCards.forEach(card => {
+                const name = card.querySelector('.beer-name').textContent.toLowerCase();
+                
+                // JS reads data-price which we updated to be the promotion price if available
+                const price = parseFloat(card.dataset.price.replace(',', '.'));
+                const abv = parseFloat(card.dataset.abv.replace(',', '.'));
+
+                const matchesSearch = name.includes(query);
+                const matchesAbv = abv <= maxAbv;
+
+                if (matchesSearch && matchesAbv) {
+                    card.style.setProperty('display', 'flex', 'important');
+                    visibleCount++;
+                } else {
+                    card.style.setProperty('display', 'none', 'important');
+                }
+            });
+
+            const sortMode = priceSort.value;
+            let cardsToSort = [...allCards];
+
+            if (sortMode === 'default') {
+                initialCards.forEach(card => beerGrid.appendChild(card));
+            } else {
+                cardsToSort.sort((a, b) => {
+                    const priceA = parseFloat(a.dataset.price.replace(',', '.'));
+                    const priceB = parseFloat(b.dataset.price.replace(',', '.'));
+                    
+                    return sortMode === 'asc' ? priceA - priceB : priceB - priceA;
+                });
+
+                cardsToSort.sortMode === 'asc' ? cardsToSort : cardsToSort;
+                cardsToSort.forEach(card => beerGrid.appendChild(card));
+            }
+
+            noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+        
+        resetBtn.addEventListener('click', function () {
+            searchInput.value = '';
+            abvRange.value = 15;
+            priceSort.value = 'default';
+            applyFilters();
+        });
+
+        searchInput.addEventListener('input', applyFilters);
+        abvRange.addEventListener('input', applyFilters);
+        priceSort.addEventListener('change', applyFilters);
+    });
+</script>
+
+{% endblock %}

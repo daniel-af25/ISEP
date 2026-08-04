@@ -1,0 +1,9 @@
+index ->
+    produtos -> produto_detalhe (add to basket e detalhes do produto)
+    registo -> para clientes
+    login -> para clientes
+
+backoffice ->
+    gestao de encomendas ->
+    gestao de utilizadores ->
+    gestao de produtos ->

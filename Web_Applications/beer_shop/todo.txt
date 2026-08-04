@@ -1,0 +1,29 @@
+basico -
+    1 - Frontend básico - index, lista de produtos, detalhes produto (preço, stock)
+    2 - roteamento - django
+    3 - db - products/users/orders 
+    4 - autenticação - cliente
+
+backoffice - 
+    1 - frontend basico
+    2 - gerir produtos - adicionar produto, remover produto, mudar preço e stock 
+    3 - gerir encomendas - atualizar estado (preparado, enviado, concluido, cancelado)
+    4 - gerir users - criar user, remover user
+
+extra:
+    1 - frontend chique X- Adicionar footer com informações do site.
+    2 - emails - X email de confirmação de registo, no update de perfil, sitio para confirmar email e colocar a contar a ativa, default a inativa (false), ver base de dados
+    3 - api da google - logins,maps X - ver -D
+    4 - backoffice de entregador
+    5 - dividir backoffice de superuser e "gestor" da loja
+    6 - calculo de km para custo da encomenda - https://developers.google.com/maps/documentation/routes?hl=pt-br X - adicionar manualmente no carrinho custo default, +100euros graça
+    7 - lógica de desconto X - Com ifs no cart_summary
+    8 - descontos em db -> adicionar para o backoffice do gestor
+    9 - email de promoção X - No back office -D catalogo com desconto no envio por email.
+    10 - chatbot com ia personalizada 
+    11 - gerar pdf com guia de remessa X - Quando enviar guia de remessa no BackOffice - D
+    12 - Sacar imagem e colocar no static do server.
+
+-D - Adicionar produtos, mexer com categorias, traduzir
+
+ Bonus - domain para meter o site.

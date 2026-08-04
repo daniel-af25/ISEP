@@ -1,41 +1,43 @@
-# Portefólio Académico - ISEP (LEEC)
+# 🎓 Portefólio de Engenharia - Daniel Afonso
 
-Bem-vindo ao meu repositório. 
-Chamo-me Daniel Afonso e atualmente sou estudante de **Engenharia Eletrotécnica e de Computadores (LEEC)** no Instituto Superior de Engenharia do Porto (ISEP).
+Bem-vindo ao meu repositório central. Sou estudante de **Engenharia Eletrotécnica e de Computadores (LEEC)** no Instituto Superior de Engenharia do Porto (ISEP).
 
-Este espaço reúne os principais projetos que tenho desenvolvido, documentando a minha evolução técnica e a capacidade de interligar múltiplas disciplinas da engenharia. O meu foco estende-se desde o desenho de circuitos analógicos e programação de sistemas embebidos, até ao desenvolvimento de *software* de alto nível e plataformas web.
+Este espaço documenta a minha evolução técnica e a capacidade de interligar múltiplas disciplinas da engenharia. O meu foco estende-se desde o desenho de circuitos analógicos e programação *bare-metal* de sistemas embebidos, até ao desenvolvimento de arquiteturas de *software* de alto nível e plataformas web completas.
 
 ---
 
-## 📂 Estrutura do Repositório
+## 📂 Arquitetura do Repositório e Projetos
 
-Neste repositório estão organizadas as seguintes áreas de projeto:
+Para facilitar a navegação, os meus projetos estão organizados por domínios de engenharia e estruturados em subpastas modulares. Clica nas hiperligações abaixo para explorar o código-fonte e a documentação detalhada de cada sistema:
 
-### 🔌 [ELEAPL](./ELEAPL) (Eletrónica Aplicada)
-* **Foco:** Instrumentação analógica e controlo de potência.
-* **Descrição:** Desenvolvimento integral de uma cadeia de condicionamento de sinal térmico (Sensor NTC, Ponte de Wheatstone e Amplificadores de Instrumentação). O sinal processado é utilizado para o controlo físico de atuadores (LEDs) via amplificação linear de corrente e modulação PWM (Schmitt Trigger).
-* **Tecnologias exploradas:** PSpice, LabVIEW, Arduino Mega 2560, AMPOPs, Transístores BJT.
+### ⚙️ 1. [Embedded_Systems](./Embedded_Systems)
+**Desenvolvimento de Firmware e Controlo de Automação (ATmega128)**  
+Programação de baixo nível para a arquitetura AVR, dividida em dois módulos principais:
+* **[Automation_StateMachine_ASM](./Embedded_Systems/Automation_StateMachine_ASM):** Lógica de automação industrial implementada em **Assembly** (máquina de estados para linha de perfuração, *debouncing*, controlo de LEDs e displays de 7 segmentos, e jogos temporizados via Timer0/CTC).
+* **[Motor_Control_PWM_C](./Embedded_Systems/Motor_Control_PWM_C):** Controlo de motores DC e de passo em **C** e Assembly (gestão de PWM via Timer2, telemetria de velocidade via *Input Capture* - ICP1, conversão ADC otimizada e interface de controlo remoto via USART/RS232).
 
-### ⚙️ [MICMIC_Projects](./MICMIC_Projects) (Microprocessadores e Microcontroladores)
-* **Foco:** Sistemas embebidos, *firmware* e automação.
-* **Descrição:** Programação de baixo nível para a arquitetura AVR (microcontrolador ATmega128). O repositório contém lógicas de automação industrial, controlo de motores (DC e Stepper), leitura de *encoders* óticos, conversão ADC contínua e comunicação série assíncrona bidirecional (RS232/USART).
-* **Tecnologias exploradas:** C, Assembly (AVR), Timers/Counters, Gestão de Interrupções de Hardware.
+### 🔌 2. [Analog_Electronics](./Analog_Electronics/Thermal_Control_System)
+**Sistema de Instrumentação e Controlo Analógico Térmico**  
+Desenvolvimento integral de hardware analógico de ponta a ponta, validado por simulações PSpice e implementado fisicamente. O projeto divide-se em duas etapas em cascata:
+* **[1_Signal_Conditioning_and_DAQ](./Analog_Electronics/Thermal_Control_System/1_Signal_Conditioning_and_DAQ):** Aquisição com termístor NTC, Ponte de Wheatstone, Amplificador de Instrumentação (alto CMRR), Limitador de Precisão (0-5V) e conversão A/D num Arduino Mega 2560 com telemetria e *logging* em tempo real via **LabVIEW**.
+* **[2_Control_and_Actuation](./Analog_Electronics/Thermal_Control_System/2_Control_and_Actuation):** Malhas de atuação física sobre a carga, incluindo controlo linear de corrente por BJT e modulação PWM analógica gerada por um oscilador de onda triangular de 3 andares acoplado a um comparador *Schmitt Trigger*.
 
-### 💻 [C Projects](./C%20Projects) (Engenharia de Software)
-* **Foco:** Estruturas de dados, algoritmia e manipulação de memória.
-* **Descrição:** Inclui o desenvolvimento de um sistema terminal em C para gestão e triagem de *tickets* clínicos. Simula o fluxo e atendimento de pacientes, implementando alocação dinâmica de recursos e algoritmos para extração de métricas de negócio (tempos de espera e relatórios de produtividade).
-* **Tecnologias exploradas:** C (`<time.h>`, `<stdbool.h>`, `<stdlib.h>`), Lógica de Negócio.
+### 💻 3. [C_Applications](./C_Applications)
+**Sistema de Gestão de Fluxos Clínicos (Ticketing)**  
+Desenvolvimento de *software* estruturado em C (`clinical_ticketing.c`) para simular o motor de atendimento e triagem de um centro de saúde, contemplando alocação dinâmica de recursos, gestão de tempos por POSIX `<time.h>` e relatórios analíticos de produtividade e faturação.
 
-### 🌐 [Web Dev / stock_management](./Web%20Dev/stock_management) (Desenvolvimento Web)
-* **Foco:** *Frameworks* Web, Bases de Dados e Arquitetura Modular.
-* **Descrição:** Desenvolvimento de uma aplicação web estruturada para gestão de *stock* e montra online. O projeto aborda a implementação de rotas, gestão de base de dados, sistemas de autenticação de utilizadores e permissões de acesso baseadas na arquitetura MVT (*Model-View-Template*).
-* **Tecnologias exploradas:** Python, Django, HTML/CSS.
+### 🌐 4. [Web_Applications](./Web_Applications)
+**Desenvolvimento de Plataformas Web e E-Commerce**  
+Agregador de aplicações web modulares com separação clara de responsabilidades:
+* **[beer_shop](./Web_Applications/beer_shop):** Plataforma de e-commerce desenvolvida em Python (Django) com arquitetura MVT, gestão de catálogo, cesto de compras, *checkout*, sessões e geração de guias de remessa em PDF.
+* **[stock_management](./Web_Applications/stock_management):** Sistema de gestão de stock e encomendas desenvolvido em PHP e JavaScript, com controlo de acessos por níveis de utilizador, painéis administrativos e envio automatizado de faturas por email.
 
 ---
 
 ## 🛠️ Stack Tecnológico Global
-* **Linguagens de Programação:** C | Assembly (AVR) | Python | JavaScript | PHP | HTML/CSS
-* **Sistemas Embebidos & Eletrónica:** ATmega128 | Mega 2560 | PWM | ADC | USART/RS232 | Desenho de Circuitos Analógicos
+
+* **Hardware & Sistemas Embebidos:** ATmega128 | Arduino Mega 2560 | PWM | ADC | Timers/Counters | USART/RS232 | Desenho de Circuitos Analógicos
+* **Linguagens de Programação:** C | Assembly (AVR) | Python | PHP | JavaScript | HTML5/CSS3 | SQL
 * **Ferramentas e Software:** PSpice | LabVIEW | Linux Mint | Git | Django
 
 ---

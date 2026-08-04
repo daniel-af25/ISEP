@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<div class="container" style="margin-top: 50px;">
+    <h2 style="font-family: 'Montserrat'; font-weight: 700;">O Teu Carrinho 🛒</h2>
+    <hr>
+
+    {% if cart %}
+        <div style="display: grid; gap: 20px;">
+            {% for item in cart %}
+            {% with product=item.product %}
+            <div class="cart-item" data-index="{{ product.id }}" style="display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); gap: 20px;">
+                
+                <div style="width: 80px; text-align: center;">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" style="max-width: 100%; height: auto;">
+                    {% else %}
+                        <span style="font-size: 2rem;">🍺</span>
+                    {% endif %}
+                </div>
+
+                <div style="flex-grow: 1;">
+                    <h4 style="margin: 0; color: var(--dark-coal);">{{ product.name }}</h4>
+                    <small style="color: #888;">Preço unitário: {{ item.price }}€</small>
+                    <br>
+                    <button type="button" data-index="{{ product.id }}" class="delete-product" style="background: none; border: none; color: #e74c3c; font-size: 0.8rem; font-weight: bold; cursor: pointer; padding: 0; margin-top: 10px; text-decoration: underline;">
+                        Remover
+                    </button>
+                </div>
+
+                <div style="text-align: right;">
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 5px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <label style="font-size: 0.8rem; font-weight: bold; color: #666;">QTD:</label>
+                            <select class="form-select qty-update" data-index="{{ product.id }}" style="padding: 5px; border-radius: 8px; border: 1px solid #ddd; cursor: pointer;">
+                                {% for i in "123456789"|make_list %}
+                                    <option value="{{ forloop.counter }}" {% if item.qty == forloop.counter %}selected{% endif %}>
+                                        {{ forloop.counter }}
+                                    </option>
+                                {% endfor %}
+                                <option value="10" {% if item.qty == 10 %}selected{% endif %}>10</option>
+                            </select>
+                        </div>
+                        
+                        <small class="stock-error" data-index="{{ product.id }}" style="color: #e74c3c; font-size: 0.75rem; display: none; font-weight: 600;"></small>
+                    </div>
+                    
+                    <p style="margin: 0; color: var(--amber); font-weight: 700;">
+                        Subtotal: <span class="sub-item" data-index="{{ product.id }}">{{ item.total_price|floatformat:2 }}</span>€
+                    </p>
+                </div>
+            </div>
+            {% endwith %}
+            {% endfor %}
+        </div>
+
+        <div style="margin-top: 40px; text-align: right; background: var(--dark-coal); color: white; padding: 25px; border-radius: 12px;">
+            <p style="margin: 0; font-size: 0.9rem; opacity: 0.8;">
+                Soma Produtos: <span id="cart-subtotal">{{ cart.get_total|floatformat:2 }}</span>€
+            </p>
+            <p style="margin: 5px 0 15px 0; font-size: 0.9rem; opacity: 0.8;">
+                Portes de Envio: <span id="shipping-cost">{% if cart.get_total >= 30 %}0.00{% else %}3.00{% endif %}</span>€
+                <br>
+                <small id="shipping-info" style="font-size: 0.7rem; color: var(--amber);">
+                    {% if cart.get_total < 30 %}
+                        (Grátis em compras superiores a 30.00€)
+                    {% else %}
+                        (Oferta de Portes aplicada!)
+                    {% endif %}
+                </small>
+            </p>
+
+            <h3 style="margin: 0;">Total Final: <span id="total" style="color: var(--amber);">{{ cart.get_total_with_shipping|floatformat:2 }}€</span></h3>
+    
+            <a href="{% url 'checkout' %}" id="checkout-btn" style="display: inline-block; text-decoration: none; margin-top: 15px; background: var(--amber); color: #000; padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: all 0.3s ease;">
+                FINALIZAR ENCOMENDA ➔
+            </a>
+        </div>
+
+    {% else %}
+        <div style="text-align: center; padding: 50px 0;">
+            <p style="font-size: 1.2rem; color: #666;">O teu carrinho está vazio.</p>
+            <a href="{% url 'product_list' %}" style="color: var(--amber); font-weight: bold; text-decoration: none;">Voltar para o catálogo</a>
+        </div>
+    {% endif %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    function checkStockErrors() {
+        const hasErrors = $('.stock-error').filter(':visible').length > 0;
+        if (hasErrors) {
+            $('#checkout-btn').css({
+                'opacity': '0.5',
+                'pointer-events': 'none',
+                'filter': 'grayscale(1)'
+            });
+        } else {
+            $('#checkout-btn').css({
+                'opacity': '1',
+                'pointer-events': 'auto',
+                'filter': 'grayscale(0)'
+            });
+        }
+    }
+
+    $(document).ready(function() {
+        $('.qty-update').each(function() {
+            $(this).trigger('change');
+        });
+    });
+
+    $(document).on('click', '.delete-product', function (e) {
+        e.preventDefault();
+        const prodid = $(this).data('index');
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "cart_delete" %}',
+            data: {
+                productid: prodid,
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success: function (json) {
+                $(`.cart-item[data-index="${prodid}"]`).fadeOut('slow', function(){
+                    $(this).remove();
+                    if(json.qty == 0) {
+                        location.reload();
+                    } else {
+                        updateTotals(parseFloat(json.total));
+                        checkStockErrors();
+                    }
+                });
+                
+                if(document.getElementById("cart-qty")) {
+                    document.getElementById("cart-qty").innerHTML = json.qty;
+                }
+            }
+        });
+    });
+
+    function updateTotals(cartTotal) {
+        let shipping = cartTotal >= 30 ? 0.00 : 3.00;
+        let infoText = cartTotal >= 30 ? "(Oferta de Portes aplicada!)" : "(Grátis em compras superiores a 30.00€)";
+        let totalFinal = cartTotal + shipping;
+
+        $('#cart-subtotal').text(cartTotal.toFixed(2));
+        $('#shipping-cost').text(shipping.toFixed(2));
+        $('#shipping-info').text(infoText);
+        $('#total').text(totalFinal.toFixed(2) + "€");
+    }
+
+    $(document).on('change', '.qty-update', function (e) {
+        e.preventDefault();
+        const prodid = $(this).data('index');
+        const prodqty = $(this).val();
+        const $errorLabel = $(`.stock-error[data-index="${prodid}"]`);
+        const $selectField = $(this);
+
+        $.ajax({
+            type: 'POST',
+            url: '{% url "cart_update" %}',
+            data: {
+                productid: prodid,
+                productqty: prodqty,
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success: function (json) {
+                if (json.error) {
+                    $errorLabel.text(json.error).show();
+                    $selectField.css('border-color', '#e74c3c');
+                } else {
+                    $errorLabel.hide().text('');
+                    $selectField.css('border-color', '#ddd');
+
+                    if(document.getElementById("cart-qty")) {
+                        document.getElementById("cart-qty").innerHTML = json.qty;
+                    }
+                    
+                    const subtotal = parseFloat(json.subtotal).toFixed(2);
+                    $(`.sub-item[data-index="${prodid}"]`).text(subtotal);
+                    
+                    updateTotals(parseFloat(json.total));
+                }
+                checkStockErrors();
+            }
+        });
+    });
+</script>
+{% endblock %}

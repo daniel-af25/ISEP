@@ -12,7 +12,7 @@ O projeto está dividido em dois diretórios principais que refletem os blocos l
 ### 📁 [1_Signal_Conditioning_and_DAQ](./1_Signal_Conditioning_and_DAQ)
 Este módulo engloba a captura do sinal físico, o seu tratamento analógico em segurança e a transição para o domínio digital (telemetria).
 * **Ponte de Wheatstone:** Converte a variação de resistência não-linear do sensor NTC num diferencial de tensão.
-* **Amplificador de Instrumentação:** Amplifica o sinal diferencial (com ganho de 1.58 V/V) e elimina ruído de modo comum (CMRR). A corrente do andar de entrada obedece à relação $I_{RG} = \frac{V_1 - V_2}{R_G}$.
+* **Amplificador de Instrumentação:** Amplifica o sinal diferencial (ganho de 1.58 V/V) e elimina ruído de modo comum (CMRR). 
 * **Limitador de Precisão:** Circuito de proteção baseado em AMPOPs que garante que a tensão de saída se mantém estritamente no intervalo de 0V a 5V, protegendo o ADC do microcontrolador contra sobretensões fora da gama térmica.
 * **Software e Aquisição de Dados (DAQ):**
   * **Firmware (C/C++):** Leitura do sinal analógico pelo ADC (10 bits) de um Arduino Mega 2560 e transmissão contínua dos dados via comunicação série assíncrona (USART).

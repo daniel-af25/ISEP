@@ -1,4 +1,4 @@
-#Portefólio de Engenharia - Daniel Afonso
+# Portefólio de Engenharia - Daniel Afonso
 
 Bem-vindo ao meu repositório central. Sou estudante de **Engenharia Eletrotécnica e de Computadores (LEEC)** no Instituto Superior de Engenharia do Porto (ISEP).
 

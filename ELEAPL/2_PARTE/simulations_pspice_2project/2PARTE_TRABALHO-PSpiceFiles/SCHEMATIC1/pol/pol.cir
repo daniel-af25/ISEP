@@ -1,0 +1,21 @@
+** Profile: "SCHEMATIC1-pol"  [ c:\users\danie\documents\simu_pspice\2parte_trabalho-PSpiceFiles\SCHEMATIC1\pol.sim ] 
+
+** Creating circuit file "pol.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+.lib "nom_pspti.lib" 
+
+*Analysis directives: 
+.DC LIN V_V1 3.25 9.55 0.5 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

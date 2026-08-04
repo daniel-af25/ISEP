@@ -1,0 +1,137 @@
+
+**** 06/26/26 11:23:49 **** PSpice 23.1.0 (30 January 2024) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC2-lp"  [ c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "lp.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\23.1.0\PSpice.ini file:
+.lib "nom.lib" 
+.lib "nom_pspti.lib" 
+
+*Analysis directives: 
+.DC LIN V_V12 0 5 0.5 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC2.net" 
+
+
+
+**** INCLUDING SCHEMATIC2.net ****
+* source 2PARTE_TRABALHO
+R_R2         N21014 N20850  22k TC=0,0 
+V_V7         -15 0 -15Vdc
+C_C3         N20832 OUT_TRI  100n  TC=0,0 
+R_R4         N20850 N20832  22k TC=0,0 
+X_U5         N21014 0 15 -15 N208944 TL081
+R_R1         N208944 N20850  330 TC=0,0 
+R_R3         N21014 OUT_TRI  10k TC=0,0 
+X_U6         0 N20832 15 -15 OUT_TRI TL081
+D_D14         0 N207821 BZX84C4V7/PLP 
+D_D15         N20850 N207821 BZX84C4V7/PLP 
+V_V10         15 0 15Vdc
+X_U3         0 N21728 15 -15 OUT_TRI2 TL081
+R_R5         OUT_TRI N21728  10k TC=0,0 
+R_R6         N21786 N21728  10k TC=0,0 
+R_R7         N21728 OUT_TRI2  10k TC=0,0 
+V_V11         N21786 0 -2.45Vdc
+X_U4         N22387 N222761 N23143 -15 N22356 TL081
+R_R10         N22387 N22356  1000k TC=0,0 
+R_R9         N224671 N22387  10k TC=0,0 
+V_V12         N224671 0 2.5Vdc
+R_R8         OUT_TRI2 N222761  10k TC=0,0 
+R_R11         N225901 N225900  1k TC=0,0 
+D_D10         N22356 N225901 Dbreak 
+X_D1         N225900 0 LED PARAMS: I_REV_LEAK=10u CT_ZERO_VOLTS=50p V_BR=5
++  VJ_KNEE=2.5 VJ_SPEC=3.2 IF_SPEC=25m
+V_V13         N23143 0 15Vdc
+
+**** RESUMING lp.cir ****
+.END
+
+WARNING(ORPSIM-15256): <X_D1.IF_SPEC> not a subcircuit param
+
+WARNING(ORPSIM-15256): <X_D1.VJ_SPEC> not a subcircuit param
+
+WARNING(ORPSIM-15256): <X_D1.VJ_KNEE> not a subcircuit param
+
+WARNING(ORPSIM-15256): <X_D1.V_BR> not a subcircuit param
+
+WARNING(ORPSIM-15256): <X_D1.CT_ZERO_VOLTS> not a subcircuit param
+
+WARNING(ORPSIM-15256): <X_D1.I_REV_LEAK> not a subcircuit param
+
+**** 06/26/26 11:23:49 **** PSpice 23.1.0 (30 January 2024) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC2-lp"  [ c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Dbreak          X_U5.DX         X_U6.DX         X_U3.DX         
+          IS   10.000000E-15  800.000000E-18  800.000000E-18  800.000000E-18 
+          RS     .1                                                          
+         CJO  100.000000E-15                                                 
+
+
+               X_U4.DX         
+          IS  800.000000E-18 
+
+
+**** 06/26/26 11:23:49 **** PSpice 23.1.0 (30 January 2024) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC2-lp"  [ c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte
+
+
+ ****     Junction FET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_U5.JX         X_U6.JX         X_U3.JX         X_U4.JX         
+               PJF             PJF             PJF             PJF             
+         VTO   -1              -1              -1              -1            
+        BETA  270.100000E-06  270.100000E-06  270.100000E-06  270.100000E-06 
+          IS   15.000000E-12   15.000000E-12   15.000000E-12   15.000000E-12 
+
+
+
+          JOB CONCLUDED
+
+**** 06/26/26 11:23:49 **** PSpice 23.1.0 (30 January 2024) *** ID# 0 ********
+
+ ** Profile: "SCHEMATIC2-lp"  [ c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .45
+

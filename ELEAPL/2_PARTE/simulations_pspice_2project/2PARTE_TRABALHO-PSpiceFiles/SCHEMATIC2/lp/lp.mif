@@ -1,0 +1,4 @@
+ lib=c:\cadence\pspiceti\tools\PSpice\Library\cdn_psp_tipspice.lib, offset=1129625, size=1766
+ lib=c:\cadence\pspiceti\tools\PSpice\Library\breakout.lib, offset=431, size=44
+ lib=C:\cds_spb_home\cdssetup\pspTILibDir\TL081.LIB, offset=378, size=772
+ lib=C:\cds_spb_home\cdssetup\pspTILibDir\LM3402_TRANS.lib, offset=38189, size=450

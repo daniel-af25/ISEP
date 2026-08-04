@@ -41,5 +41,4 @@ Neste repositório estão organizadas as seguintes áreas de projeto:
 ---
 
 ## 📬 Contacto
-Para mais informações sobre o meu trabalho ou eventuais oportunidades de colaboração, sinta-se à vontade para me contactar:
 * **Email:** danielkyyr@gmail.com

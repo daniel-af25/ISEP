@@ -23,12 +23,12 @@ O projeto utiliza uma arquitetura baseada em scripts *server-side* que interagem
 
 ##  Como Executar Localmente
 
-1. Instala um ambiente de desenvolvimento local como o **XAMPP**, **WAMP** ou **MAMP**.
-2. Clona este repositório e move a pasta do projeto para o diretório de execução do  servidor desejado (por exemplo, a pasta `htdocs` no XAMPP ou `www` no WAMP).
-3. Inicia os serviços **Apache** e **MySQL** no painel de controlo do XAMPP/WAMP.
-4. Acede ao phpMyAdmin (normalmente em `http://localhost/phpmyadmin`), cria uma nova base de dados vazia e importa o ficheiro estrutural `deapc.sql` localizado na pasta `database/`.
-5. Atualiza as credenciais de acesso à base de dados nos scripts PHP (se necessário, de acordo com o teu utilizador/password local do MySQL).
-6. Acede à aplicação através do browser no endereço correspondente (ex: `http://localhost/stock_management/Index.html`).
+1. Instalar um ambiente de desenvolvimento local como o **XAMPP**, **WAMP** ou **MAMP**.
+2. Clonar este repositório e move a pasta do projeto para o diretório de execução do  servidor desejado (por exemplo, a pasta `htdocs` no XAMPP ou `www` no WAMP).
+3. Iniciar os serviços **Apache** e **MySQL** no painel de controlo do XAMPP/WAMP.
+4. Aceder ao phpMyAdmin (normalmente em `http://localhost/phpmyadmin`), cria uma nova base de dados vazia e importa o ficheiro estrutural `deapc.sql` localizado na pasta `database/`.
+5. Atualizar as credenciais de acesso à base de dados nos scripts PHP (se necessário, de acordo com o teu utilizador/password local do MySQL).
+6. Aceder à aplicação através do browser no endereço correspondente (ex: `http://localhost/stock_management/Index.html`).
 
 ---
 *Projeto desenvolvido para a Licenciatura em Engenharia Eletrotécnica e de Computadores (LEEC) do ISEP.*

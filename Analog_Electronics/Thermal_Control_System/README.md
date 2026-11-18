@@ -26,8 +26,7 @@ Malhas de atuação física sobre a carga e simulações PSpice ([Relatório Par
 * **Controlo por Modulação PWM Analógica:** Oscilador de onda triangular de 3 andares (onda quadrada limitada por Zener, integrador e *level shifter*) ligado a um comparador com histerese (*Schmitt Trigger*).
 * **Simulação PSpice ([`simulations_pspice_2project`](./2_Control_and_Actuation/simulations_pspice_2project)):** Esquema OrCAD Capture (`2PARTE_TRABALHO.DSN`) e perfis de análise DC, transitória e Monte Carlo. *(Nota: a aquisição de dados em [`data_logging_labview.xlsx`](./2_Control_and_Actuation/data_logging_labview.xlsx) reutiliza o firmware e o `.vi` da Parte 1.)*
 
-#### Esquemático PSpice (Parte 2)
-![Esquemático PSpice](./2_Control_and_Actuation/simulations_pspice_2project/2PARTE_TRABALHO.png)
+
 
 ---
 

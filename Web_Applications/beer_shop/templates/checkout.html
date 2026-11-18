@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+    <h2 style="font-family: 'Montserrat'; font-weight: 700;">Finalizar Encomenda</h2>
+    <hr>
+
+    <div class="checkout-container" style="display: grid; grid-template-columns: 1fr 350px; gap: 30px; align-items: start;">
+        
+        <div class="checkout-shipping-box" style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <h4 style="margin-top: 0; margin-bottom: 25px; font-weight: 700;">Dados de Envio</h4>
+            <form id="payment-form" method="POST" action="{% url 'place_order' %}">
+                {% csrf_token %}
+                <div class="checkout-form-grid" style="display: grid; gap: 15px;">
+                    <input type="text" name="full_name" 
+                           value="{{ request.user.get_full_name|default:request.user.username }}" 
+                           placeholder="Nome Completo" required 
+                           style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    
+                    <input type="email" name="email" 
+                           value="{{ request.user.email }}" 
+                           placeholder="E-mail" required
+                           style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    
+                    <input type="text" name="address1" 
+                           value="{{ shipping_address.address1|default:'' }}" 
+                           placeholder="Morada" required
+                           style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    
+                    <div class="checkout-form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <input type="text" name="city" 
+                               value="{{ shipping_address.city|default:'' }}" 
+                               placeholder="Cidade" required
+                               style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        
+                        <input type="text" name="zip_code" 
+                               value="{{ shipping_address.zip_code|default:'' }}" 
+                               placeholder="Código-Postal" required
+                               style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+                </div>
+
+                <h4 style="margin: 35px 0 20px 0; font-weight: 700;">Método de Pagamento</h4>
+                <div class="payment-methods-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <label class="payment-option" style="cursor: pointer;">
+                        <input type="radio" name="payment_method" value="multibanco" required checked style="display: none;">
+                        <div class="payment-card" style="border: 2px solid #eee; padding: 15px; border-radius: 10px; text-align: center; transition: 0.3s;">
+                            <span style="font-size: 0.9rem; font-weight: bold;">Multibanco</span>
+                        </div>
+                    </label>
+
+                    <label class="payment-option" style="cursor: pointer;">
+                        <input type="radio" name="payment_method" value="mbway" style="display: none;">
+                        <div class="payment-card" style="border: 2px solid #eee; padding: 15px; border-radius: 10px; text-align: center; transition: 0.3s;">
+                            <span style="font-size: 0.9rem; font-weight: bold;">MB WAY</span>
+                        </div>
+                    </label>
+
+                    <label class="payment-option" style="cursor: pointer;">
+                        <input type="radio" name="payment_method" value="dinheiro" style="display: none;">
+                        <div class="payment-card" style="border: 2px solid #eee; padding: 15px; border-radius: 10px; text-align: center; transition: 0.3s;">
+                            <span style="font-size: 0.9rem; font-weight: bold;">Dinheiro</span>
+                        </div>
+                    </label>
+                </div>
+            </form>
+
+            {% if not profile.address1 %}
+            <p style="margin-top: 25px; padding: 15px; background: #fff9db; border-radius: 8px; font-size: 0.85rem; color: #856404;">
+                💡 Dica: Podes guardar esta morada no teu <a href="{% url 'profile' %}" style="font-weight: bold; color: #856404; text-decoration: underline;">perfil</a> para compras futuras.
+            </p>
+            {% endif %}
+        </div>
+
+        <div class="checkout-summary-box" style="background: var(--dark-coal); color: white; padding: 25px; border-radius: 12px; position: sticky; top: 20px;">
+            <h4 style="margin-top: 0; color: var(--amber); margin-bottom: 20px;">Resumo da Ordem</h4>
+            
+            <div style="max-height: 200px; overflow-y: auto; margin-bottom: 20px; padding-right: 5px;">
+                {% for item in cart %}
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;">
+                    <span style="opacity: 0.8;">{{ item.qty }}x {{ item.product.name }}</span>
+                    <span style="font-weight: 600;">{{ item.total_price|floatformat:2 }}€</span>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 8px; opacity: 0.8;">
+                <span>Subtotal:</span>
+                <span>{{ cart.get_total|floatformat:2 }}€</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 15px; opacity: 0.8;">
+                <span>Portes de Envio:</span>
+                <span>{% if cart.get_total >= 30 %}Grátis{% else %}3.00€{% endif %}</span>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px; margin-top: 10px;">
+                <span style="font-weight: bold; font-size: 1.1rem;">Total a Pagar:</span>
+                <span style="color: var(--amber); font-weight: 800; font-size: 1.5rem;">
+                    {{ cart.get_total_with_shipping|floatformat:2 }}€
+                </span>
+            </div>
+            
+            <button type="submit" form="payment-form" class="btn-pay" style="width: 100%; margin-top: 25px; background: var(--amber); color: #000; border: none; padding: 15px; border-radius: 8px; font-weight: 900; cursor: pointer; text-transform: uppercase; transition: transform 0.2s;">
+                CONFIRMAR E PAGAR ➔
+            </button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .payment-option input:checked + .payment-card {
+        border-color: var(--amber) !important;
+        background: #fffdf5;
+        color: #000;
+    }
+    .btn-pay:hover {
+        transform: scale(1.02);
+        background: #ffc107;
+    }
+</style>
+{% endblock %}

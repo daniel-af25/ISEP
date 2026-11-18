@@ -1,0 +1,280 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beer Shop</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --amber: #FFBF00;
+            --dark-coal: #1A1A1A;
+            --soft-white: #F4F4F4;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--soft-white);
+        }
+
+        /* Navbar Estilizada */
+        nav {
+            background: var(--dark-coal);
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--amber);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--amber);
+        }
+
+        /* Área do Utilizador */
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-left: 20px;
+            border-left: 1px solid #444;
+        }
+
+        .welcome-text {
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+
+        .welcome-text strong {
+            color: white;
+        }
+
+        /* Botões de Ação */
+        .btn-logout {
+            background: transparent;
+            border: 1px solid var(--amber);
+            color: var(--amber);
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .btn-logout:hover {
+            background: var(--amber);
+            color: var(--dark-coal);
+        }
+
+        .btn-login {
+            background: var(--amber);
+            color: var(--dark-coal) !important;
+            padding: 8px 20px;
+            border-radius: 6px;
+        }
+
+        /* Conteúdo */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            min-height: 80vh;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .user-section {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
+        /* Estilo do Carrinho no Header */
+        .nav-cart {
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .cart-icon {
+            font-size: 1.4rem;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: var(--amber);
+            color: var(--dark-coal);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 50%;
+            min-width: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-cart:hover .cart-icon {
+            transform: scale(1.1);
+        }
+
+        .nav-links,
+        .user-section {
+            list-style: none;
+            /* A única forma que consegui de remover uns pontos estranhos no "olá user" */
+            text-decoration: none;
+        }
+
+        .welcome-text strong {
+            color: white;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .welcome-text:hover strong {
+            color: var(--amber);
+            border-bottom: 1px solid var(--amber);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="{% url 'home' %}" class="nav-brand">
+            <span>🍺</span> Fans Fans Beer Shop
+        </a>
+
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'product_list' %}">Catálogo</a>
+            {% if user.is_authenticated and user.is_staff %}
+            <a href="{% url 'admin:index' %}">Office</a>
+            {% endif %}
+            <a href="{% url 'cart_summary' %}" class="nav-cart">
+                <span class="cart-icon">🛒</span>
+                <span id="cart-qty" class="cart-badge">{{ cart|length }}</span>
+            </a>
+            <div class="user-section">
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="welcome-text" style="text-decoration: none;">
+                    Olá, <strong>{{ user.username }}</strong>!
+                </a>
+                <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-logout">Sair</button>
+                </form>
+            </div>
+            {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}" class="btn-login">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3 class="footer-logo">FansFans <span>Beer Shop</span></h3>
+                <p>A tua curadoria de cervejas artesanais premium. Entregamos sabor e tradição diretamente na tua porta.
+                </p>
+                <div class="social-icons">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">TW</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul>
+                    <li>📍 Rua da Cevada, 123, Porto</li>
+                    <li>📞 +351 220 000 000</li>
+                    <li>✉️ info@beershop.pt</li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Explorar</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'product_list' %}">Catálogo</a></li>
+                    <li><a href="#">Termos e Condições</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 BeerShop - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Se existir algum alerta ele desaparece automaticamente passado algum tempo
+        setTimeout(function () {
+            let alerts = document.querySelectorAll('.alert, [style*="background: #fff3cd"]');
+            alerts.forEach(function (alert) {
+                alert.style.transition = "opacity 0.5s ease";
+                alert.style.opacity = "0";
+                setTimeout(() => alert.remove(), 500);
+            });
+        }, 3000);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    :root {
+        --primary-color: #f89406; /* Cor Âmbar FansFans */
+        --bg-light: #f4f7f6;
+        --text-dark: #2d3436;
+        --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    #stats-container {
+        padding: 40px 20px;
+        background-color: var(--bg-light);
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        min-height: 85vh;
+    }
+
+    .dashboard-header {
+        text-align: left;
+        margin-bottom: 30px;
+        border-bottom: 3px solid var(--primary-color);
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: var(--shadow);
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    th {
+        text-align: left;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: #636e72;
+        padding: 12px 8px;
+        border-bottom: 2px solid #f1f2f6;
+    }
+
+    td {
+        padding: 14px 8px;
+        border-bottom: 1px solid #f1f2f6;
+        color: #2d3436;
+        font-size: 0.95rem;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .badge-price {
+        background: rgba(46, 204, 113, 0.1);
+        color: #27ae60;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+
+    .badge-qty {
+        background: rgba(248, 148, 6, 0.1);
+        color: var(--primary-color);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<div id="stats-container">
+    <div style="max-width: 1300px; margin: 0 auto;">
+        <h1 class="dashboard-header">Estastisticas - FansFans Beer Shop</h1>
+
+        <div class="stats-grid">
+            <div class="card">
+                <div class="card-title">Vendas por Mês</div>
+                <canvas id="revenueChart" height="200"></canvas>
+            </div>
+            <div class="card">
+                <div class="card-title">Top 5 Produtos (Volume)</div>
+                <canvas id="productChart" height="200"></canvas>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="card">
+                <div class="card-title">Perfomance da Staff</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Colaborador</th>
+                            <th style="text-align: center;">Pedidos Concluídos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in staff_ranking %}
+                        <tr>
+                            <td style="font-weight: 500;">{{ s.managed_by__username|capfirst }}</td>
+                            <td style="text-align: center;"><span class="badge-qty">{{ s.count }}</span></td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="2" style="text-align:center; padding:20px;">Sem dados disponíveis</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Histórico de Melhores Clientes</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th style="text-align: right;">Total Compras</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for client in best_clients %}
+                        <tr>
+                            <td>
+                                <div style="font-weight: 500;">{{ client.full_name }}</div>
+                                <div style="font-size: 0.75rem; color: #b2bec3;">{{ client.email }}</div>
+                            </td>
+                            <td style="text-align: right;"><span class="badge-price">{{ client.total_spent|floatformat:2 }} €</span></td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="2" style="text-align:center; padding:20px;">Sem vendas registadas</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    Chart.defaults.font.family = "'Segoe UI', 'Roboto'";
+    Chart.defaults.color = '#636e72';
+
+    // Gráfico de Faturamento
+    const revCtx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(revCtx, {
+        type: 'line',
+        data: {
+            labels: {{ monthly_labels|default:"[]"|safe }},
+            datasets: [{
+                label: 'Receita Mensal (€)',
+                data: {{ monthly_values|default:"[]"|safe }},
+                borderColor: '#f89406',
+                backgroundColor: 'rgba(248, 148, 6, 0.1)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointBackgroundColor: '#fff',
+                pointBorderColor: '#f89406',
+                pointBorderWidth: 2
+            }]
+        },
+        options: { 
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { y: { beginAtZero: true, grid: { display: false } } }
+        }
+    });
+
+    // Gráfico de Produtos
+    const prodCtx = document.getElementById('productChart').getContext('2d');
+    new Chart(prodCtx, {
+        type: 'bar',
+        data: {
+            labels: {{ product_labels|default:"[]"|safe }},
+            datasets: [{
+                data: {{ product_values|default:"[]"|safe }},
+                backgroundColor: ['#f89406', '#2d3436', '#fab1a0', '#00cec9', '#6c5ce7'],
+                borderRadius: 8
+            }]
+        },
+        options: { 
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: { x: { grid: { display: false } }, y: { grid: { display: false } } }
+        }
+    });
+</script>
+{% endblock %}

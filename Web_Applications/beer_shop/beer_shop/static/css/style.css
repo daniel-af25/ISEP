@@ -1,0 +1,1122 @@
+/* ==========================================================================
+1. VARIÁVEIS, RESET E DEFINIÇÕES BASE
+==========================================================================
+*/
+
+:root {
+  --amber: #FFBF00;
+  --amber-light: #fff4e6;
+  --dark-coal: #1A1A1A;
+  --soft-white: #F4F4F4;
+  --success-green: #2ecc71;
+  --pending-orange: #f39c12;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+  --glass: rgba(255, 255, 255, 0.85);
+}
+
+body {
+  margin: 0;
+  background-color: var(--soft-white);
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  box-shadow: var(--shadow-sm);
+  margin: 40px auto;
+  border-radius: 12px;
+  max-width: 1100px;
+  min-height: 80vh;
+  padding: 25px;
+  background: white;
+}
+
+/* ==========================================================================
+2. NAVEGAÇÃO (NAVBAR)
+==========================================================================
+*/
+
+nav {
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  padding: 0.8rem 2rem;
+  background: var(--dark-coal);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--amber);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-links a {
+  transition: var(--transition);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-links a:hover { color: var(--amber); }
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-left: 1px solid #444;
+  padding-left: 20px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.welcome-text { color: #bbb; font-size: 0.85rem; }
+.welcome-text strong {
+  color: white;
+  transition: var(--transition);
+  border-bottom: 1px solid transparent;
+}
+.welcome-text:hover strong {
+  border-bottom: 1px solid var(--amber);
+  color: var(--amber);
+}
+
+.btn-login {
+  border-radius: 6px;
+  padding: 8px 20px;
+  background: var(--amber);
+  color: var(--dark-coal) !important;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-login:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+.btn-logout {
+  transition: var(--transition);
+  border: 1px solid var(--amber);
+  border-radius: 20px;
+  padding: 6px 16px;
+  background: transparent;
+  color: var(--amber);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background: var(--amber);
+  color: var(--dark-coal);
+}
+
+.nav-cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.cart-icon { font-size: 1.4rem; color: white; }
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 50%;
+  min-width: 15px;
+  padding: 2px 6px;
+  background: var(--amber);
+  color: var(--dark-coal);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* ==========================================================================
+3. HOME (HERO & GALERIA)
+==========================================================================
+*/
+
+.hero {
+  margin-bottom: 40px;
+  border-radius: 12px;
+  padding: 60px 20px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.squarespace-cdn.com/content/64d250d6c82afd283373142e/1753194057360-ABKIIR0D3NH2F6DXU0H8/unsplash-image-7mSwW0eiPdU.jpg?format=1500w');
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+}
+
+.hero p { opacity: 0.9; margin-bottom: 30px; font-size: 1.2rem; }
+
+.btn-cta {
+  display: inline-block;
+  transition: var(--transition);
+  border-radius: 30px;
+  padding: 12px 30px;
+  background: var(--amber);
+  color: var(--dark-coal);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 191, 0, 0.4);
+}
+
+.gallery-title {
+  position: relative;
+  margin-bottom: 30px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.gallery-title::after {
+  content: '';
+  display: block;
+  margin: 10px auto;
+  width: 60px;
+  height: 4px;
+  background: var(--amber);
+}
+
+.beer-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  height: 300px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  transition: transform 0.8s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item:hover img { transform: scale(1.15); }
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  color: white;
+  text-align: left;
+}
+
+.gallery-overlay h3 { margin: 0; color: var(--amber); }
+
+/* ==========================================================================
+4. CATÁLOGO E FILTROS (GLASSMORPHISM)
+==========================================================================
+*/
+
+.page-header { margin-bottom: 50px; text-align: center; }
+.page-header h2 {
+  margin-bottom: 10px;
+  color: var(--dark-coal);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+}
+.page-header .underline {
+  margin: 0 auto;
+  border-radius: 2px;
+  width: 80px; height: 4px;
+  background: var(--amber);
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px auto;
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 24px;
+  max-width: 1000px;
+  padding: 30px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.filter-group { display: flex; flex-direction: column; gap: 10px; min-width: 200px; }
+.filter-group label {
+  color: var(--dark-coal);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+#beerSearchInput, #priceSort {
+  transition: var(--transition);
+  outline: none;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 12px 16px;
+  background-color: #fcfcfc;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+#beerSearchInput:focus, #priceSort:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 4px rgba(255, 191, 0, 0.15);
+  background: white;
+}
+
+/* Slider de Álcool */
+#abvRange {
+  outline: none;
+  border-radius: 10px;
+  width: 100%; height: 6px;
+  background: #e0e0e0;
+  -webkit-appearance: none;
+}
+
+#abvRange::-webkit-slider-thumb {
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 22px; height: 22px;
+  background: var(--amber);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+#abvRange:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+#abvValue { color: var(--amber); font-size: 1.1rem; font-weight: 800; }
+
+.btn-reset {
+  transition: var(--transition);
+  border: none;
+  border-radius: 12px;
+  height: fit-content;
+  padding: 12px 25px;
+  background: var(--dark-coal);
+  color: white !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  transform: translateY(-2px);
+  background: #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Grelha de Produtos */
+.beer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.beer-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  border-radius: 15px;
+  background: white;
+}
+
+.beer-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.beer-image-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #f0f0f0;
+  height: 250px;
+  padding: 20px;
+  background: #fdfdfd;
+}
+
+.beer-image-wrapper img {
+  transition: var(--transition);
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.beer-card:hover .beer-image-wrapper img {
+  transform: scale(1.1) rotate(2deg);
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,0.1));
+}
+
+.stock-badge {
+  position: absolute;
+  top: 15px; right: 15px;
+  border-radius: 20px;
+  padding: 4px 12px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.stock-out { background: #ffebee; color: #c62828; }
+
+.beer-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: center;
+}
+
+.beer-name {
+  margin: 0 0 8px 0;
+  color: #444; /* Cinza escuro para o nome não competir com o preço */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.beer-price {
+  margin-bottom: 15px;
+  color: var(--dark-coal); /* Preto puro para o preço saltar à vista */
+  font-size: 1.6rem; /* Aumentado de 1.4rem */
+  font-weight: 850; /* Extra negrito para números */
+  letter-spacing: -0.5px; /* Números mais "juntos" parecem mais profissionais */
+}
+
+.btn-details {
+  display: block;
+  transition: var(--transition);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--dark-coal);
+  color: white !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-details:hover { background: var(--amber); color: var(--dark-coal) !important; }
+
+/* Sem resultados na pesquisa */
+.no-results-container {
+  display: none;
+  margin: 20px 0;
+  border: 2px dashed #ddd;
+  border-radius: 15px;
+  padding: 40px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.no-results-icon { opacity: 0.5; font-size: 3rem; margin-bottom: 10px; }
+
+/* ==========================================================================
+5. DETALHE DO PRODUTO (PÁGINA INDIVIDUAL)
+==========================================================================
+*/
+
+.product-container { display: flex; align-items: flex-start; gap: 60px; margin-top: 30px; }
+
+.product-image-section {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 40px;
+  background: white;
+}
+
+.product-image-section img {
+  height: auto; max-width: 100%;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+  object-fit: contain;
+}
+
+.product-info-section { flex: 1.2; }
+
+.beer-category {
+  display: block; margin-bottom: 10px;
+  color: var(--amber); font-size: 0.9rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2px;
+}
+
+.price-tag {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: var(--dark-coal);
+  font-size: 2.8rem; /* Preço imponente no detalhe */
+  font-weight: 900;
+  position: relative;
+}
+.price-tag::after { /* antigo */
+  font-size: 1.5rem;
+  vertical-align: super;
+  margin-left: 4px;
+  color: var(--amber); /* Moeda na cor de destaque */
+}
+
+.specs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+.spec-item { border: 1px solid #eee; border-radius: 12px; padding: 15px; background: #fff; transition: var(--transition); }
+.spec-item:hover { border-color: var(--amber); transform: translateY(-3px); }
+.spec-label {
+  color: #999; /* Rótulos mais claros para destacar os valores (ABV, IBU) */
+  letter-spacing: 1px;
+}
+.spec-value {
+  color: var(--dark-coal);
+  font-size: 1.2rem;
+}
+
+.description-box {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+  margin-bottom: 40px;
+  border-left: 6px solid var(--amber);
+  border-radius: 15px;
+  padding: 30px;
+  background: white;
+}
+
+.description-box h4 { margin-top: 0; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; text-transform: uppercase; }
+
+.btn-cart {
+  display: flex; align-items: center; justify-content: center; gap: 15px;
+  transition: var(--transition);
+  border: none; border-radius: 12px;
+  width: 100%; padding: 20px;
+  background: var(--dark-coal);
+  color: white; font-size: 1.1rem; font-weight: 700; cursor: pointer;
+}
+
+.btn-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 191, 0, 0.3);
+  background: var(--amber);
+  color: var(--dark-coal);
+}
+
+.back-link { display: inline-block; transition: color 0.3s; margin-top: 30px; color: #888; font-weight: 600; text-decoration: none; }
+.back-link:hover { color: var(--dark-coal); transform: translateX(-5px); }
+
+/* ==========================================================================
+6. AUTENTICAÇÃO (LOGIN & REGISTO)
+==========================================================================
+*/
+
+.auth-wrapper, .login-wrapper { display: flex; align-items: center; justify-content: center; min-height: 80vh; padding: 40px 20px; }
+
+.auth-card, .login-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 15px;
+  width: 100%; max-width: 450px;
+  padding: 40px; background: white;
+  text-align: center;
+}
+
+.auth-card h2, .login-card h2 { margin-bottom: 5px; color: var(--dark-coal); font-family: 'Montserrat', sans-serif; }
+.subtitle { margin-bottom: 30px; color: #666; font-size: 0.9rem; }
+
+.auth-card form p, .login-card form p { margin-bottom: 20px; text-align: left; }
+.auth-card label, .login-card label { display: block; margin-bottom: 8px; color: var(--dark-coal); font-weight: 600; font-size: 0.85rem; }
+
+.auth-card input, .login-card input {
+  box-sizing: border-box; border: 1px solid #ddd; border-radius: 8px;
+  width: 100%; padding: 12px; font-family: inherit; transition: var(--transition);
+}
+
+.auth-card input:focus, .login-card input:focus {
+  outline: none; border-color: var(--amber); background-color: #fffdf8;
+  box-shadow: 0 0 0 3px var(--amber-light);
+}
+
+.helptext { display: block; margin-top: 5px; color: #888; font-size: 0.75rem; line-height: 1.4; }
+.errorlist, .error-msg {
+  margin-bottom: 15px; padding: 10px; border-radius: 8px;
+  color: #cf1322; font-size: 0.85rem; background: #fff1f0; border: 1px solid #ffa39e;
+}
+
+.btn-register, .btn-login2 {
+  transition: var(--transition);
+  margin-top: 20px; border: none; border-radius: 8px;
+  width: 100%; padding: 14px;
+  background: var(--dark-coal);
+  color: white !important; /* Importante para manter texto branco */
+  font-size: 1rem; font-weight: 700; text-transform: uppercase; cursor: pointer;
+}
+
+.btn-register:hover, .btn-login2:hover {
+  transform: translateY(-2px);
+  background: var(--amber);
+  color: var(--dark-coal) !important;
+}
+
+.login-footer, .register-link { margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px; font-size: 0.9rem; }
+.login-footer a, .register-link a { color: var(--amber); font-weight: 700; text-decoration: none; }
+
+/* ==========================================================================
+7. PERFIL E ENCOMENDAS
+==========================================================================
+*/
+
+.tab-btn {
+  position: relative;
+  transition: var(--transition);
+  border: none; padding: 14px 28px;
+  background: transparent; color: #888;
+  font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer;
+}
+
+.tab-btn:hover { color: var(--amber); }
+.tab-btn.active { color: #000; }
+.tab-btn.active::after {
+  content: ''; position: absolute; bottom: 0; left: 20%;
+  border-radius: 10px 10px 0 0; width: 60%; height: 4px;
+  background: var(--amber);
+}
+
+.order-card {
+  display: flex; align-items: center; justify-content: space-between;
+  transition: var(--transition);
+  margin-top: 15px; border: 1px solid #f0f0f0; border-radius: 15px;
+  padding: 20px; background: #fff;
+}
+
+.order-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--amber); }
+
+.status-badge { border-radius: 8px; padding: 6px 12px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.status-entregue { background: #e8f5e9; color: #2e7d32; }
+.status-pendente { background: #fff3e0; color: #ef6c00; }
+.status-cancelada { background: #ffebee; color: #c62828; }
+
+/* --- Estilização do Perfil --- */
+.profile-header {
+    margin-bottom: 30px;
+}
+
+.profile-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: -10px;
+}
+
+.profile-alert {
+    background: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-left: 5px solid var(--amber);
+    animation: fadeIn 0.4s ease;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--dark-coal);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Forçar estilo nos inputs gerados pelo Django */
+.profile-form input, 
+.profile-form select, 
+.profile-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.profile-form input:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 4px rgba(255, 191, 0, 0.1);
+    outline: none;
+}
+
+.input-disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+    border-style: dashed !important;
+}
+
+.btn-update {
+    margin-top: 35px;
+    background: var(--amber);
+    color: var(--dark-coal);
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 1px;
+}
+
+.btn-update:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 191, 0, 0.3);
+    filter: brightness(1.05);
+}
+
+.field-error {
+    color: #e74c3c;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Responsividade para ecrãs pequenos */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
+
+/* =============================================================
+   SECÇÃO DE CHECKOUT (Mantendo a aparência original)
+   ============================================================= */
+
+.checkout-container {
+    display: grid; 
+    grid-template-columns: 1fr 350px; 
+    gap: 40px;
+}
+
+.checkout-shipping-box {
+    background: white; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.checkout-form-grid {
+    display: grid; 
+    gap: 15px;
+}
+
+.checkout-form-grid input {
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+.checkout-form-row {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px;
+}
+
+.checkout-summary-box {
+    background: var(--dark-coal); 
+    color: white; 
+    padding: 25px; 
+    border-radius: 12px; 
+    height: fit-content;
+}
+
+.checkout-item-row {
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 0.9rem; 
+    margin-bottom: 10px; 
+    border-bottom: 1px solid #444; 
+    padding-bottom: 5px;
+}
+
+.checkout-total-row {
+    margin-top: 20px; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    display: flex; 
+    justify-content: space-between;
+}
+
+.btn-pay {
+    width: 100%; 
+    margin-top: 25px; 
+    background: var(--amber);
+    border: none; 
+    padding: 15px; 
+    border-radius: 12px;
+    font-weight: 800; 
+    cursor: pointer; 
+    color: black;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-pay:hover {
+    background: var(--amber); 
+    color: var(--dark-coal);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 191, 0, 0.3);
+}
+
+.checkout-alert-tip {
+    margin-top: 15px; font-size: 0.85rem; color: #856404; 
+    background: #fff3cd; padding: 10px; border-radius: 8px;
+}
+
+    /* Estilos para os Cartões de Pagamento */
+    .payment-methods-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .payment-option {
+        cursor: pointer;
+    }
+
+    .payment-option input {
+        display: none; /* Esconde o rádio button padrão */
+    }
+
+    .payment-card {
+        border: 2px solid #eee;
+        border-radius: 12px;
+        padding: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+    .payment-icon {
+        display: block;
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .payment-text {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #555;
+    }
+
+    /* Estado quando o rádio está selecionado */
+    .payment-option input:checked + .payment-card {
+        border-color: var(--amber);
+        background-color: #fff9e6; /* Um tom muito leve de amber */
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .payment-option input:checked + .payment-card .payment-text {
+        color: #000;
+    }
+
+    @media (max-width: 576px) {
+        .payment-methods-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+/* ==========================================================================
+   FOOTER ESTILIZADO
+   ========================================================================== */
+.main-footer {
+    background-color: var(--dark-coal);
+    color: #bbb;
+    padding: 60px 0 20px 0;
+    margin-top: 80px; /* Afasta o footer do conteúdo principal */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-section h4 {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.footer-logo span {
+    color: var(--amber);
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.footer-section ul li a {
+    color: #bbb;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-section ul li a:hover {
+    color: var(--amber);
+    padding-left: 5px;
+}
+
+/* Redes Sociais Simples */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: var(--dark-coal);
+    background: var(--amber);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+/* Rodapé Final */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 0.8rem;
+}
+/* CSS para as melhores vendas na home*/
+.ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  z-index: 10;
+}
+
+.ribbon-popular {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.65rem;
+  color: var(--dark-coal);
+  text-transform: uppercase;
+  text-align: center;
+  transform: rotate(-45deg);
+  position: relative;
+  padding: 7px 0;
+  top: 15px;
+  left: -30px;
+  width: 120px;
+  background-color: var(--amber);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  letter-spacing: 0.5px;
+}
+
+.price-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+/* CSS para as promoçoes */
+.price-wrapper.detail-view {
+    align-items: flex-start;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.promo-price {
+    color: #e74c3c;
+    font-size: 1.6rem;
+    font-weight: 850;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.promo-badge-mini {
+    background: var(--amber);
+    color: var(--dark-coal);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Detalhes de promo */
+.detail-view .promo-price {
+    font-size: 2.8rem;
+}
+/* RESPONSIVIDADE FOOTER */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+
+/* ==========================================================================
+9. RESPONSIVIDADE FINAL
+==========================================================================
+*/
+
+@media (max-width: 900px) {
+  .product-container { flex-direction: column; }
+  .product-image-section { position: static; box-sizing: border-box; width: 100%; }
+}
+
+@media (max-width: 768px) {
+  nav { flex-direction: column; gap: 15px; text-align: center; padding: 1.5rem; }
+  .user-section { border-left: none; padding-left: 0; }
+  .beer-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .beer-grid { grid-template-columns: 1fr; }
+  .specs-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+    .checkout-container { grid-template-columns: 1fr; gap: 20px; margin-top: 15px; }
+    .checkout-summary-box { order: -1; padding: 20px; }
+    .checkout-form-row { grid-template-columns: 1fr; }
+    .checkout-shipping-box { padding: 20px; }
+}

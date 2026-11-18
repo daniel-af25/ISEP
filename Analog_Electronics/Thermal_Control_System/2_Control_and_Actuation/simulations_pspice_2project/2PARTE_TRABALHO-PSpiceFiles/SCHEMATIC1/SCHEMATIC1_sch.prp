@@ -1,0 +1,691 @@
+("FILE_TYPE"	"PMAP File"
+    ("devices"
+        ("VDC")
+        ("R")
+        ("BZX84C10/ZTX")
+        ("TL081")
+        ("BC108A")
+        ("POWER_DIODE_P")
+        ("BZX84C2V7/PLP")
+        ("Dbreak")
+    )
+    ("instances"
+        ("V1"
+            ("device_name"	"VDC")
+            ("pspice_path"	"V_V1")
+            ("level"	"0")
+            ("model_params"
+                ("DC"
+                    ("value"	"3.25Vdc")
+                    ("pspice_param"	"DC")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("R1"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R1")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"200")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("D5"
+            ("device_name"	"BZX84C10/ZTX")
+            ("pspice_path"	"D_D5")
+            ("level"	"0")
+            ("model_params"
+                ("AREA"
+                    ("value"	"")
+                    ("pspice_param"	"AREA")
+                )
+            )
+        )
+        ("U1"
+            ("device_name"	"TL081")
+            ("pspice_path"	"X_U1")
+            ("level"	"0")
+            ("model_params"
+                ("productURL"
+                    ("value"	"http://www.ti.com/document-viewer/TL081/datasheet/")
+                    ("pspice_param"	"productURL")
+                )
+                ("Testbenches"
+                    ("value"	"[{testbenchurl:,testbenchopj:,testbenchdisplayname:}]")
+                    ("pspice_param"	"Testbenches")
+                )
+            )
+        )
+        ("Q1"
+            ("device_name"	"BC108A")
+            ("pspice_path"	"Q_Q1")
+            ("level"	"0")
+            ("model_params"
+                ("AREA"
+                    ("value"	"")
+                    ("pspice_param"	"AREA")
+                )
+            )
+        )
+        ("D6"
+            ("device_name"	"POWER_DIODE_P")
+            ("pspice_path"	"X_D6")
+            ("level"	"0")
+            ("model_params"
+                ("I_REV_LEAK"
+                    ("value"	"10u")
+                    ("pspice_param"	"I_REV_LEAK")
+                )
+                ("CT_ZERO_VOLTS"
+                    ("value"	"50p")
+                    ("pspice_param"	"CT_ZERO_VOLTS")
+                )
+                ("V_BR"
+                    ("value"	"5")
+                    ("pspice_param"	"V_BR")
+                )
+                ("VJ_KNEE"
+                    ("value"	"2.5")
+                    ("pspice_param"	"VJ_KNEE")
+                )
+                ("VJ_SPEC"
+                    ("value"	"3.2")
+                    ("pspice_param"	"VJ_SPEC")
+                )
+                ("IF_SPEC"
+                    ("value"	"25m")
+                    ("pspice_param"	"IF_SPEC")
+                )
+                ("PSpiceModelingAppType"
+                    ("value"	"POWER_DIODE_P")
+                    ("pspice_param"	"PSpiceModelingAppType")
+                )
+            )
+        )
+        ("D7"
+            ("device_name"	"POWER_DIODE_P")
+            ("pspice_path"	"X_D7")
+            ("level"	"0")
+            ("model_params"
+                ("I_REV_LEAK"
+                    ("value"	"10u")
+                    ("pspice_param"	"I_REV_LEAK")
+                )
+                ("CT_ZERO_VOLTS"
+                    ("value"	"50p")
+                    ("pspice_param"	"CT_ZERO_VOLTS")
+                )
+                ("V_BR"
+                    ("value"	"5")
+                    ("pspice_param"	"V_BR")
+                )
+                ("VJ_KNEE"
+                    ("value"	"2.5")
+                    ("pspice_param"	"VJ_KNEE")
+                )
+                ("VJ_SPEC"
+                    ("value"	"3.2")
+                    ("pspice_param"	"VJ_SPEC")
+                )
+                ("IF_SPEC"
+                    ("value"	"25m")
+                    ("pspice_param"	"IF_SPEC")
+                )
+                ("PSpiceModelingAppType"
+                    ("value"	"POWER_DIODE_P")
+                    ("pspice_param"	"PSpiceModelingAppType")
+                )
+            )
+        )
+        ("D8"
+            ("device_name"	"POWER_DIODE_P")
+            ("pspice_path"	"X_D8")
+            ("level"	"0")
+            ("model_params"
+                ("I_REV_LEAK"
+                    ("value"	"10u")
+                    ("pspice_param"	"I_REV_LEAK")
+                )
+                ("CT_ZERO_VOLTS"
+                    ("value"	"50p")
+                    ("pspice_param"	"CT_ZERO_VOLTS")
+                )
+                ("V_BR"
+                    ("value"	"5")
+                    ("pspice_param"	"V_BR")
+                )
+                ("VJ_KNEE"
+                    ("value"	"2.5")
+                    ("pspice_param"	"VJ_KNEE")
+                )
+                ("VJ_SPEC"
+                    ("value"	"3.2")
+                    ("pspice_param"	"VJ_SPEC")
+                )
+                ("IF_SPEC"
+                    ("value"	"25m")
+                    ("pspice_param"	"IF_SPEC")
+                )
+                ("PSpiceModelingAppType"
+                    ("value"	"POWER_DIODE_P")
+                    ("pspice_param"	"PSpiceModelingAppType")
+                )
+            )
+        )
+        ("V4"
+            ("device_name"	"VDC")
+            ("pspice_path"	"V_V4")
+            ("level"	"0")
+            ("model_params"
+                ("DC"
+                    ("value"	"15Vdc")
+                    ("pspice_param"	"DC")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("V5"
+            ("device_name"	"VDC")
+            ("pspice_path"	"V_V5")
+            ("level"	"0")
+            ("model_params"
+                ("DC"
+                    ("value"	"-15Vdc")
+                    ("pspice_param"	"DC")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("R3"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R3")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"500")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("U2"
+            ("device_name"	"TL081")
+            ("pspice_path"	"X_U2")
+            ("level"	"0")
+            ("model_params"
+                ("Testbenches"
+                    ("value"	"[{testbenchurl:,testbenchopj:,testbenchdisplayname:}]")
+                    ("pspice_param"	"Testbenches")
+                )
+                ("productURL"
+                    ("value"	"http://www.ti.com/document-viewer/TL081/datasheet/")
+                    ("pspice_param"	"productURL")
+                )
+            )
+        )
+        ("R4"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R4")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"10k")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("R5"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R5")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"4.79k")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("R6"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R6")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"27k")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("R7"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R7")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"4.7k")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("V6"
+            ("device_name"	"VDC")
+            ("pspice_path"	"V_V6")
+            ("level"	"0")
+            ("model_params"
+                ("DC"
+                    ("value"	"0Vdc")
+                    ("pspice_param"	"DC")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("R8"
+            ("device_name"	"R")
+            ("pspice_path"	"R_R8")
+            ("level"	"0")
+            ("model_params"
+                ("VALUE"
+                    ("value"	"200")
+                    ("pspice_param"	"VALUE")
+                )
+                ("DIST"
+                    ("value"	"FLAT")
+                    ("pspice_param"	"DIST")
+                )
+                ("TOLERANCE"
+                    ("value"	"")
+                    ("pspice_param"	"TOLERANCE")
+                )
+                ("VOLTAGE"
+                    ("value"	"RVMAX")
+                    ("pspice_param"	"VOLTAGE")
+                )
+                ("SLOPE"
+                    ("value"	"RSMAX")
+                    ("pspice_param"	"SLOPE")
+                )
+                ("MAX_TEMP"
+                    ("value"	"RTMAX")
+                    ("pspice_param"	"MAX_TEMP")
+                )
+                ("POWER"
+                    ("value"	"RMAX")
+                    ("pspice_param"	"POWER")
+                )
+                ("TC1"
+                    ("value"	"0")
+                    ("pspice_param"	"TC1")
+                )
+                ("TC2"
+                    ("value"	"0")
+                    ("pspice_param"	"TC2")
+                )
+                ("PSpice Model Type"
+                    ("value"	"0011")
+                    ("pspice_param"	"PSpice Model Type")
+                )
+            )
+        )
+        ("D9"
+            ("device_name"	"BZX84C2V7/PLP")
+            ("pspice_path"	"D_D9")
+            ("level"	"0")
+            ("model_params"
+                ("Schematics' Source Library"
+                    ("value"	"C:\\library\\Philips142\\phil_diode.slb")
+                    ("pspice_param"	"Schematics' Source Library")
+                )
+                ("AREA"
+                    ("value"	"")
+                    ("pspice_param"	"AREA")
+                )
+            )
+        )
+        ("D10"
+            ("device_name"	"Dbreak")
+            ("pspice_path"	"D_D10")
+            ("level"	"0")
+            ("model_params"
+                ("AREA"
+                    ("value"	"")
+                    ("pspice_param"	"AREA")
+                )
+            )
+        )
+        ("D11"
+            ("device_name"	"POWER_DIODE_P")
+            ("pspice_path"	"X_D11")
+            ("level"	"0")
+            ("model_params"
+                ("I_REV_LEAK"
+                    ("value"	"10u")
+                    ("pspice_param"	"I_REV_LEAK")
+                )
+                ("CT_ZERO_VOLTS"
+                    ("value"	"50p")
+                    ("pspice_param"	"CT_ZERO_VOLTS")
+                )
+                ("V_BR"
+                    ("value"	"5")
+                    ("pspice_param"	"V_BR")
+                )
+                ("VJ_KNEE"
+                    ("value"	"2.5")
+                    ("pspice_param"	"VJ_KNEE")
+                )
+                ("VJ_SPEC"
+                    ("value"	"3.2")
+                    ("pspice_param"	"VJ_SPEC")
+                )
+                ("IF_SPEC"
+                    ("value"	"25m")
+                    ("pspice_param"	"IF_SPEC")
+                )
+                ("PSpiceModelingAppType"
+                    ("value"	"POWER_DIODE_P")
+                    ("pspice_param"	"PSpiceModelingAppType")
+                )
+            )
+        )
+        ("D13"
+            ("device_name"	"POWER_DIODE_P")
+            ("pspice_path"	"X_D13")
+            ("level"	"0")
+            ("model_params"
+                ("I_REV_LEAK"
+                    ("value"	"10u")
+                    ("pspice_param"	"I_REV_LEAK")
+                )
+                ("CT_ZERO_VOLTS"
+                    ("value"	"50p")
+                    ("pspice_param"	"CT_ZERO_VOLTS")
+                )
+                ("V_BR"
+                    ("value"	"5")
+                    ("pspice_param"	"V_BR")
+                )
+                ("VJ_KNEE"
+                    ("value"	"2.5")
+                    ("pspice_param"	"VJ_KNEE")
+                )
+                ("VJ_SPEC"
+                    ("value"	"3.2")
+                    ("pspice_param"	"VJ_SPEC")
+                )
+                ("IF_SPEC"
+                    ("value"	"25m")
+                    ("pspice_param"	"IF_SPEC")
+                )
+                ("PSpiceModelingAppType"
+                    ("value"	"POWER_DIODE_P")
+                    ("pspice_param"	"PSpiceModelingAppType")
+                )
+            )
+        )
+        ("D14"
+            ("device_name"	"POWER_DIODE_P")
+            ("pspice_path"	"X_D14")
+            ("level"	"0")
+            ("model_params"
+                ("I_REV_LEAK"
+                    ("value"	"10u")
+                    ("pspice_param"	"I_REV_LEAK")
+                )
+                ("CT_ZERO_VOLTS"
+                    ("value"	"50p")
+                    ("pspice_param"	"CT_ZERO_VOLTS")
+                )
+                ("V_BR"
+                    ("value"	"5")
+                    ("pspice_param"	"V_BR")
+                )
+                ("VJ_KNEE"
+                    ("value"	"2.5")
+                    ("pspice_param"	"VJ_KNEE")
+                )
+                ("VJ_SPEC"
+                    ("value"	"3.2")
+                    ("pspice_param"	"VJ_SPEC")
+                )
+                ("IF_SPEC"
+                    ("value"	"25m")
+                    ("pspice_param"	"IF_SPEC")
+                )
+                ("PSpiceModelingAppType"
+                    ("value"	"POWER_DIODE_P")
+                    ("pspice_param"	"PSpiceModelingAppType")
+                )
+            )
+        )
+    )
+)

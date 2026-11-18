@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block content %}
+
+<div class="product-container">
+    <div class="product-image-section">
+        {% if beer.image %}
+            <img src="{{ beer.image.url }}" alt="{{ beer.name }}">
+        {% else %}
+            <span style="font-size: 10rem;">🍺</span>
+        {% endif %}
+    </div>
+
+    <div class="product-info-section">
+        <span class="beer-category">{{ beer.category.name }}</span>
+        <h1 class="product-title">{{ beer.name }}</h1>
+        
+        <div class="price-wrapper detail-view" style="margin-bottom: 20px;">
+            {% if beer.promotion_percentage > 0 %}
+                <span class="old-price" style="font-size: 1.2rem;">{{ beer.price }}€</span>
+                <div class="promo-price">
+                    {{ beer.promotion_price }}€
+                    <span class="promo-badge-mini">PROMO -{{ beer.promotion_percentage }}%</span>
+                </div>
+            {% else %}
+                <div class="price-tag">{{ beer.price }}€</div>
+            {% endif %}
+        </div>
+        <p><b>IVA Incluído</b></p>
+
+        <div class="specs-grid">
+            <div class="spec-item">
+                <span class="spec-label">Teor Alcoólico</span>
+                <span class="spec-value">{{ beer.abv }}% ABV</span>
+            </div>
+            <div class="spec-item">
+                <span class="spec-label">Disponibilidade</span>
+                {% if beer.stock %}
+                    <span class="spec-value" style="color: #27ae60;">Em Stock</span>
+                {% else %}
+                    <span class="spec-value" style="color: #e74c3c;">Esgotado</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="description-box">
+            <h4>Sobre esta Cerveja</h4>
+            <p>{{ beer.description }}</p>
+        </div>
+
+        <button type="button" value="{{ beer.id }}" class="btn-cart" id="add-button" {% if beer.stock == 0 %}disabled style="background: #ccc; cursor: not-allowed;"{% endif %}>
+            {% if beer.stock > 0 %}
+                ADICIONAR AO CARRINHO <span>🛒</span>
+            {% else %}
+                PRODUTO ESGOTADO <span>🚫</span>
+            {% endif %}
+        </button>
+        
+        <a href="{% url 'product_list' %}" class="back-link">← Voltar para o Catálogo</a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).on('click', '#add-button', function (e) {
+        e.preventDefault();
+        
+        $.ajax({
+            type: 'POST',
+            url: '{% url "cart_add" %}',
+            data: {
+                beerid: $('#add-button').val(),
+                beerqty: 1,
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success: function (json) {
+                document.getElementById("cart-qty").innerHTML = json.qty;
+
+                const btn = document.getElementById("add-button");
+                const originalText = btn.innerHTML;
+                
+                btn.innerHTML = "ADICIONADO!";
+                btn.style.background = "#27ae60"; 
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = ""; 
+                }, 2000);
+            },
+            error: function (xhr, errmsg, err) {
+                console.log("Erro ao adicionar item");
+            }
+        });
+    });
+</script>
+
+{% endblock %}

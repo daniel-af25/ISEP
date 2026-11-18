@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block content %}
+
+
+<div class="hero">
+    <h1>Cerveja na hora</h1>
+    <p>É só pedir, pagar e esperar</p>
+    <a href="{% url 'product_list' %}" class="btn-cta">Catalogo</a>
+</div>
+
+<!-- Galeria começa -->
+<h2 class="gallery-title">Os nossos produtos</h2>
+<!-- Será que a gente deve adicionar link direto aqui? -->
+<div class="beer-gallery">
+    <div class="gallery-item">
+        <img src="media\beer_images\product-01_original_k39eeDu.webp" alt="SuperBock">
+        <div class="gallery-overlay">
+            <h3>SuperBock</h3>
+            <p>Um amigo para toda a vida</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="media\beer_images\product-02_stout.webp" alt="Stout">
+        <div class="gallery-overlay">
+            <h3>Stout</h3>
+            <p>Para quem gosta de ser differente</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="media\beer_images\product-06-heineken.png" alt="Heineken">
+        <div class="gallery-overlay">
+            <h3>Heineken</h3>
+            <p>Não sei o que escrever aqui</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://media.istockphoto.com/id/1386009908/photo/customer-buying-beer-in-liquor-store.jpg?s=612x612&w=0&k=20&c=Er34KWOPy5hzEaj6Eelhf3_hN6ImfpHxV6AMI6em-Ws="
+            alt="Artisanal">
+        <div class="gallery-overlay">
+            <h3>Promoções</h3>
+            <p>Veja as nossas promoções</p>
+        </div>
+    </div>
+</div>
+{% if popular_beers %}
+<section class="popular-section" style="margin-top: 60px;">
+    <h2 class="gallery-title">As Favoritas da Malta</h2>
+    <p style="text-align: center; color: #666; margin-bottom: 30px;">As 3 cervejas mais pedidas no nosso site</p>
+
+    <div class="beer-grid">
+        {% for product in popular_beers %}
+        <div class="beer-card">
+            <div class="beer-image-wrapper">
+                <div class="ribbon-wrapper">
+                    <div class="ribbon-popular">Top Vendas</div>
+                </div>
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img src="{% static 'images/default_beer.png' %}" alt="No image">
+                {% endif %}
+
+                {% if product.stock > 0 %}
+                <span class="stock-badge">Em Stock</span>
+                {% else %}
+                <span class="stock-badge stock-out">Esgotado</span>
+                {% endif %}
+            </div>
+
+            <div class="beer-details">
+                <h3 class="beer-name">{{ product.name }}</h3>
+                <div class="price-wrapper">
+                    {% if product.promotion_percentage > 0 %}
+                    <span class="old-price">{{ product.price }}€</span>
+                    <span class="promo-price">
+                        {{ product.promotion_price }}€
+                        <span class="promo-badge-mini">-{{ product.promotion_percentage }}%</span>
+                    </span>
+                    {% else %}
+                    <span class="beer-price">{{ product.price }}€</span>
+                    {% endif %}
+                </div>
+
+                <a href="{% url 'beer_detail' product.id %}" class="btn-details">Ver Detalhes</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+<!-- Fim da galeria -->
+
+{% endblock %}

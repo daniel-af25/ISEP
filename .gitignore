@@ -1,0 +1,54 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+**/db_config.local.php
+local_settings.py
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+staticfiles/
+
+# C / C++ compiled binaries
+*.o
+*.obj
+*.out
+*.exe
+
+# AVR / Atmel Studio / Microchip Studio build outputs
+Debug/
+Release/
+*.d
+*.eep
+*.elf
+*.hex
+*.lss
+*.map
+*.srec
+*.tmp
+*.atsuo
+
+# OrCAD / PSpice simulation caches & generated outputs
+*.DBK
+*.bak
+*.1OP.bak
+*.dat
+*.mrk
+*.prb
+*_pspmetadata.db
+*-PSpiceFiles/**/*.cir
+*-PSpiceFiles/**/*.json
+*-PSpiceFiles/**/*.mif
+
+# IDEs & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+tempCodeRunnerFile.*

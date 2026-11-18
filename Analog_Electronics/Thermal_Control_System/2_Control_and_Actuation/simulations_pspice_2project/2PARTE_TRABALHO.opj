@@ -1,0 +1,160 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (SoftwareVersion "23.1-2024 S001-[06/26/26]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (Allegro Netlist Directory "allegro")
+    (File ".\2parte_trabalho.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "59420")
+    (NoModify)
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (RootChangedForceReNetlist "x")
+    (Display_Online_DRC_Results "FALSE"))
+  (Folder "Layout")
+  (Folder "Outputs"
+    (File ".\2parte_trabalho-pspicefiles\schematic1\schematic1.net"
+      (Type "Report"))
+    (File ".\2parte_trabalho-pspicefiles\schematic2\schematic2.net"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\2parte_trabalho-pspicefiles\schematic1\hop.sim"
+        (DisplayName "SCHEMATIC1-hop")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\2parte_trabalho-pspicefiles\schematic1\pol.sim"
+        (DisplayName "SCHEMATIC1-pol")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\2parte_trabalho-pspicefiles\schematic1\km.sim"
+        (DisplayName "SCHEMATIC1-km")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\2parte_trabalho-pspicefiles\schematic2\lp.sim"
+        (DisplayName "SCHEMATIC2-lp")
+        (Type "PSpice Profile"))
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\2parte_trabalho-pspicefiles\schematic1\dfp.sim"
+        (DisplayName "SCHEMATIC1-dfp")
+        (Type "PSpice Profile"))
+      (ActiveProfile ".\2parte_trabalho-pspicefiles\schematic2\~df.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\2parte_trabalho-pspicefiles\schematic2\~df.sim"
+        (DisplayName "SCHEMATIC2-~df")
+        (Type "PSpice Profile")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User))
+    (Folder "Model Libraries"
+      (Sort User)))
+  (Folder "Logs")
+  (MPSSessionName "danie")
+  (PartMRUSelector
+    (Dbreak
+      (FullPartName "Dbreak.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\BREAKOUT.OLB")
+      (DeviceIndex "0"))
+    (0
+      (LibraryName "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    (VDC
+      (FullPartName "VDC.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\SOURCE.OLB")
+      (DeviceIndex "0"))
+    (R
+      (FullPartName "R.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (TL081
+      (FullPartName "TL081.Normal")
+      (LibraryName "C:\CDS_SPB_HOME\CDSSETUP\PSPTILIBDIR\TL081.OLB")
+      (DeviceIndex "0"))
+    (BZX84C4V7/PLP
+      (FullPartName "BZX84C4V7/PLP.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\CDN_PSP_TIPSPICE.OLB")
+      (DeviceIndex "0"))
+    (C
+      (FullPartName "C.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\ANALOG.OLB")
+      (DeviceIndex "0"))
+    (BZX84C2V7/PLP
+      (FullPartName "BZX84C2V7/PLP.Normal")
+      (LibraryName
+         "C:\CADENCE\PSPICETI\TOOLS\CAPTURE\LIBRARY\PSPICE\CDN_PSP_TIPSPICE.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources"
+         "c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte_trabalho.dsn")
+      (Path "Design Resources"
+         "c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte_trabalho.dsn"
+         "SCHEMATIC2")
+      (Path "Design Resources"
+         "c:\users\danie\onedrive - instituto superior de engenharia do porto\eleapl\2_parte\simu_pspice\2parte_trabalho.dsn"
+         "SCHEMATIC1")
+      (Path "Outputs")
+      (Path "PSpice Resources")
+      (Path "PSpice Resources" "Simulation Profiles"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 200 0 631"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 884 24 649")
+        (Scroll "388 238")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\DANIE\ONEDRIVE - INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO\ELEAPL\2_PARTE\SIMU_PSPICE\2PARTE_TRABALHO.DSN")
+      (Schematic "SCHEMATIC2")
+      (Page "pwmgen1"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 884 24 649")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\DANIE\ONEDRIVE - INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO\ELEAPL\2_PARTE\SIMU_PSPICE\2PARTE_TRABALHO.DSN")
+      (Schematic "SCHEMATIC2")
+      (Page "pwmgen3"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 884 24 649")
+        (Scroll "197 182")
+        (Zoom "200")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\DANIE\ONEDRIVE - INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO\ELEAPL\2_PARTE\SIMU_PSPICE\2PARTE_TRABALHO.DSN")
+      (Schematic "SCHEMATIC2")
+      (Page "pwmgen2"))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 5 884 24 649")
+        (Scroll "0 0")
+        (Zoom "100"))
+      (Path
+         "C:\USERS\DANIE\ONEDRIVE - INSTITUTO SUPERIOR DE ENGENHARIA DO PORTO\ELEAPL\2_PARTE\SIMU_PSPICE\2PARTE_TRABALHO.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "ACOND_SINAL"))))

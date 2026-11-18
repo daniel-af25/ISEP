@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %} {% block content %}
+
+<div class="login-wrapper">
+    <div class="login-card">
+        <h2>Bem vindo de volta!</h2>
+        <p class="subtitle">Entra no mundo da festa</p>
+        
+        {% if form.errors %}
+            <div class="error-msg">
+                O utilizador ou a palavra-passe não coincidem.
+            </div>
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <button type="submit" class="btn-login2">
+                Login
+            </button>
+        </form>
+        
+        <div class="register-link">
+            Não tens conta? <a href="{% url 'register' %}">Faz o registo aqui</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -101,10 +101,15 @@ Ficheiros incluídos em [`database/`](./database/):
 
 ---
 
-## 5. Funcionalidades Extra (Segurança & Relatórios Automáticos)
+## 5. Funcionalidades Extra (Segurança, Motor de Debrief PDF & CSV)
 
 * **Deteção de Acidentes:** dispara em impactos `≥ 3,5 G` ou capotamento (rotação `> 120 °/s` ou inversão em movimento), enviando alertas imediatos por **Email (SMTP)** e **Telegram** com coordenadas e link direto para o Google Maps (*cooldown* de 60 s).
-* **Debrief Automático em PDF:** ao terminar uma gravação (*Stop Recording*), calcula a pontuação de eficiência (`0–100` / nota `A+…F`), gera um PDF de 2 páginas (diagrama G-G de Kamm, 5 pilares de condução, mapa da trajetória e registo de incidentes) e envia-o automaticamente ao condutor por email.
+* **Motor de Debrief PDF & Exportação CSV ([`nodered/generate_trip_debrief.js`](./nodered/generate_trip_debrief.js), v2.2.0):** script **Node.js** sem dependências externas (`node:sqlite` nativo), invocado automaticamente pelo Node-RED no fim de cada viagem (*Stop Recording*):
+  * **Processamento de Sinal:** tara estacionária 3D (*bias* de acelerómetro e giroscópio), compensação contínua da inclinação da estrada (*gap-aware road-grade tracking*) e integração de distância GPS com filtragem de saltos.
+  * **Círculo de Atrito de Kamm Assimétrico:** calcula dinamicamente os limites em 3 eixos (`+Y` aceleração, `-Y` travagem, `±X` lateral) com base no catálogo do veículo (potência, binário, 0–100 km/h, tração, largura/raio de pneu, segmento/carroçaria) e massa operacional real (carro + ocupantes).
+  * **Auditoria & 5 Pilares:** deteção e *clustering* temporal (1,0 s) de violações de Kamm, impactos verticais e escorregamento cinemático (*oversteer/understeer*), com normalização distância/duração e proteção contra sessões curtas (`< 1500 amostras` ou `< 2 min` em movimento).
+  * **Geração de PDF (*Edge Headless*):** compõe o relatório A4 com diagrama G-G SVG, mapa 2D real com *tiles* OpenStreetMap e *reverse geocoding* Nominatim (*rate-limit* 1,1 s + cache persistente em disco), enviado automaticamente por email ao condutor.
+  * **Exportação CSV para o Simulador:** gera automaticamente `session_<id>_telemetry.csv` (RFC 4180, 33 colunas com cinemática, massas e limites de Kamm) pronto a importar no [`telemetry-sim`](https://github.com/daniel-af25/telemetry-sim).
 
 <table>
   <tr>
@@ -133,6 +138,7 @@ Em paralelo ao projeto de LABSIS, foi desenvolvido um simulador interativo 100% 
 2. **ESP8266:** abrir [`firmware/esp8266/esp8266.cpp`](./firmware/esp8266/esp8266.cpp), definir `DEFAULT_SSID`, `DEFAULT_PASSWORD` e `DEFAULT_MQTT_SERVER` (ou configurar em tempo de execução via *Captive Portal* `ESP-Telemetry-Setup`).
 3. **Base de Dados SQLite:** copiar [`database/labsis_telemetry_seed.db`](./database/labsis_telemetry_seed.db) para o servidor local e renomear para `labsis_telemetry.db` *(ou criar uma BD vazia com `sqlite3 labsis_telemetry.db < database/schema.sql`)*.
 4. **Broker & Node-RED:** iniciar o **Mosquitto** (porta `1883`), abrir o **Node-RED** (`http://localhost:1880`), importar [`nodered/flows.json`](./nodered/flows.json), atualizar o caminho da base de dados no nó `sqlitedb` e configurar o *Telegram Chat ID* / SMTP nos nós de alerta.
+5. **Motor de Debrief PDF/CSV (Node.js 22+):** colocar [`nodered/generate_trip_debrief.js`](./nodered/generate_trip_debrief.js) no servidor local e apontar o nó `exec` do grupo 8 para o seu caminho *(suporta configuração via variáveis de ambiente: `LABSIS_DB_PATH`, `LABSIS_REPORTS_DIR`, `LABSIS_CSV_DIR`, `LABSIS_EDGE_PATH` e `LABSIS_GEOCODE_CACHE_PATH`)*.
 
 ---
 
@@ -162,5 +168,6 @@ Automotive_Telemetry_LABSIS/
 │   └── esp8266/
 │       └── esp8266.cpp              # Ponte UART→MQTT + WiFiManager + OLED 128×64
 └── nodered/
-    └── flows.json                   # Fluxos completos do dashboard e backend
+    ├── flows.json                   # Fluxos completos do dashboard e backend
+    └── generate_trip_debrief.js     # Motor Node.js v2.2 de debrief PDF + exportação CSV
 ```

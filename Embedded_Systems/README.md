@@ -39,7 +39,7 @@ Exploram manipulação direta de registos, interrupções, temporizadores, PWM, 
 | :--- | :--- | :--- |
 | **ATmega328P (C)** | Aquisição a 5 Hz (MPU6050 I2C, GPS NEO-6M UBX/UART, LM35Z + bateria ADC), 3 ISRs, `PROGMEM` e ventoinha PWM 10 bits autónoma | [`atmega328.c`](./Automotive_Telemetry_LABSIS/firmware/atmega328p/atmega328.c) |
 | **ESP8266 (C++)** | Ponte UART → MQTT sem perdas a 5 Hz, WiFiManager + EEPROM, *Last Will* e painel OLED 128×64 (I2C 400 kHz) | [`esp8266.cpp`](./Automotive_Telemetry_LABSIS/firmware/esp8266/esp8266.cpp) |
-| **Node-RED** | Dashboard *live* com mapa GPS, forças G, dinâmica de curva, deteção de acidentes (Email + Telegram) e debrief automático em PDF | [`flows.json`](./Automotive_Telemetry_LABSIS/nodered/flows.json) |
+| **Node-RED** | Dashboard *live* com mapa GPS, forças G, dinâmica de curva, deteção de acidentes (Email + Telegram) e motor de debrief PDF + CSV | [`flows.json`](./Automotive_Telemetry_LABSIS/nodered/flows.json) · [`generate_trip_debrief.js`](./Automotive_Telemetry_LABSIS/nodered/generate_trip_debrief.js) |
 | **SQLite** | Esquema relacional de 5 tabelas + base de dados *seed* pronta a usar com catálogo de 25 374 veículos | [`schema.sql`](./Automotive_Telemetry_LABSIS/database/schema.sql) · [`labsis_telemetry_seed.db`](./Automotive_Telemetry_LABSIS/database/labsis_telemetry_seed.db) |
 
 ---

@@ -1,8 +1,8 @@
-# Sistemas Embebidos e Controlo de Automação (ATmega128)
+# Sistemas Embebidos e Controlo de Automação (AVR & IoT)
 
-Firmware desenvolvido para o microcontrolador **ATmega128** (arquitetura AVR) no âmbito da unidade curricular de **Microcontroladores e Microprocessadores (MICMIC)** no ISEP.
+Projetos de firmware *bare-metal* e sistemas embebidos desenvolvidos para microcontroladores **ATmega128** (unidade curricular **MICMIC**) e **ATmega328P + ESP8266** (unidade curricular **LABSIS**) no ISEP.
 
-Os projetos evoluem de forma incremental (`Func1` a `Func5`), explorando manipulação direta de registos, interrupções, temporizadores, PWM, ADC e comunicação série USART/RS232.
+Exploram manipulação direta de registos, interrupções, temporizadores, PWM, ADC, I2C, comunicação série USART/RS232 e telemetria sem fios via MQTT.
 
 ---
 
@@ -32,11 +32,23 @@ Os projetos evoluem de forma incremental (`Func1` a `Func5`), explorando manipul
 
 ---
 
+## 3. [Automotive_Telemetry_LABSIS](./Automotive_Telemetry_LABSIS)
+**Sistema de Telemetria Automóvel em Tempo Real — LABSIS** ([README Completo](./Automotive_Telemetry_LABSIS/README.md) · [Especificação (PDF)](./Automotive_Telemetry_LABSIS/docs/Especificacao_Telemetria_Automovel.pdf))
+
+| Componente | Descrição | Ficheiros |
+| :--- | :--- | :--- |
+| **ATmega328P (C)** | Aquisição a 5 Hz (MPU6050 I2C, GPS NEO-6M UBX/UART, LM35Z + bateria ADC), 3 ISRs, `PROGMEM` e ventoinha PWM 10 bits autónoma | [`atmega328.c`](./Automotive_Telemetry_LABSIS/firmware/atmega328p/atmega328.c) |
+| **ESP8266 (C++)** | Ponte UART → MQTT sem perdas a 5 Hz, WiFiManager + EEPROM, *Last Will* e painel OLED 128×64 (I2C 400 kHz) | [`esp8266.cpp`](./Automotive_Telemetry_LABSIS/firmware/esp8266/esp8266.cpp) |
+| **Node-RED** | Dashboard *live* com mapa GPS, forças G, dinâmica de curva, deteção de acidentes (Email + Telegram) e debrief automático em PDF | [`flows.json`](./Automotive_Telemetry_LABSIS/nodered/flows.json) |
+| **SQLite** | Esquema relacional de 5 tabelas + base de dados *seed* pronta a usar com catálogo de 25 374 veículos | [`schema.sql`](./Automotive_Telemetry_LABSIS/database/schema.sql) · [`labsis_telemetry_seed.db`](./Automotive_Telemetry_LABSIS/database/labsis_telemetry_seed.db) |
+
+---
+
 ## Tecnologias e Periféricos
 
-* **Microcontrolador:** ATmega128 @ 16 MHz (Atmel / Microchip Studio 7)
-* **Linguagens:** C, Assembly AVR
-* **Periféricos:** Timers/Counters (Normal, CTC, Fast/Phase-Correct PWM), Interrupções externas & *Input Capture* (ICP1), ADC (8 bits), USART1 (RS232)
+* **Microcontroladores & Módulos:** ATmega128 @ 16 MHz · ATmega328P @ 16 MHz · ESP8266 (Wi-Fi/MQTT) · OLED SSD1306 · MPU6050 · GPS NEO-6M · LM35Z
+* **Linguagens:** C, C++, Assembly AVR, SQL
+* **Periféricos & Protocolos:** Timers/Counters (Normal, CTC, Fast/Phase-Correct PWM), Interrupções externas & *Input Capture* (ICP1), ADC (8/10 bits), I2C (TWI), UART/USART (RS232 & UBX/NMEA), MQTT, Node-RED, SQLite
 
 ---
 *Projetos desenvolvidos para a Licenciatura em Engenharia Eletrotécnica e de Computadores (LEEC) do ISEP.*

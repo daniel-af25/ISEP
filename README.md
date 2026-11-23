@@ -21,6 +21,7 @@ Este portefólio reúne trabalhos práticos de hardware analógico, programaçã
 | :--- | :--- | :--- | :--- |
 | **Sistemas Embebidos** | [Máquina de Estados & Automação (ASM)](./Embedded_Systems/Automation_StateMachine_ASM) | Assembly AVR, ATmega128, Timers/CTC | [README](./Embedded_Systems/README.md) · [Relatório PDF](./Embedded_Systems/Automation_StateMachine_ASM/Projeto1_README.pdf) |
 | **Sistemas Embebidos** | [Controlo de Motores PWM & Telemetria](./Embedded_Systems/Motor_Control_PWM_C) | C, Assembly AVR, PWM, ADC, USART, ICP1 | [README](./Embedded_Systems/README.md) · [Relatório PDF](./Embedded_Systems/Motor_Control_PWM_C/Projeto2_README.pdf) |
+| **Sistemas Embebidos** | [Telemetria Automóvel em Tempo Real (LABSIS)](./Embedded_Systems/Automotive_Telemetry_LABSIS) | C (ATmega328P), ESP8266, MQTT, Node-RED, SQLite | [README](./Embedded_Systems/Automotive_Telemetry_LABSIS/README.md) · [Especificação PDF](./Embedded_Systems/Automotive_Telemetry_LABSIS/docs/Especificacao_Telemetria_Automovel.pdf) |
 | **Eletrónica Analógica** | [Sistema de Controlo Térmico Analógico](./Analog_Electronics/Thermal_Control_System) | Op-Amps, PSpice, Arduino Mega 2560, LabVIEW | [README](./Analog_Electronics/Thermal_Control_System/README.md) · [Parte 1 PDF](./Analog_Electronics/Thermal_Control_System/1_Signal_Conditioning_and_DAQ/relatorio_parte1.pdf) · [Parte 2 PDF](./Analog_Electronics/Thermal_Control_System/2_Control_and_Actuation/relatorio_parte2.pdf) |
 | **Aplicações em C** | [Gestão de Fluxos Clínicos (Ticketing)](./C_Applications) | C, POSIX `<time.h>`, CLI | [README](./C_Applications/README.md) · [Código-fonte](./C_Applications/clinical_ticketing.c) |
 | **Aplicações Web** | [Beer Shop (E-Commerce)](./Web_Applications/beer_shop) | Python, Django, SQLite, HTML/CSS | [README](./Web_Applications/beer_shop/README.md) |
@@ -35,8 +36,9 @@ ISEP/
 ├── Analog_Electronics/
 │   └── Thermal_Control_System/        # Condicionamento NTC, PSpice, DAQ Arduino + LabVIEW e atuação linear/PWM
 ├── C_Applications/                    # Simulador de atendimento e triagem clínica em C
-├── Embedded_Systems/                  # Firmware ATmega128 (Assembly e C/Assembly misto)
+├── Embedded_Systems/                  # Firmware AVR (ATmega128 / ATmega328P) e IoT (ESP8266)
 │   ├── Automation_StateMachine_ASM/   # Func1–Func5 em Assembly AVR
+│   ├── Automotive_Telemetry_LABSIS/   # Telemetria automóvel 5 Hz (ATmega328P, ESP8266, Node-RED, SQLite)
 │   └── Motor_Control_PWM_C/           # Func1–Func5 em C + ADC em Assembly
 └── Web_Applications/                  # Aplicações web e bases de dados
     ├── beer_shop/                     # E-commerce modular em Django (MVT)
@@ -48,9 +50,10 @@ ISEP/
 ## Detalhes por Domínio
 
 ### 1. [Sistemas Embebidos](./Embedded_Systems)
-Programação *bare-metal* para **ATmega128** (cadeira de Microcontroladores e Microprocessadores — MICMIC):
+Programação *bare-metal* para **ATmega128** (MICMIC) e **ATmega328P + ESP8266** (LABSIS):
 * **[Automation_StateMachine_ASM](./Embedded_Systems/Automation_StateMachine_ASM):** Automação industrial em **Assembly AVR** (linha de perfuração, *debouncing*, multiplexagem de displays de 7 segmentos e jogos temporizados por Timer0/CTC).
 * **[Motor_Control_PWM_C](./Embedded_Systems/Motor_Control_PWM_C):** Controlo de motores DC e de passo em **C** + rotina **ADC em Assembly** (Timer2 PWM, comunicação série USART/RS232 e telemetria RPM via *Input Capture* ICP1).
+* **[Automotive_Telemetry_LABSIS](./Embedded_Systems/Automotive_Telemetry_LABSIS):** Sistema de telemetria automóvel a 5 Hz em **C *bare-metal* (ATmega328P)** + ponte **ESP8266/MQTT** com painel OLED, dashboard **Node-RED**, base de dados **SQLite** (catálogo de 25 374 veículos), alertas de acidente e debrief automático em PDF *(com simulador 2D/3D adjacente em [telemetry-sim](https://github.com/daniel-af25/telemetry-sim))*.
 
 ### 2. [Eletrónica Analógica](./Analog_Electronics/Thermal_Control_System)
 Sistema completo de instrumentação e controlo térmico (unidade curricular de Eletrónica Aplicada — ELEAPL), validado em **PSpice** e implementado em hardware:
@@ -68,9 +71,9 @@ Sistema completo de instrumentação e controlo térmico (unidade curricular de 
 
 ## Stack Tecnológico
 
-* **Hardware & Embebidos:** ATmega128 · Arduino Mega 2560 · PWM · ADC · Timers/Counters · USART/RS232 · Circuitos Analógicos (AMPOPs, BJT)
-* **Linguagens:** C · Assembly (AVR) · Python · PHP · JavaScript · HTML5/CSS3 · SQL
-* **Ferramentas & Frameworks:** Django · PSpice for TI · LabVIEW · Atmel/Microchip Studio · MySQL/MariaDB · SQLite · Git
+* **Hardware & Embebidos:** ATmega128 · ATmega328P · ESP8266 · Arduino Mega 2560 · PWM · ADC · I2C · Timers/Counters · USART/RS232 · MQTT · Circuitos Analógicos (AMPOPs, BJT)
+* **Linguagens:** C · C++ · Assembly (AVR) · Python · PHP · JavaScript · HTML5/CSS3 · SQL
+* **Ferramentas & Frameworks:** Node-RED · Mosquitto · Django · PSpice for TI · LabVIEW · Atmel/Microchip Studio · MySQL/MariaDB · SQLite · Git
 
 ---
 

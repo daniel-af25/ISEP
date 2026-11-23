@@ -1,0 +1,2274 @@
+[
+    {
+        "id": "828bad109fa30b48",
+        "type": "tab",
+        "label": "Car Telemetry LABSIS",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "grp_canvas_db_init",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "1. DATABASE INITIALIZATION & SCHEMA",
+        "style": {
+            "stroke": "#0284c7",
+            "fill": "#081a2e",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#38bdf8"
+        },
+        "nodes": [
+            "inj_db_init_fixed",
+            "fn_split_sql_tables",
+            "sql_init_exec"
+        ],
+        "x": 24,
+        "y": 59,
+        "w": 652,
+        "h": 82
+    },
+    {
+        "id": "grp_canvas_theme_header",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "2. DASHBOARD THEME & HEADER",
+        "style": {
+            "stroke": "#38bdf8",
+            "fill": "#081a2e",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#38bdf8"
+        },
+        "nodes": [
+            "ui_v2_global_styling",
+            "ui_v2_header_title",
+            "chg_v2_time"
+        ],
+        "x": 694,
+        "y": 39,
+        "w": 602,
+        "h": 132
+    },
+    {
+        "id": "grp_canvas_telemetry",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "3. LIVE TELEMETRY STREAM & VEHICLE DYNAMICS",
+        "style": {
+            "stroke": "#06b6d4",
+            "fill": "#051829",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#38bdf8"
+        },
+        "nodes": [
+            "mqtt_v2_telemetry_in",
+            "chg_v2_speed",
+            "ui_v2_gauge_speed",
+            "chg_v2_temp",
+            "ui_v2_gauge_temp",
+            "chg_v2_hum",
+            "ui_v2_gauge_hum",
+            "chg_v2_gyroz",
+            "ui_v2_gauge_gyroz",
+            "fn_v2_dynamics",
+            "ui_v2_template_dynamics",
+            "chg_v2_accx",
+            "chg_v2_accy",
+            "chg_v2_accz",
+            "ui_v2_chart_gforces",
+            "ui_v2_gauge_accx",
+            "ui_v2_gauge_accy",
+            "ui_v2_gauge_accz",
+            "27da4118d672735b",
+            "fn_v2_telemetry_gateway",
+            "parse_and_scale_accel"
+        ],
+        "x": -6,
+        "y": 169,
+        "w": 882,
+        "h": 642
+    },
+    {
+        "id": "grp_canvas_safety",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "4. SAFETY MONITORING & EMERGENCY ALARMS",
+        "style": {
+            "stroke": "#ef4444",
+            "fill": "#1c0d12",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#f87171"
+        },
+        "nodes": [
+            "ace69b8cebd6c172",
+            "b90d005375ffcee7",
+            "7f684ab1d2c07cd2",
+            "6c275d0399d4e34b"
+        ],
+        "x": 914,
+        "y": 179,
+        "w": 742,
+        "h": 142
+    },
+    {
+        "id": "grp_canvas_navigation",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "5. GPS NAVIGATION & LIVE TRACKING",
+        "style": {
+            "stroke": "#10b981",
+            "fill": "#061a14",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#34d399"
+        },
+        "nodes": [
+            "wm_v2_worldmap",
+            "ui_v2_switch_follow",
+            "ui_v2_template_map",
+            "dbg_v2_debug",
+            "fn_v2_slide"
+        ],
+        "x": 924,
+        "y": 439,
+        "w": 742,
+        "h": 242
+    },
+    {
+        "id": "grp_canvas_setup",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "6. DRIVER & VEHICLE PROFILES SETUP",
+        "style": {
+            "stroke": "#8b5cf6",
+            "fill": "#120c24",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#a78bfa"
+        },
+        "nodes": [
+            "32ec6f130bc4846a",
+            "c4c39e1674914137",
+            "fb3df7abd15174f1",
+            "8750fa935081a4c6",
+            "9b53a93155f0c831",
+            "ea8f47744b0c79f2",
+            "d85c783368f53954",
+            "761e1b00612e55b7",
+            "59482fb9f1c1a102",
+            "331c4ccaa83042f9",
+            "38318efac6c635c9",
+            "61225113b941c894",
+            "62cc6bde90a1da71",
+            "99b8bab30469a459",
+            "06cf225e2c9d00b7",
+            "4d7d0c31be272630",
+            "615db16ceb269df4",
+            "39bea081b66abe8c",
+            "bfa13e44d907afaf",
+            "3ba770f657eae7f0",
+            "01f4eedbc9a5eb14",
+            "12b5c082372e753a"
+        ],
+        "x": -26,
+        "y": 899,
+        "w": 1652,
+        "h": 342
+    },
+    {
+        "id": "grp_canvas_recording",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "7. RACE CONTROL & SESSION DEBRIEFING HUD",
+        "style": {
+            "stroke": "#f59e0b",
+            "fill": "#1f1608",
+            "fill-opacity": "0.6",
+            "label": true,
+            "color": "#fbbf24"
+        },
+        "nodes": [
+            "0b412c13cb512e43",
+            "912104463f973444",
+            "81e969863fd839b3",
+            "561b6df3d957ac8e",
+            "409a676ed439b95d"
+        ],
+        "x": 34,
+        "y": 1269,
+        "w": 782,
+        "h": 172
+    },
+    {
+        "id": "grp_canvas_pdf_engine",
+        "type": "group",
+        "z": "828bad109fa30b48",
+        "name": "8. AUTOMATED TRIP DEBRIEF PDF & EMAIL DISPATCHER",
+        "style": {
+            "stroke": "#06b6d4",
+            "fill": "#081426",
+            "fill-opacity": "0.65",
+            "label": true,
+            "color": "#38bdf8"
+        },
+        "nodes": [
+            "fn_pdf_trigger_prep",
+            "exec_pdf_generator",
+            "fn_pdf_email_dispatch_prep",
+            "link_pdf_email_out"
+        ],
+        "x": 824,
+        "y": 1306.5,
+        "w": 827,
+        "h": 97
+    },
+    {
+        "id": "mqtt_v2_telemetry_in",
+        "type": "mqtt in",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "MQTT Telemetry V2",
+        "topic": "isep/labsis/telemetry_01",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "d031960728fdecb8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "parse_and_scale_accel"
+            ]
+        ]
+    },
+    {
+        "id": "chg_v2_speed",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Speed",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.speed",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 210,
+        "wires": [
+            [
+                "ui_v2_gauge_speed"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_gauge_speed",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Car Speed",
+        "group": "grp_v2_telemetry_main",
+        "order": 1,
+        "width": "4",
+        "height": "4",
+        "gtype": "donut",
+        "title": "Vehicle Speed",
+        "label": "km/h",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#06b6d4",
+            "#10b981",
+            "#ef4444"
+        ],
+        "seg1": "60",
+        "seg2": "130",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 210,
+        "wires": []
+    },
+    {
+        "id": "chg_v2_temp",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 270,
+        "wires": [
+            [
+                "ui_v2_gauge_temp"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_gauge_temp",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Engine Temp",
+        "group": "grp_v2_telemetry_main",
+        "order": 2,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Engine Temp",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "120",
+        "colors": [
+            "#10b981",
+            "#f59e0b",
+            "#ef4444"
+        ],
+        "seg1": "75",
+        "seg2": "95",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 270,
+        "wires": []
+    },
+    {
+        "id": "chg_v2_hum",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.hum",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 330,
+        "wires": [
+            [
+                "ui_v2_gauge_hum"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_gauge_hum",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Humidity",
+        "group": "grp_v2_telemetry_main",
+        "order": 3,
+        "width": "4",
+        "height": "4",
+        "gtype": "wave",
+        "title": "Cabin Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#0284c7",
+            "#06b6d4",
+            "#38bdf8"
+        ],
+        "seg1": "40",
+        "seg2": "70",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 330,
+        "wires": []
+    },
+    {
+        "id": "chg_v2_gyroz",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Yaw Rate (GyroZ)",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.gyroZ",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 390,
+        "wires": [
+            [
+                "ui_v2_gauge_gyroz"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_gauge_gyroz",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Yaw Rate Gauge",
+        "group": "grp_v2_telemetry_main",
+        "order": 4,
+        "width": "4",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Turn Rate (Yaw)",
+        "label": "°/s",
+        "format": "{{value}}",
+        "min": "-60",
+        "max": "60",
+        "colors": [
+            "#06b6d4",
+            "#10b981",
+            "#f43f5e"
+        ],
+        "seg1": "-25",
+        "seg2": "25",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "fn_v2_dynamics",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Calculate Vehicle Dynamics",
+        "func": "const speed = Number(msg.payload.speed) || 0;\nconst speedMs = speed / 3.6;\nconst ax = Number(msg.payload.accelX) || 0;\nconst ay = Number(msg.payload.accelY) || 0;\nconst az = Number(msg.payload.accelZ) || 1.0;\nconst gx = Number(msg.payload.gyroX) || 0;\nconst gy = Number(msg.payload.gyroY) || 0;\nconst gz = Number(msg.payload.gyroZ) || 0;\n\n// Força G horizontal total\nconst totalG = Math.sqrt(ax * ax + ay * ay).toFixed(2);\n\n// Raio de Curva: R = v / omega\nconst omegaRad = Math.abs(gz) * (Math.PI / 180);\nlet radius = \"--\";\nlet turnType = \"Straight Line\";\nlet turnColor = \"text-emerald-400\";\nlet turnIcon = \"fa-arrow-up\";\n\nif (speed < 2.0) {\n    // Desativar raio de curva e manobras fantasmas com veículo parado\n    turnType = \"Stationary / Idle\";\n    turnColor = \"text-slate-400\";\n    turnIcon = \"fa-minus\";\n    radius = \"--\";\n} else if (Math.abs(gz) < 3.5) {\n    turnType = \"Straight Line\";\n    turnColor = \"text-emerald-400\";\n    turnIcon = \"fa-arrow-up\";\n    radius = \"> 500 m\";\n} else {\n    const r = Math.round(speedMs / (omegaRad || 0.0001));\n    radius = r + \" m\";\n    // Regra da mão direita com eixo Z vertical para cima:\n    // Rotação horária (curva à DIREITA) tem gz < 0.\n    // Rotação anti-horária (curva à ESQUERDA) tem gz > 0.\n    const dir = gz < 0 ? \"Right\" : \"Left\";\n    turnIcon = gz < 0 ? \"fa-arrow-right\" : \"fa-arrow-left\";\n    \n    if (r < 35) {\n        turnType = \"Hairpin / Roundabout (\" + dir + \")\";\n        turnColor = \"text-rose-400\";\n    } else if (r < 110) {\n        turnType = \"Sharp \" + dir + \" Turn\";\n        turnColor = \"text-amber-400\";\n    } else {\n        turnType = \"Mild \" + dir + \" Curve\";\n        turnColor = \"text-cyan-400\";\n    }\n}\n\n// Detetor de eventos de condução\nlet event = speed < 2.0 ? \"Stationary / Idle\" : \"Normal Cruise\";\nlet eventBadge = speed < 2.0 ? \"bg-slate-500/20 text-slate-300 border-slate-500/40\" : \"bg-emerald-500/20 text-emerald-300 border-emerald-500/40\";\nif (ay < -0.45 && speed > 5.0) {\n    event = \"Hard Braking!\";\n    eventBadge = \"bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse\";\n} else if (ay > 0.35 && speed > 3.0) {\n    event = \"Hard Acceleration\";\n    eventBadge = \"bg-amber-500/20 text-amber-300 border-amber-500/40\";\n} else if (Math.abs(ax) > 0.45 && speed > 5.0) {\n    event = \"High Lateral G\";\n    eventBadge = \"bg-purple-500/20 text-purple-300 border-purple-500/40\";\n} else if (Math.abs(az - 1.0) > 0.5 && speed > 10.0) {\n    event = \"Road Bump\";\n    eventBadge = \"bg-orange-500/20 text-orange-300 border-orange-500/40\";\n}\n\nmsg.payload = {\n    speed: speed,\n    totalG: totalG,\n    accelX: ax.toFixed(2),\n    accelY: ay.toFixed(2),\n    accelZ: az.toFixed(2),\n    gyroX: gx.toFixed(1),\n    gyroY: gy.toFixed(1),\n    gyroZ: gz.toFixed(1),\n    radius: radius,\n    turnType: turnType,\n    turnColor: turnColor,\n    turnIcon: turnIcon,\n    event: event,\n    eventBadge: eventBadge,\n    timestamp: msg.payload.timestamp || new Date().toISOString()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 460,
+        "wires": [
+            [
+                "ui_v2_template_dynamics"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_template_dynamics",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "group": "grp_v2_telemetry_main",
+        "name": "Live Dynamics Card",
+        "order": 5,
+        "width": "8",
+        "height": "6",
+        "format": "<div class=\"h-full flex flex-col justify-between p-4 bg-slate-900/90 rounded-2xl border border-cyan-500/30 shadow-lg text-slate-100 font-sans backdrop-blur-md\">\n    <div class=\"flex items-center justify-between border-b border-slate-700/60 pb-2 mb-2\">\n        <div class=\"flex items-center gap-2\">\n            <span class=\"inline-flex items-center justify-center w-7 h-7 rounded-lg bg-cyan-500/20 text-cyan-400 font-mono text-sm border border-cyan-500/40\">\n                <i class=\"fa fa-compass\"></i>\n            </span>\n            <span class=\"font-bold tracking-wider uppercase text-xs text-cyan-300\" style=\"font-family: 'Orbitron', sans-serif;\">Cornering & Curve Dynamics</span>\n        </div>\n        <span class=\"text-xs px-2.5 py-0.5 rounded-full font-semibold border\" ng-class=\"msg.payload.eventBadge\">\n            {{msg.payload.event || 'System Normal'}}\n        </span>\n    </div>\n    <div class=\"grid grid-cols-2 gap-3 mb-2\">\n        <div class=\"bg-slate-800/60 rounded-xl p-3 border border-slate-700/50\">\n            <div class=\"text-[10px] tracking-wider text-slate-400 uppercase font-semibold\">Turn Analysis</div>\n            <div class=\"flex items-center gap-2 mt-1\">\n                <i class=\"fa text-lg\" ng-class=\"[msg.payload.turnIcon, msg.payload.turnColor]\"></i>\n                <span class=\"text-xs font-bold truncate\" ng-class=\"msg.payload.turnColor\">{{msg.payload.turnType || 'Analyzing...'}}</span>\n            </div>\n            <div class=\"text-xs text-slate-400 mt-1\">Yaw: <span class=\"font-mono text-cyan-300 font-bold\">{{msg.payload.gyroZ || 0}} &deg;/s</span></div>\n        </div>\n        <div class=\"bg-slate-800/60 rounded-xl p-3 border border-slate-700/50\">\n            <div class=\"text-[10px] tracking-wider text-slate-400 uppercase font-semibold\">Curve Radius (R)</div>\n            <div class=\"text-base font-black text-cyan-400 font-mono mt-1\" style=\"font-family: 'Orbitron', monospace;\">\n                {{msg.payload.radius || '--'}}\n            </div>\n            <div class=\"text-xs text-slate-400 mt-1\">Grip Load: <span class=\"font-mono text-emerald-400 font-bold\">{{msg.payload.totalG || 0}} G</span></div>\n        </div>\n    </div>\n    <div class=\"grid grid-cols-3 gap-2 pt-2 border-t border-slate-800 text-center\">\n        <div class=\"bg-slate-950/40 rounded-lg py-1 px-2 border border-slate-800\">\n            <div class=\"text-[9px] uppercase tracking-wider text-slate-400\">Roll Rate (X)</div>\n            <div class=\"font-mono text-xs font-bold text-slate-200\">{{msg.payload.gyroX || 0}} <span class=\"text-[9px] text-slate-500\">&deg;/s</span></div>\n        </div>\n        <div class=\"bg-slate-950/40 rounded-lg py-1 px-2 border border-slate-800\">\n            <div class=\"text-[9px] uppercase tracking-wider text-slate-400\">Pitch Rate (Y)</div>\n            <div class=\"font-mono text-xs font-bold text-slate-200\">{{msg.payload.gyroY || 0}} <span class=\"text-[9px] text-slate-500\">&deg;/s</span></div>\n        </div>\n        <div class=\"bg-slate-950/40 rounded-lg py-1 px-2 border border-slate-800\">\n            <div class=\"text-[9px] uppercase tracking-wider text-slate-400\">Vertical (Z)</div>\n            <div class=\"font-mono text-xs font-bold text-slate-200\">{{msg.payload.accelZ || 1}} <span class=\"text-[9px] text-slate-500\">G</span></div>\n        </div>\n    </div>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 750,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "chg_v2_accx",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Accel X",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.accelX",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Lateral (X)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 560,
+        "wires": [
+            [
+                "ui_v2_gauge_accx",
+                "ui_v2_chart_gforces"
+            ]
+        ]
+    },
+    {
+        "id": "chg_v2_accy",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Accel Y",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.accelY",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Longitudinal (Y)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 630,
+        "wires": [
+            [
+                "ui_v2_gauge_accy",
+                "ui_v2_chart_gforces"
+            ]
+        ]
+    },
+    {
+        "id": "chg_v2_accz",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Extract Accel Z",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.accelZ",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "Vertical (Z)",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 700,
+        "wires": [
+            [
+                "ui_v2_gauge_accz",
+                "ui_v2_chart_gforces"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_chart_gforces",
+        "type": "ui_chart",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "G-Force Waves",
+        "group": "grp_v2_telemetry_main",
+        "order": 6,
+        "width": "8",
+        "height": "6",
+        "label": "Live G-Force Waves (X / Y / Z)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "Awaiting Telemetry...",
+        "dot": false,
+        "ymin": "-3.0",
+        "ymax": "3.0",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#00f0ff",
+            "#10b981",
+            "#f59e0b",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 750,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_v2_gauge_accx",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Lateral G",
+        "group": "grp_v2_telemetry_main",
+        "order": 7,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Lateral G (X)",
+        "label": "G",
+        "format": "{{value}}",
+        "min": "-3.0",
+        "max": "3.0",
+        "colors": [
+            "#06b6d4",
+            "#10b981",
+            "#f43f5e"
+        ],
+        "seg1": "-1.0",
+        "seg2": "1.0",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 630,
+        "wires": []
+    },
+    {
+        "id": "ui_v2_gauge_accy",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Longitudinal G",
+        "group": "grp_v2_telemetry_main",
+        "order": 8,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Longitudinal G (Y)",
+        "label": "G",
+        "format": "{{value}}",
+        "min": "-3.0",
+        "max": "3.0",
+        "colors": [
+            "#ef4444",
+            "#10b981",
+            "#06b6d4"
+        ],
+        "seg1": "-0.5",
+        "seg2": "0.5",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "ui_v2_gauge_accz",
+        "type": "ui_gauge",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Vertical G",
+        "group": "grp_v2_telemetry_main",
+        "order": 9,
+        "width": "6",
+        "height": "4",
+        "gtype": "gage",
+        "title": "Vertical G (Z)",
+        "label": "G",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "3.0",
+        "colors": [
+            "#10b981",
+            "#f59e0b",
+            "#ef4444"
+        ],
+        "seg1": "1.5",
+        "seg2": "2.2",
+        "diff": false,
+        "className": "",
+        "x": 750,
+        "y": 770,
+        "wires": []
+    },
+    {
+        "id": "wm_v2_worldmap",
+        "type": "worldmap",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_navigation",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSMC",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "false",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "showruler": "false",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,UKOS",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1580,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ui_v2_template_map",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_navigation",
+        "group": "grp_v2_navigation",
+        "name": "Map Iframe",
+        "order": 4,
+        "width": "16",
+        "height": "8",
+        "format": "<iframe src=\"/worldmap?nomenu=1\" width=\"100%\" height=\"440\" style=\"border:none; border-radius: 12px;\"></iframe>\n\n<style>\n.gps-hud-badge {\n    display: inline-flex !important;\n    align-items: center !important;\n    gap: 7px !important;\n    margin-left: 14px !important;\n    padding: 3px 10px !important;\n    border-radius: 9999px !important;\n    font-size: 0.68rem !important;\n    font-family: 'Orbitron', monospace !important;\n    font-weight: 700 !important;\n    letter-spacing: 1.5px !important;\n    vertical-align: middle !important;\n    text-transform: uppercase !important;\n    line-height: 1 !important;\n    transition: all 0.3s ease !important;\n}\n.gps-hud-dot {\n    width: 8px !important;\n    height: 8px !important;\n    border-radius: 50% !important;\n    display: inline-block !important;\n}\n@keyframes gps-dot-pulse {\n    0%, 100% { opacity: 1; transform: scale(1); }\n    50% { opacity: 0.35; transform: scale(0.85); }\n}\n.gps-hud-green {\n    background: rgba(16, 185, 129, 0.15) !important;\n    border: 1px solid rgba(16, 185, 129, 0.5) !important;\n    color: #34d399 !important;\n    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3) !important;\n}\n.gps-hud-green .gps-hud-dot {\n    background: #10b981 !important;\n    box-shadow: 0 0 8px #10b981 !important;\n    animation: gps-dot-pulse 1.8s infinite ease-in-out !important;\n}\n.gps-hud-yellow {\n    background: rgba(245, 158, 11, 0.15) !important;\n    border: 1px solid rgba(245, 158, 11, 0.5) !important;\n    color: #fbbf24 !important;\n    box-shadow: 0 0 10px rgba(245, 158, 11, 0.3) !important;\n}\n.gps-hud-yellow .gps-hud-dot {\n    background: #f59e0b !important;\n    box-shadow: 0 0 8px #f59e0b !important;\n    animation: gps-dot-pulse 1.2s infinite ease-in-out !important;\n}\n.gps-hud-red {\n    background: rgba(239, 68, 68, 0.15) !important;\n    border: 1px solid rgba(239, 68, 68, 0.5) !important;\n    color: #f87171 !important;\n    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3) !important;\n}\n.gps-hud-red .gps-hud-dot {\n    background: #ef4444 !important;\n    box-shadow: 0 0 8px #ef4444 !important;\n    animation: gps-dot-pulse 1.0s infinite ease-in-out !important;\n}\n</style>\n\n<script>\n(function(scope) {\n    function findNavHeader() {\n        var titles = document.querySelectorAll('.nr-dashboard-cardtitle, md-card-title, .ui-group-title, .card-title, .nr-dashboard-group-header');\n        for (var i = 0; i < titles.length; i++) {\n            var txt = (titles[i].textContent || '').toUpperCase();\n            if (txt.indexOf('GPS') !== -1 || txt.indexOf('NAVIGATION') !== -1) {\n                return titles[i];\n            }\n        }\n        return null;\n    }\n\n    function setBadge(state, label, tooltip) {\n        var badge = document.getElementById('gps-satellite-status-badge');\n        if (!badge) {\n            var header = findNavHeader();\n            if (!header) return;\n            badge = document.createElement('span');\n            badge.id = 'gps-satellite-status-badge';\n            header.appendChild(badge);\n        }\n        badge.className = 'gps-hud-badge gps-hud-' + state;\n        badge.innerHTML = '<span class=\"gps-hud-dot\"></span> ' + label;\n        if (tooltip) badge.title = tooltip;\n    }\n\n    // 1. ESTADO INICIAL IMEDIATO (com o micro desligado)\n    var retries = 0;\n    var initTimer = setInterval(function() {\n        retries++;\n        var h = findNavHeader();\n        if (h || retries > 25) {\n            setBadge('red', 'OFFLINE', 'Microcontrolador desligado / sem sinal');\n            clearInterval(initTimer);\n        }\n    }, 150);\n\n    // 2. WATCHDOG (se deixar de receber pacotes por > 3.0s, passa automaticamente a OFFLINE vermelho)\n    var watchdog = null;\n    function pingWatchdog() {\n        if (watchdog) clearTimeout(watchdog);\n        watchdog = setTimeout(function() {\n            setBadge('red', 'OFFLINE', 'Sem telemetria há mais de 3.0s');\n        }, 3000);\n    }\n\n    function updateGpsStatus(p) {\n        if (!p) return;\n        if (typeof p === 'string') {\n            try { p = JSON.parse(p); } catch(e) { return; }\n        }\n        pingWatchdog();\n\n        var status = String(p.status || 'V').trim().toUpperCase();\n        var lat = Number(p.lat) || 0;\n        var lon = Number(p.lon) || 0;\n        var hasFix = (status === 'A' && lat !== 0 && lon !== 0);\n\n        if (hasFix) {\n            setBadge('green', '3D LOCK', 'GPS 3D Fix Ativo (' + lat.toFixed(5) + ', ' + lon.toFixed(5) + ')');\n        } else if (status === 'A') {\n            setBadge('yellow', '2D FIX', 'Satélites adquiridos, a calcular coordenadas...');\n        } else {\n            setBadge('red', 'SEARCHING', 'A procurar satélites (status: ' + status + ')...');\n        }\n    }\n\n    // 3. ATUALIZAÇÃO EM TEMPO REAL AO CHEGAR TELEMETRIA\n    if (scope && typeof scope.$watch === 'function') {\n        scope.$watch('msg', function(msg) {\n            if (msg && msg.payload) {\n                updateGpsStatus(msg.payload);\n            }\n        });\n        scope.$watch('msg.payload', function(val) {\n            if (val) {\n                updateGpsStatus(val);\n            }\n        });\n    }\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1240,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_v2_header_title",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_theme_header",
+        "group": "grp_v2_status_hud",
+        "name": "Header & Telemetry Sync HUD",
+        "order": 1,
+        "width": "16",
+        "height": "1",
+        "format": "<div style=\"display: flex; align-items: center; justify-content: space-between; width: 100%; height: 100%; padding: 4px 14px; background: rgba(10, 16, 30, 0.85); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 8px; box-sizing: border-box; font-family: 'Orbitron', monospace;\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span style=\"display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #22d3ee; box-shadow: 0 0 10px #22d3ee;\"></span>\n        <span style=\"font-size: 1.05rem; font-weight: 800; letter-spacing: 2px; color: #38bdf8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);\">ISEP RACING TELEMETRY // #01</span>\n    </div>\n    <div style=\"display: flex; align-items: center; gap: 8px;\">\n        <span style=\"color: #64748b; font-size: 0.72rem; letter-spacing: 1.5px; font-weight: 700; text-transform: uppercase;\">Telemetry Sync:</span>\n        <span style=\"color: #06b6d4; font-family: Consolas, monospace; font-weight: 700; font-size: 0.85rem;\">{{msg.payload || 'WAITING FOR DATA...'}}</span>\n    </div>\n</div>",
+        "templateScope": "local",
+        "className": "",
+        "x": 880,
+        "y": 130,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "chg_v2_time",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_theme_header",
+        "name": "Extract Timestamp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.timestamp",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 100,
+        "wires": [
+            [
+                "ui_v2_header_title"
+            ]
+        ]
+    },
+    {
+        "id": "dbg_v2_debug",
+        "type": "debug",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_navigation",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1540,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "ui_v2_global_styling",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_theme_header",
+        "group": "grp_v2_navigation",
+        "name": "Global Styling (Tailwind + Cyber Cockpit)",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<!-- Tailwind CDN & FontAwesome -->\n<script src=\"https://cdn.tailwindcss.com\"></script>\n<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\">\n\n<style>\n    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap');\n\n    /* ========================================================\n       1. GLOBAL THEME DESIGN TOKENS\n       ======================================================== */\n    :root {\n        --bg-top: #070c18;\n        --bg-bottom: #03060c;\n        --panel: rgba(13, 20, 36, 0.75);\n        --tile: rgba(10, 16, 30, 0.80);\n        --border: rgba(6, 182, 212, 0.28);\n        --border-glow: rgba(6, 182, 212, 0.65);\n        --accent: #06b6d4;\n        --accent-soft: #38bdf8;\n        --success: #10b981;\n        --danger: #ef4444;\n        --font-body: 'Inter', system-ui, sans-serif;\n        --font-display: 'Orbitron', 'Inter', monospace;\n    }\n\n    /* ========================================================\n       2. BACKGROUND & BASE TYPOGRAPHY\n       ======================================================== */\n    html,\n    body {\n        background-color: var(--bg-bottom) !important;\n        background-image:\n            radial-gradient(1000px 700px at 0% 0%, rgba(6, 182, 212, 0.14), transparent 60%),\n            radial-gradient(900px 700px at 100% 100%, rgba(59, 130, 246, 0.1), transparent 60%),\n            linear-gradient(180deg, var(--bg-top), var(--bg-bottom)) !important;\n        background-attachment: fixed !important;\n        font-family: var(--font-body) !important;\n        color: #e2e8f0 !important;\n    }\n\n    md-content,\n    section,\n    #Tab_Dashboard {\n        background: transparent !important;\n    }\n\n    /* ========================================================\n       3. PANELS & CARDS (GLASSMORPHISM)\n       ======================================================== */\n    ui-card-panel .nr-dashboard-cardpanel {\n        background: var(--panel) !important;\n        border-radius: 18px !important;\n        box-shadow: 0 0 0 1px var(--border), 0 20px 40px rgba(0, 0, 0, 0.5) !important;\n        backdrop-filter: blur(16px) saturate(140%);\n    }\n\n    .nr-dashboard-cardtitle {\n        font-family: var(--font-display) !important;\n        letter-spacing: 2px;\n        text-transform: uppercase;\n        color: var(--accent-soft) !important;\n        font-size: 0.9rem !important;\n        text-shadow: 0 0 10px rgba(6, 182, 212, 0.35);\n    }\n\n    md-card.nr-dashboard-text,\n    md-card.nr-dashboard-switch,\n    md-card.nr-dashboard-gauge,\n    md-card.nr-dashboard-chart,\n    md-card.nr-dashboard-template,\n    md-card.nr-dashboard-dropdown,\n    md-card.nr-dashboard-text-input,\n    md-card.nr-dashboard-button {\n        background: var(--tile) !important;\n        border-radius: 14px !important;\n        box-shadow: 0 0 0 1px var(--border), 0 10px 24px rgba(0, 0, 0, 0.4) !important;\n        backdrop-filter: blur(10px);\n    }\n\n    /* ========================================================\n       4. FORM CONTROLS: DROPDOWNS & INPUTS\n       ======================================================== */\n    /* Labels */\n    md-input-container label,\n    .nr-dashboard-dropdown label {\n        color: #94a3b8 !important;\n        font-family: var(--font-display) !important;\n        font-size: 0.75rem !important;\n        letter-spacing: 1.5px;\n        text-transform: uppercase;\n    }\n\n    /* Text Inputs */\n    md-input-container input {\n        color: #f8fafc !important;\n        background: rgba(15, 23, 42, 0.6) !important;\n        border: 1px solid var(--border) !important;\n        border-radius: 8px !important;\n        padding: 6px 12px !important;\n        font-family: var(--font-body) !important;\n        transition: all 0.2s ease;\n    }\n\n    md-input-container input:focus {\n        border-color: var(--accent) !important;\n        box-shadow: 0 0 12px var(--border-glow) !important;\n    }\n\n    /* Dropdown Select Boxes */\n    md-select .md-select-value {\n        background: rgba(15, 23, 42, 0.6) !important;\n        border: 1px solid var(--border) !important;\n        border-radius: 8px !important;\n        padding: 6px 12px !important;\n        color: var(--accent-soft) !important;\n        font-weight: 600 !important;\n    }\n\n    md-select:focus .md-select-value {\n        border-color: var(--accent) !important;\n        box-shadow: 0 0 12px var(--border-glow) !important;\n    }\n\n   \n        /* ========================================================\n        5. BUTTONS (DARK GLASS + ORBITRON - ZERO GLOW)\n        Matches the tile background, title sky-blue, and font\n        ======================================================== */\n        md-card.nr-dashboard-button button,\n        md-card.nr-dashboard-button .md-button {\n        background: rgba(10, 16, 30, 0.85) !important;\n        background-color: rgba(10, 16, 30, 0.85) !important;\n        border: 1px solid rgba(6, 182, 212, 0.35) !important;\n        border-radius: 8px !important;\n        color: #38bdf8 !important; /* Exact title sky-blue */\n        font-family: var(--font-display) !important; /* Orbitron */\n        font-size: 0.78rem !important;\n        font-weight: 700 !important;\n        letter-spacing: 2px !important;\n        text-transform: uppercase !important;\n        box-shadow: none !important; /* Glow removed */\n        text-shadow: none !important;\n        transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;\n        }\n        \n        md-card.nr-dashboard-button button:hover,\n        md-card.nr-dashboard-button .md-button:hover {\n        background: rgba(20, 32, 60, 0.95) !important;\n        background-color: rgba(20, 32, 60, 0.95) !important;\n        border-color: #38bdf8 !important;\n        color: #ffffff !important;\n        box-shadow: none !important;\n        transform: translateY(-1px) !important;\n        }\n        \n        md-card.nr-dashboard-button button:active {\n        background: rgba(10, 16, 30, 0.95) !important;\n        transform: translateY(0) !important;\n        box-shadow: none !important;\n        }\n        \n        /* Start Button Accent (Dark Glass with Red Edge & Text) */\n        md-card.nr-dashboard-button[node-id=\"ui_btn_start_rec\"] button,\n        md-card.nr-dashboard-button[node-id=\"ui_btn_start_rec\"] .md-button {\n        background: rgba(35, 12, 20, 0.85) !important;\n        background-color: rgba(35, 12, 20, 0.85) !important;\n        border: 1px solid rgba(239, 68, 68, 0.6) !important;\n        color: #fca5a5 !important;\n        }\n        md-card.nr-dashboard-button[node-id=\"ui_btn_start_rec\"] button:hover {\n        background: rgba(60, 18, 30, 0.95) !important;\n        background-color: rgba(60, 18, 30, 0.95) !important;\n        border-color: #ef4444 !important;\n        color: #ffffff !important;\n        }\n        \n        /* Stop Button Accent (Dark Glass with Slate Edge & Text) */\n        md-card.nr-dashboard-button[node-id=\"ui_btn_stop_rec\"] button,\n        md-card.nr-dashboard-button[node-id=\"ui_btn_stop_rec\"] .md-button {\n        background: rgba(20, 26, 40, 0.85) !important;\n        background-color: rgba(20, 26, 40, 0.85) !important;\n        border: 1px solid rgba(148, 163, 184, 0.4) !important;\n        color: #94a3b8 !important;\n        }\n        md-card.nr-dashboard-button[node-id=\"ui_btn_stop_rec\"] button:hover {\n        background: rgba(30, 40, 60, 0.95) !important;\n        background-color: rgba(30, 40, 60, 0.95) !important;\n        border-color: #cbd5e1 !important;\n        color: #ffffff !important;\n        }\n        \n        /* Download Link Button (Dark Glass with Emerald Edge, No Glow) */\n        .export-download-btn {\n        display: inline-block;\n        padding: 10px 20px;\n        background: rgba(10, 16, 30, 0.85) !important;\n        color: #34d399 !important;\n        border: 1px solid rgba(16, 185, 129, 0.6) !important;\n        border-radius: 8px !important;\n        font-family: var(--font-display), monospace !important;\n        font-size: 0.8rem !important;\n        font-weight: 700 !important;\n        letter-spacing: 1.5px !important;\n        text-transform: uppercase !important;\n        text-decoration: none !important;\n        box-shadow: none !important;\n        transition: all 0.2s ease !important;\n        }\n        .export-download-btn:hover {\n        background: rgba(6, 40, 28, 0.95) !important;\n        border-color: #10b981 !important;\n        color: #ffffff !important;\n        }\n\n    /* ========================================================\n       6. ACTIVE SETUP HUD CARD (Clean Class)\n       ======================================================== */\n    .telemetry-hud-card {\n        padding: 10px 16px;\n        background: rgba(6, 182, 212, 0.08);\n        border: 1px solid var(--border);\n        border-radius: 10px;\n        font-family: var(--font-display), monospace;\n        display: flex;\n        align-items: center;\n        gap: 10px;\n    }\n\n    .telemetry-hud-label {\n        color: #94a3b8;\n        font-size: 0.8rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n    }\n\n    .telemetry-hud-driver {\n        color: var(--accent-soft);\n        font-weight: 700;\n        text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);\n    }\n\n    .telemetry-hud-vehicle {\n        color: var(--success);\n        font-weight: 700;\n        text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);\n    }\n\n    /* ========================================================\n       7. TELEMETRY STATUS BANNERS & NOTIFICATIONS (CENTRALIZED)\n       ======================================================== */\n    .hud-banner {\n        border-radius: 6px !important;\n        padding: 10px 14px !important;\n        display: flex !important;\n        align-items: center !important;\n        justify-content: space-between !important;\n        font-family: var(--font-body), sans-serif !important;\n        box-sizing: border-box !important;\n    }\n    .hud-banner-standby {\n        background: #0f172a !important;\n        border: 1px solid #334155 !important;\n    }\n    .hud-banner-rec {\n        background: #1c1917 !important;\n        border: 1px solid #dc2626 !important;\n    }\n    .hud-banner-alert {\n        background: #1c1917 !important;\n        border: 1px solid #78350f !important;\n    }\n    .hud-banner-success {\n        background: #082f49 !important;\n        border: 1px solid #0284c7 !important;\n    }\n\n    .hud-badge {\n        font-size: 11px !important;\n        font-weight: 700 !important;\n        padding: 2px 7px !important;\n        border-radius: 4px !important;\n        letter-spacing: 0.5px !important;\n        display: inline-block !important;\n    }\n    .hud-badge-standby {\n        background: #1e293b !important;\n        color: #94a3b8 !important;\n        border: 1px solid #475569 !important;\n    }\n    .hud-badge-rec {\n        background: #dc2626 !important;\n        color: #ffffff !important;\n    }\n    .hud-badge-alert {\n        background: #b45309 !important;\n        color: #ffffff !important;\n    }\n    .hud-badge-registered {\n        background: #0284c7 !important;\n        color: #ffffff !important;\n    }\n    .hud-badge-completed {\n        background: #059669 !important;\n        color: #ffffff !important;\n        font-size: 10px !important;\n        padding: 2px 6px !important;\n        border-radius: 3px !important;\n    }\n\n    /* Debrief Grid */\n    .hud-debrief-card {\n        background: #0f172a !important;\n        border: 1px solid #334155 !important;\n        border-radius: 6px !important;\n        padding: 6px 12px !important;\n        font-family: var(--font-body), sans-serif !important;\n        box-sizing: border-box !important;\n        overflow: hidden !important;\n    }\n    .hud-debrief-header {\n        display: flex !important;\n        justify-content: space-between !important;\n        align-items: center !important;\n        border-bottom: 1px solid #1e293b !important;\n        padding-bottom: 4px !important;\n        margin-bottom: 5px !important;\n    }\n    .hud-debrief-grid {\n        display: grid !important;\n        grid-template-columns: repeat(5, 1fr) !important;\n        gap: 6px !important;\n        text-align: center !important;\n    }\n    .hud-stat-box {\n        background: #1e293b !important;\n        border-radius: 4px !important;\n        padding: 4px 2px !important;\n    }\n    .hud-stat-label {\n        font-size: 9px !important;\n        font-weight: 700 !important;\n        color: #94a3b8 !important;\n        letter-spacing: 0.5px !important;\n    }\n    .hud-stat-val {\n        font-size: 13px !important;\n        font-weight: 800 !important;\n        font-family: Consolas, monospace !important;\n    }\n\n    /* Active Setup Readout */\n    .hud-setup-readout {\n        display: flex !important;\n        align-items: center !important;\n        justify-content: flex-end !important;\n        gap: 8px !important;\n        height: 100% !important;\n        padding: 4px 10px !important;\n        font-family: var(--font-display), monospace !important;\n    }\n    .hud-setup-label {\n        color: #64748b !important;\n        font-size: 0.72rem !important;\n        letter-spacing: 1.5px !important;\n        text-transform: uppercase !important;\n    }\n    .hud-setup-driver {\n        color: var(--accent-soft) !important;\n        font-weight: 700 !important;\n        font-size: 0.82rem !important;\n    }\n    .hud-setup-separator {\n        color: #475569 !important;\n        font-size: 0.75rem !important;\n        font-family: var(--font-body), sans-serif !important;\n    }\n    .hud-setup-vehicle {\n        color: var(--success) !important;\n        font-weight: 700 !important;\n        font-size: 0.82rem !important;\n    }\n\n\n    /* ========================================================\n       TOP TOOLBAR & APP HEADER (DARK CYBER COCKPIT)\n       ======================================================== */\n    md-toolbar,\n    .md-toolbar-tools,\n    md-toolbar.site-toolbar {\n        background: #070c18 !important;\n        background-color: #070c18 !important;\n        border-bottom: 1px solid rgba(6, 182, 212, 0.3) !important;\n        color: #38bdf8 !important;\n        font-family: var(--font-display), monospace !important;\n        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7) !important;\n    }\n    md-toolbar .md-toolbar-tools h2,\n    md-toolbar .md-toolbar-tools span,\n    md-toolbar.site-toolbar .site-title {\n        font-family: var(--font-display), monospace !important;\n        letter-spacing: 2px !important;\n        color: #38bdf8 !important;\n        font-weight: 700 !important;\n        text-shadow: 0 0 10px rgba(6, 182, 212, 0.4) !important;\n    }\n    md-toolbar button.md-icon-button md-icon {\n        color: #38bdf8 !important;\n    }\n\n\n/* Hide obsolete empty template card for Add Vehicle in Setup group */\nmd-card[node-id=\"ui_v2_add_vehicle\"],\nmd-card.nr-dashboard-template[node-id=\"ui_v2_add_vehicle\"] {\n    display: none !important;\n    height: 0 !important;\n    min-height: 0 !important;\n    max-height: 0 !important;\n    margin: 0 !important;\n    padding: 0 !important;\n    border: none !important;\n    box-shadow: none !important;\n    visibility: hidden !important;\n}\n/* ========================================================\n       8. PILOT NAME & EMAIL INPUTS (MATCHES ADD CAR & CREW MASS)\n       ======================================================== */\n    /* Strip outer card container background, borders, and shadows ONLY.\n       CRITICAL: Do NOT set height: 100% or display: flex on md-card,\n       otherwise Masonry layout miscalculates card height and rejects row 1! */\n    md-card[node-id=\"761e1b00612e55b7\"],\n    md-card[node-id=\"59482fb9f1c1a102\"],\n    md-card.nr-dashboard-textinput[node-id=\"761e1b00612e55b7\"],\n    md-card.nr-dashboard-textinput[node-id=\"59482fb9f1c1a102\"] {\n        background: transparent !important;\n        background-color: transparent !important;\n        box-shadow: none !important;\n        border: none !important;\n        padding: 0 !important;\n    }\n\n    /* Container padding & margins */\n    md-card[node-id=\"761e1b00612e55b7\"] md-input-container,\n    md-card[node-id=\"59482fb9f1c1a102\"] md-input-container {\n        margin: 0 !important;\n        padding: 0 3px !important;\n        width: 100% !important;\n    }\n\n    /* Remove Angular Material bottom underline spacer */\n    md-card[node-id=\"761e1b00612e55b7\"] .md-errors-spacer,\n    md-card[node-id=\"59482fb9f1c1a102\"] .md-errors-spacer {\n        display: none !important;\n        min-height: 0 !important;\n        height: 0 !important;\n    }\n\n    /* Dark cyber cockpit input box - matches .fleet-select-input & crew mass inputs */\n    md-card[node-id=\"761e1b00612e55b7\"] input,\n    md-card[node-id=\"59482fb9f1c1a102\"] input,\n    md-card[node-id=\"761e1b00612e55b7\"] .md-input,\n    md-card[node-id=\"59482fb9f1c1a102\"] .md-input {\n        width: 100% !important;\n        height: 34px !important;\n        background: #070c18 !important;\n        background-color: #070c18 !important;\n        color: #f8fafc !important;\n        border: 1px solid #334155 !important;\n        border-radius: 6px !important;\n        padding: 6px 12px !important;\n        font-family: 'Inter', system-ui, sans-serif !important;\n        font-size: 11px !important;\n        font-weight: 600 !important;\n        box-sizing: border-box !important;\n        outline: none !important;\n        border-bottom: 1px solid #334155 !important;\n        transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease !important;\n    }\n\n    /* Active / Focus Glow matching Add Car modal */\n    md-card[node-id=\"761e1b00612e55b7\"] input:focus,\n    md-card[node-id=\"59482fb9f1c1a102\"] input:focus,\n    md-card[node-id=\"761e1b00612e55b7\"] md-input-container.md-input-focused .md-input,\n    md-card[node-id=\"59482fb9f1c1a102\"] md-input-container.md-input-focused .md-input {\n        border: 1px solid #06b6d4 !important;\n        border-color: #06b6d4 !important;\n        box-shadow: 0 0 10px rgba(6, 182, 212, 0.4) !important;\n        color: #ffffff !important;\n    }\n\n    /* Subtle Placeholder Styling */\n    md-card[node-id=\"761e1b00612e55b7\"] input::placeholder,\n    md-card[node-id=\"59482fb9f1c1a102\"] input::placeholder {\n        color: #64748b !important;\n        font-size: 11px !important;\n        font-weight: 500 !important;\n        opacity: 0.85 !important;\n    }\n\n    /* Invalid email state indicator */\n    md-card[node-id=\"59482fb9f1c1a102\"] md-input-container.md-input-invalid input {\n        border-color: rgba(239, 68, 68, 0.7) !important;\n    }\n</style>\n<script>\n(function() {\n    function setupPilotPlaceholders() {\n        var nameInp = document.querySelector('md-card[node-id=\"761e1b00612e55b7\"] input');\n        var emailInp = document.querySelector('md-card[node-id=\"59482fb9f1c1a102\"] input');\n        if (nameInp && (!nameInp.getAttribute('placeholder') || nameInp.getAttribute('placeholder') !== 'Pilot Name')) {\n            nameInp.setAttribute('placeholder', 'Pilot Name');\n        }\n        if (emailInp && (!emailInp.getAttribute('placeholder') || emailInp.getAttribute('placeholder') !== 'Pilot Email (alerts)')) {\n            emailInp.setAttribute('placeholder', 'Pilot Email (alerts)');\n        }\n    }\n    setupPilotPlaceholders();\n    if (!window._pilotPlaceholderTimer) {\n        window._pilotPlaceholderTimer = setInterval(setupPilotPlaceholders, 1000);\n    }\n})();\n</script>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 880,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b90d005375ffcee7",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_safety",
+        "name": "Accident Detection",
+        "func": "const CRASH_G_THRESHOLD = 3.5; // G-force threshold\nconst COOLDOWN_MS = 60000;      // 60-second cooldown between alerts\nconst TELEGRAM_CHAT_ID = 0; // Replace with your Telegram Chat ID\n\n// Context state to track cooldown\nlet lastAlertTime = context.get('lastAlertTime') || 0;\nlet now = Date.now();\n\nlet ax = Math.abs(Number(msg.payload.accelX) || 0);\nlet ay = Math.abs(Number(msg.payload.accelY) || 0);\nlet azRaw = Number(msg.payload.accelZ) || 1.0;\nlet az = Math.abs(azRaw);\nlet deltaAz = Math.abs(azRaw - 1.0);\nlet gx = Math.abs(Number(msg.payload.gyroX) || 0);\nlet gy = Math.abs(Number(msg.payload.gyroY) || 0);\nlet gz = Math.abs(Number(msg.payload.gyroZ) || 0);\n\nlet speed = Number(msg.payload.speed) || 0;\nlet latNum = Number(msg.payload.lat) || 0;\nlet lonNum = Number(msg.payload.lon) || 0;\nlet timestamp = msg.payload.timestamp || new Date().toISOString();\n\n// Crash & Anomaly Classification\nlet isHorizontalImpact = (ax >= CRASH_G_THRESHOLD || ay >= CRASH_G_THRESHOLD);\nlet isVerticalImpact = (deltaAz >= CRASH_G_THRESHOLD || az >= CRASH_G_THRESHOLD);\n// Capotamento só é acionado com rotação violenta (>120 deg/s) OU inversão (az < -0.2) com o veículo em movimento (>5 km/h)\nlet isRollover = (gx >= 120.0 || gy >= 120.0 || (azRaw < -0.2 && speed > 5.0));\n\nlet isCrash = (isHorizontalImpact || isVerticalImpact || isRollover);\n\nif (isCrash && (now - lastAlertTime > COOLDOWN_MS)) {\n    context.set('lastAlertTime', now);\n    \n    let peakG = Math.max(ax, ay, deltaAz).toFixed(2);\n    let eventType = \"Severe Impact / Collision\";\n    if (isRollover) {\n        eventType = \"Severe Vehicle Rollover / Inversion Detected\";\n    } else if (isVerticalImpact) {\n        eventType = `Severe Vertical Impact / Drop (${deltaAz.toFixed(2)} G)`;\n    } else if (isHorizontalImpact) {\n        eventType = `Severe Collision Impact (${peakG} G)`;\n    }\n\n    let hasGpsFix = (latNum !== 0 && lonNum !== 0);\n    let mapUrl = hasGpsFix ? `https://www.google.com/maps?q=${latNum.toFixed(6)},${lonNum.toFixed(6)}` : \"Location Unavailable (No GPS Fix)\";\n    let locationStr = hasGpsFix ? `[Open in Google Maps](${mapUrl})` : \"Coordinates Unavailable\";\n\n    // Retrieve active driver and email from session\n    let driverName = flow.get('selectedDriver') || \"Unknown Driver\";\n    let vehicleName = flow.get('selectedVehicle') || \"Unknown Vehicle\";\n    let driverEmail = (flow.get('selectedDriverEmail') || \"\").trim();\n\n    // Default emergency responders + dynamic driver email\n    let recipients = [\"alerts@example.com\"];\n    if (driverEmail && !recipients.includes(driverEmail)) {\n        recipients.push(driverEmail);\n    }\n\n    // 1. Message formatted for Email Node (with dynamic 'to' list)\n    let emailMsg = {\n        to: recipients.join(', '),\n        topic: `CRITICAL ALERT: ${eventType} - ${driverName} (${vehicleName})`,\n        payload: `VEHICLE TELEMETRY EMERGENCY ALERT\\n` +\n                 `----------------------------------------\\n` +\n                 `Driver: ${driverName}\\n` +\n                 `Vehicle: ${vehicleName}\\n` +\n                 `Driver Email: ${driverEmail || 'N/A'}\\n` +\n                 `Event: ${eventType}\\n` +\n                 `Time: ${timestamp}\\n` +\n                 `Peak Force: ${peakG} G (X:${ax.toFixed(2)} Y:${ay.toFixed(2)} Z:${azRaw.toFixed(2)})\\n` +\n                 `Speed at Impact: ${speed} km/h\\n` +\n                 `Coordinates: ${hasGpsFix ? `${latNum.toFixed(6)}, ${lonNum.toFixed(6)}` : \"No GPS Fix\"}\\n\\n` +\n                 `Live Google Maps Location:\\n${mapUrl}\\n` +\n                 `----------------------------------------`,\n        lat: latNum,\n        lon: lonNum,\n        peakG: peakG,\n        eventType: eventType\n    };\n\n    // 2. Message formatted for Telegram Sender Node\n    let telegramMsg = {\n        payload: {\n            chatId: TELEGRAM_CHAT_ID,\n            type: \"message\",\n            content: `*CRITICAL ALERT: ${eventType}!*\\n` +\n                     `----------------------------------------\\n` +\n                     `-> *Driver:* ${driverName} (${vehicleName})\\n` +\n                     `-> *Event:* ${eventType}\\n` +\n                     `-> *Peak Force:* ${peakG} G\\n` +\n                     `-> *Speed at Impact:* ${speed} km/h\\n` +\n                     `-> *Time:* ${timestamp}\\n\\n` +\n                     `-> *Location:* ${locationStr}\\n` +\n                     `----------------------------------------`,\n            options: {\n                parse_mode: \"Markdown\"\n            }\n        }\n    };\n\n    return [emailMsg, telegramMsg];\n}\n\nreturn null;",
+        "outputs": 2,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1260,
+        "y": 250,
+        "wires": [
+            [
+                "7f684ab1d2c07cd2"
+            ],
+            [
+                "6c275d0399d4e34b"
+            ]
+        ]
+    },
+    {
+        "id": "7f684ab1d2c07cd2",
+        "type": "e-mail",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_safety",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "Gmail SMTP Dispatcher",
+        "x": 1520,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ace69b8cebd6c172",
+        "type": "inject",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_safety",
+        "name": "Car Accident Test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"accelY\":-4.2,\"accelX\":0.2,\"speed\":85,\"lat\":41.17856,\"lon\":-8.60883,\"timestamp\":\"2026-10-15 16:35:00\"}",
+        "payloadType": "json",
+        "x": 1040,
+        "y": 220,
+        "wires": [
+            [
+                "b90d005375ffcee7"
+            ]
+        ]
+    },
+    {
+        "id": "6c275d0399d4e34b",
+        "type": "telegram sender",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_safety",
+        "name": "",
+        "bot": "d89bc162e13ba339",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1520,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "inj_db_init_fixed",
+        "type": "inject",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_db_init",
+        "name": "Init DB at Startup",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "fn_split_sql_tables"
+            ]
+        ]
+    },
+    {
+        "id": "fn_split_sql_tables",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_db_init",
+        "name": "Create All Tables",
+        "func": "let statements = [\n    `PRAGMA journal_mode=WAL;`,\n    `PRAGMA synchronous=NORMAL;`,\n    `PRAGMA busy_timeout=5000;`,\n    `CREATE TABLE IF NOT EXISTS drivers (name TEXT UNIQUE PRIMARY KEY, email TEXT);`,\n    `CREATE TABLE IF NOT EXISTS vehicles (name TEXT UNIQUE PRIMARY KEY, catalog_id INTEGER, weight_kg INTEGER, power_hp REAL, drivetrain TEXT, spec_summary TEXT);`,\n    `CREATE TABLE IF NOT EXISTS car_catalog (id INTEGER PRIMARY KEY, make TEXT, model TEXT, serie TEXT, body_style TEXT, segment TEXT, year_start INTEGER, year_end INTEGER, production_years TEXT, cylinders TEXT, displacement_cc INTEGER, power_hp REAL, power_rpm TEXT, power_kw REAL, torque_nm REAL, torque_rpm TEXT, fuel_type TEXT, drivetrain TEXT, gearbox TEXT, top_speed_kmh REAL, accel_0_100_s REAL, weight_kg INTEGER, gross_weight_kg INTEGER, drag_cd REAL, tire_size TEXT, spec_summary TEXT);`,\n    `CREATE INDEX IF NOT EXISTS idx_catalog_lookup ON car_catalog (make, serie, year_start);`,\n    `CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY, driver TEXT, vehicle TEXT, start_time DATETIME, end_time DATETIME, duration_sec INTEGER, top_speed REAL, peak_g REAL, points_count INTEGER DEFAULT 0, efficiency_score INTEGER, curb_weight_kg REAL, pilot_weight_kg REAL, passenger_weight_kg REAL, payload_kg REAL, gross_mass_kg REAL);`,\n    `CREATE TABLE IF NOT EXISTS telemetry_points (id INTEGER PRIMARY KEY AUTOINCREMENT, session_id TEXT, timestamp DATETIME, speed REAL, temp REAL, hum REAL, lat REAL, lon REAL, accelX REAL, accelY REAL, accelZ REAL, gyroX REAL, gyroY REAL, gyroZ REAL);`,\n    `CREATE INDEX IF NOT EXISTS idx_telemetry_session ON telemetry_points (session_id);`,\n    `CREATE INDEX IF NOT EXISTS idx_sessions_start ON sessions (start_time);`\n];\n\nreturn [statements.map(sql => ({ topic: sql }))];",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "sql_init_exec"
+            ]
+        ]
+    },
+    {
+        "id": "sql_init_exec",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_db_init",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Init",
+        "x": 580,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_v2_switch_follow",
+        "type": "ui_switch",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_navigation",
+        "name": "Follow Car Switch",
+        "label": "Auto-Follow Vehicle",
+        "tooltip": "",
+        "group": "grp_v2_navigation",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "{\"command\":{\"panit\":true, \"zoom\":18}}",
+        "onvalueType": "json",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "{\"command\":{\"panit\":false}}",
+        "offvalueType": "json",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1040,
+        "y": 640,
+        "wires": [
+            [
+                "wm_v2_worldmap"
+            ]
+        ]
+    },
+    {
+        "id": "0b412c13cb512e43",
+        "type": "ui_button",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_recording",
+        "name": "Start Recording",
+        "group": "d76caec142fa844d",
+        "order": 8,
+        "width": 8,
+        "height": 1,
+        "label": "🔴 START RECORDING",
+        "tooltip": "Begin recording this session",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "START_RECORDING",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 140,
+        "y": 1310,
+        "wires": [
+            [
+                "81e969863fd839b3"
+            ]
+        ]
+    },
+    {
+        "id": "912104463f973444",
+        "type": "ui_button",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_recording",
+        "name": "Stop Recording",
+        "group": "d76caec142fa844d",
+        "order": 9,
+        "width": 8,
+        "height": 1,
+        "label": "⏹️ STOP RECORDING",
+        "tooltip": "Stop recording and finalize session",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "STOP_RECORDING",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 140,
+        "y": 1400,
+        "wires": [
+            [
+                "81e969863fd839b3"
+            ]
+        ]
+    },
+    {
+        "id": "81e969863fd839b3",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_recording",
+        "name": "Session Recorder Engine",
+        "func": "// --- DYNAMIC DRIVING EFFICIENCY & VEHICLE CONTROL ENGINE ---\nfunction computeScore(state) {\n    const durationMin = (state.movingTimeSec || 0) / 60.0;\n    let timeCap = 100.0 - 15.0 * Math.exp(-durationMin / 4.0);\n    if (timeCap > 99.85) timeCap = 100.0;\n\n    if (durationMin < 1.0) {\n        return {\n            score: 85.0,\n            rawScore: 100.0,\n            cap: Number(timeCap.toFixed(1)),\n            movingMinutes: Number(durationMin.toFixed(2)),\n            harshEvents: state.rawHarshEventsCount || 0,\n            weightedHarshEvents: Number((state.weightedHarshEvents || 0).toFixed(1)),\n            slipEvents: state.slipEventsCount || 0,\n            peakG: Number((state.peakGripG || 0).toFixed(2)),\n            status: \"AGUARDANDO_TEMPO_MINIMO\",\n            breakdown: { pHarsh: 0, pPeak: 0, pChassis: 0, pSlip: 0, totalPenalty: 0 }\n        };\n    }\n\n    const effectiveTime = Math.max(durationMin, 3.0);\n    const timeRatio = 15.0 / effectiveTime;\n\n    const pHarsh = 5.0 * ((state.weightedHarshEvents || 0) * timeRatio);\n    const pPeak = 45.0 * Math.pow(Math.max(0.0, (state.peakGripG || 0) - 0.35), 2);\n    const pChassis = 0.08 * Math.pow(Math.max(0.0, (state.maxChassisRate || 0) - 15.0), 2);\n    const pSlip = 8.0 * ((state.slipEventsCount || 0) * timeRatio);\n\n    const totalPenalty = pHarsh + pPeak + pChassis + pSlip;\n    const rawScore = Math.max(0.0, Math.min(100.0, 100.0 * Math.exp(-0.020 * totalPenalty))); // True 0-100 scale\n    const finalScore = Math.min(timeCap, rawScore);\n\n    return {\n        score: Number(finalScore.toFixed(1)),\n        rawScore: Number(rawScore.toFixed(1)),\n        cap: Number(timeCap.toFixed(1)),\n        movingMinutes: Number(durationMin.toFixed(2)),\n        harshEvents: state.rawHarshEventsCount || 0,\n        weightedHarshEvents: Number((state.weightedHarshEvents || 0).toFixed(1)),\n        slipEvents: state.slipEventsCount || 0,\n        peakG: Number((state.peakGripG || 0).toFixed(2)),\n        status: finalScore < rawScore ? \"LIMITADO_POR_TEMPO\" : \"VALIDADO\",\n        breakdown: {\n            pHarsh: Number(pHarsh.toFixed(1)),\n            pPeak: Number(pPeak.toFixed(1)),\n            pChassis: Number(pChassis.toFixed(1)),\n            pSlip: Number(pSlip.toFixed(1)),\n            totalPenalty: Number(totalPenalty.toFixed(1))\n        }\n    };\n}\n\nlet p = String(msg.payload || \"\").toLowerCase();\nlet isStart = (p === \"start_recording\" || p === \"start\");\nlet isStop = (p === \"stop_recording\" || p === \"stop\");\n\n// 1. START RECORDING\nif (isStart) {\n    let driver = flow.get('selectedDriver') || \"\";\n    let vehicle = flow.get('selectedVehicle') || \"\";\n\n    if (!driver || !vehicle) {\n        let alertMsg = {\n            payload: `\n<div class=\"hud-banner hud-banner-alert\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-alert\">[ALERT]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #fde68a;\">PLEASE SELECT BOTH PILOT AND VEHICLE BEFORE RECORDING</span>\n    </div>\n    <div style=\"font-size: 11px; color: #d97706; font-weight: 600;\">ACTION BLOCKED</div>\n</div>`\n        };\n        return [null, alertMsg, null];\n    }\n\n    let now = new Date();\n    let pad = (n) => String(n).padStart(2, '0');\n    let tripId = `TRIP_${now.getFullYear()}${pad(now.getMonth()+1)}${pad(now.getDate())}_${pad(now.getHours())}${pad(now.getMinutes())}${pad(now.getSeconds())}`;\n    \n    flow.set('isRecording', true);\n    flow.set('currentTripId', tripId);\n    flow.set('sessionStartTime', Date.now());\n    flow.set('sessionTopSpeed', 0);\n    flow.set('sessionPeakG', 0);\n    flow.set('sessionPoints', 0);\n    flow.set('sessionHarshEvents', 0);\n    \n    // Initialize Commercial-Grade Engine State with Dynamic Mass & Vehicle Specs (snapshot frozen at Start Recording)\n    let rawPilotW = flow.get('pilotWeight');\n    let initPilotWeight = (rawPilotW !== undefined && rawPilotW !== null && Number.isFinite(Number(rawPilotW)) && Number(rawPilotW) >= 0) ? Number(rawPilotW) : 75;\n    let rawPassW = flow.get('passengerWeight');\n    let initPassengerWeight = (rawPassW !== undefined && rawPassW !== null && Number.isFinite(Number(rawPassW)) && Number(rawPassW) >= 0) ? Number(rawPassW) : 0;\n    let initPayload = initPilotWeight + initPassengerWeight;\n    let initCurbWeight = Number(flow.get('vehicleWeight')) || 1635;\n    let initTotalMass = initCurbWeight + initPayload;\n    let initPowerHp = Number(flow.get('vehiclePower')) || 204;\n    let initDrivetrain = flow.get('vehicleDrivetrain') || \"FWD\";\n\n    flow.set('engineState', {\n        movingTimeSec: 0.0,\n        rawHarshEventsCount: 0,\n        weightedHarshEvents: 0.0,\n        slipEventsCount: 0,\n        peakGripG: 0.0,\n        maxChassisRate: 0.0,\n        cooldownTimerSec: 0.0,\n        lastTimestampMs: null,\n        totalMassKg: initTotalMass,\n        curbWeightKg: initCurbWeight,\n        pilotWeightKg: initPilotWeight,\n        passengerWeightKg: initPassengerWeight,\n        payloadKg: initPayload,\n        vehiclePowerHp: initPowerHp,\n        drivetrain: initDrivetrain,\n        peakWheelPowerHp: 0.0,\n        totalBrakingWorkKj: 0.0\n    });\n    \n    // Output 1: SQLite session insert\n    let sqlMsg = {\n        topic: `INSERT INTO sessions (id, driver, vehicle, start_time, curb_weight_kg, pilot_weight_kg, passenger_weight_kg, payload_kg, gross_mass_kg) VALUES ('${tripId}', '${driver.replace(/'/g, \"''\")}', '${vehicle.replace(/'/g, \"''\")}', datetime('now','localtime'), ${initCurbWeight}, ${initPilotWeight}, ${initPassengerWeight}, ${initPayload}, ${initTotalMass});`\n    };\n\n    // Output 2: Dynamic [REC] Banner for HUD\n    let statusMsg = {\n        payload: `\n<div class=\"hud-banner hud-banner-rec\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-rec\">[REC]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #fee2e2;\">SESSION IN PROGRESS // TRIP: <strong style=\"color: #f87171;\">${tripId}</strong></span>\n    </div>\n    <div style=\"font-size: 11px; color: #f87171; font-weight: 600;\">${driver} &bull; ${vehicle}</div>\n</div>`\n    };\n    \n    return [sqlMsg, statusMsg, null];\n}\n\n// 2. STOP RECORDING\nif (isStop) {\n    if (!flow.get('isRecording')) {\n        let alertMsg = {\n            payload: `\n<div class=\"hud-banner hud-banner-alert\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-alert\">[STANDBY]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #fde68a;\">NO ACTIVE SESSION TO STOP</span>\n    </div>\n    <div style=\"font-size: 11px; color: #d97706; font-weight: 600;\">IDLE</div>\n</div>`\n        };\n        return [null, alertMsg];\n    }\n    \n    flow.set('isRecording', false);\n    let tripId = flow.get('currentTripId') || \"TRIP_UNKNOWN\";\n    let startMs = flow.get('sessionStartTime') || Date.now();\n    let elapsedSec = Math.max(1, Math.round((Date.now() - startMs) / 1000));\n    let mins = String(Math.floor(elapsedSec / 60)).padStart(2, '0');\n    let secs = String(elapsedSec % 60).padStart(2, '0');\n    let durationStr = `${mins}:${secs}`;\n    \n    let points = flow.get('sessionPoints') || 0;\n    let topSpeed = flow.get('sessionTopSpeed') || 0;\n    let driver = flow.get('selectedDriver') || \"Pilot\";\n    let vehicle = flow.get('selectedVehicle') || \"Vehicle\";\n\n    let state = flow.get('engineState') || {\n        movingTimeSec: 0.0,\n        rawHarshEventsCount: flow.get('sessionHarshEvents') || 0,\n        weightedHarshEvents: flow.get('sessionHarshEvents') || 0,\n        slipEventsCount: 0,\n        peakGripG: flow.get('sessionPeakG') || 0,\n        maxChassisRate: 0.0,\n        cooldownTimerSec: 0.0,\n        lastTimestampMs: null\n    };\n\n    let report = computeScore(state);\n    let peakG = Math.max(state.peakGripG || 0, flow.get('sessionPeakG') || 0);\n    let isInsufficient = points < 1500;\n    let effDisplay = isInsufficient ? 'N/A' : `${Math.round(report.score)}%`;\n    let effColor = isInsufficient ? '#94a3b8' : '#34d399';\n    let statusText = isInsufficient ? 'DADOS INSUFICIENTES (< 1500 SAMPLES)' : report.status;\n    let statusColor = isInsufficient ? '#94a3b8' : '#38bdf8';\n\n    // Cache full debrief in context for reporting and PDF generation\n    flow.set('lastSessionReport', {\n        tripId: tripId,\n        driver: driver,\n        vehicle: vehicle,\n        durationStr: durationStr,\n        durationSec: elapsedSec,\n        movingMinutes: report.movingMinutes,\n        points: points,\n        topSpeed: topSpeed,\n        peakG: peakG,\n        score: isInsufficient ? 'N/A' : report.score,\n        rawScore: report.rawScore,\n        cap: report.cap,\n        status: statusText,\n        isInsufficientData: isInsufficient,\n        harshEvents: report.harshEvents,\n        weightedHarshEvents: report.weightedHarshEvents,\n        slipEvents: report.slipEvents,\n        breakdown: report.breakdown\n    });\n\n    // Output 1: SQLite UPDATE session summary\n    let sqlScoreVal = isInsufficient ? 'NULL' : Math.round(report.score);\n    let sqlMsg = {\n        topic: `UPDATE sessions SET end_time = datetime('now','localtime'), duration_sec = ${elapsedSec}, top_speed = ${topSpeed.toFixed(1)}, peak_g = ${peakG.toFixed(2)}, points_count = ${points}, efficiency_score = ${sqlScoreVal} WHERE id = '${tripId}';`\n    };\n\n    // Output 2: 5-Metric Debriefing HUD Card\n    let debriefMsg = {\n        payload: `\n<div class=\"hud-debrief-card\">\n    <div class=\"hud-debrief-header\">\n        <div style=\"display: flex; align-items: center; gap: 8px;\">\n            <span class=\"hud-badge hud-badge-completed\">[COMPLETED]</span>\n            <span style=\"font-size: 12px; font-weight: 700; color: #f8fafc; letter-spacing: 0.3px;\">SESSION DEBRIEF // ${tripId}</span>\n        </div>\n        <div style=\"font-size: 11px; color: #94a3b8; font-weight: 500;\">${driver} &bull; ${vehicle} &bull; <span style=\"color: #fbbf24; font-weight: 700;\">${state.totalMassKg || 1710} kg</span> &bull; <span style=\"color: ${statusColor}; font-weight: 600;\">${statusText}</span></div>\n    </div>\n    <div class=\"hud-debrief-grid\">\n        <div class=\"hud-stat-box\">\n            <div class=\"hud-stat-label\">DURATION</div>\n            <div class=\"hud-stat-val\" style=\"color: #f8fafc;\">${durationStr}</div>\n        </div>\n        <div class=\"hud-stat-box\">\n            <div class=\"hud-stat-label\">SAMPLES</div>\n            <div class=\"hud-stat-val\" style=\"color: #38bdf8;\">${points}</div>\n        </div>\n        <div class=\"hud-stat-box\">\n            <div class=\"hud-stat-label\">TOP SPEED</div>\n            <div class=\"hud-stat-val\" style=\"color: #fbbf24;\">${topSpeed.toFixed(1)} <span style=\"font-size: 9px; color: #94a3b8;\">km/h</span></div>\n        </div>\n        <div class=\"hud-stat-box\">\n            <div class=\"hud-stat-label\">PEAK G</div>\n            <div class=\"hud-stat-val\" style=\"color: #f43f5e;\">${peakG.toFixed(2)} <span style=\"font-size: 9px; color: #94a3b8;\">G</span></div>\n        </div>\n        <div class=\"hud-stat-box\">\n            <div class=\"hud-stat-label\">EFFICIENCY</div>\n            <div class=\"hud-stat-val\" style=\"color: ${effColor};\">${effDisplay}</div>\n        </div>\n    </div>\n</div>`\n    };\n\n    let driverEmail = flow.get('selectedDriverEmail') || '';\n    let pdfTriggerMsg = {\n        payload: tripId,\n        tripId: tripId,\n        driver: driver,\n        driverEmail: driverEmail\n    };\n    return [sqlMsg, debriefMsg, pdfTriggerMsg];\n}\n\n// 3. INCOMING TELEMETRY SAMPLES\nif (flow.get('isRecording') && msg.payload && typeof msg.payload.speed !== 'undefined') {\n    let tripId = flow.get('currentTripId');\n    let d = msg.payload;\n\n    let speedKmh = Number(d.speed ?? 0);\n    let engineTempC = Number(d.temp ?? 85);\n    let yawRateDegS = Number(d.gyroZ ?? 0);\n    let rollRateDegS = Number(d.gyroX ?? 0);\n    let pitchRateDegS = Number(d.gyroY ?? 0);\n    let latGX = Number(d.accelX ?? 0);\n    let lonGY = Number(d.accelY ?? 0);\n    let vertGZ = Number(d.accelZ ?? 1.0);\n\n    let state = flow.get('engineState') || {\n        movingTimeSec: 0.0,\n        rawHarshEventsCount: 0,\n        weightedHarshEvents: 0.0,\n        slipEventsCount: 0,\n        peakGripG: 0.0,\n        maxChassisRate: 0.0,\n        cooldownTimerSec: 0.0,\n        lastTimestampMs: null\n    };\n\n    let nowMs = Date.now();\n    let dtSec = 0.1;\n    if (state.lastTimestampMs !== null) {\n        dtSec = Math.min(1.0, Math.max(0.001, (nowMs - state.lastTimestampMs) / 1000.0));\n    }\n    state.lastTimestampMs = nowMs;\n\n    // 1. Accumulate moving time only when vehicle is truly moving\n    if (speedKmh > 3.0) {\n        state.movingTimeSec += dtSec;\n    }\n\n    // Cooldown decrement\n    if (state.cooldownTimerSec > 0) {\n        state.cooldownTimerSec = Math.max(0.0, state.cooldownTimerSec - dtSec);\n    }\n\n    // 2. Anti-Pothole Filter (road noise rejection via Z-axis)\n    let verticalDeltaG = Math.abs(vertGZ - 1.0);\n    let currentChassisRate = Math.max(Math.abs(rollRateDegS), Math.abs(pitchRateDegS));\n    let isRoadPotholeNoise = (verticalDeltaG > 0.65 && currentChassisRate < 12.0);\n\n    // 3. Dynamic evaluation (skip peak/event penalties if road pothole noise)\n    if (!isRoadPotholeNoise) {\n        let currentGripG = Math.hypot(latGX, lonGY);\n        if (currentGripG > state.peakGripG) {\n            state.peakGripG = currentGripG;\n        }\n        if (currentChassisRate > state.maxChassisRate) {\n            state.maxChassisRate = currentChassisRate;\n        }\n\n        // Mass & Power-Adaptive Dynamic Physics\n        let massKg = state.totalMassKg || flow.get('totalMassKg') || 1710;\n        let powerHp = state.vehiclePowerHp || flow.get('vehiclePower') || 204;\n        let powerToWeight = powerHp / (massKg / 1000.0); // HP/Ton (e.g. 119.3 HP/Ton for Audi A3)\n\n        // 1. Instantaneous mechanical wheel power under acceleration\n        if (lonGY > 0.05 && speedKmh > 3.0) {\n            let speedMs = speedKmh / 3.6;\n            let forceNewtons = massKg * (lonGY * 9.81);\n            let instantPowerHp = (forceNewtons * speedMs) / 745.7;\n            state.peakWheelPowerHp = Math.max(state.peakWheelPowerHp || 0, instantPowerHp);\n        }\n\n        // 2. Cumulative braking thermal work estimation (kJ)\n        if (lonGY < -0.20 && speedKmh > 5.0) {\n            let speedMs = speedKmh / 3.6;\n            let brakeForceN = massKg * (Math.abs(lonGY) * 9.81);\n            let workKj = (brakeForceN * speedMs * dtSec) / 1000.0;\n            state.totalBrakingWorkKj = (state.totalBrakingWorkKj || 0) + workKj;\n        }\n\n        // 3. Adaptive Harsh Driving Events (Kamm Ellipse + Thermal Multiplier + Inertia Load)\n        if (state.cooldownTimerSec === 0.0 && speedKmh > 5.0) {\n            // Acceleration limit scales with power-to-weight ratio (sports cars can accelerate harder)\n            let accelLimit = Math.min(0.70, Math.max(0.32, 0.35 * (powerToWeight / 100.0)));\n            // Braking limit scales slightly with load (heavier vehicle is more prone to brake lockup/fade)\n            let brakeLimit = 0.45;\n            let lonLimit = lonGY < 0 ? brakeLimit : accelLimit;\n\n            // Lateral limit accounts for payload weight transfer / tire load sensitivity\n            let payloadRatio = Math.min(0.40, (state.payloadKg || 75) / Math.max(1000, state.curbWeightKg || 1635));\n            let latLimit = Math.max(0.42, 0.52 - 0.15 * payloadRatio);\n\n            let kammIndex = Math.hypot(latGX / latLimit, lonGY / lonLimit);\n            let isHarshSpeedBump = (verticalDeltaG > 0.80 && Math.abs(pitchRateDegS) > 18.0 && speedKmh > 35.0);\n\n            if (kammIndex > 1.0 || isHarshSpeedBump) {\n                let thermalMult = 1.0;\n                if (lonGY > 0.30 && (engineTempC < 60.0 || engineTempC > 105.0)) {\n                    thermalMult = 1.5;\n                }\n                // Extra penalty if vehicle is overloaded (payload > 300kg)\n                if ((state.payloadKg || 0) > 300) {\n                    thermalMult *= 1.2;\n                }\n                state.rawHarshEventsCount += 1;\n                state.weightedHarshEvents += (1.0 * thermalMult);\n                state.cooldownTimerSec = 10.0; // 10s cooldown per user requirement\n            } else if (speedKmh > 25.0) {\n                // Kinematic Slip Detection (Oversteer / Understeer)\n                let speedMs = speedKmh / 3.6;\n                let yawRadS = yawRateDegS * (Math.PI / 180.0);\n                let expectedLatG = (speedMs * yawRadS) / 9.81;\n                let slipDelta = Math.abs(Math.abs(latGX) - Math.abs(expectedLatG));\n                let slipThreshold = (state.drivetrain === 'AWD') ? 0.32 : 0.28;\n                if (slipDelta > slipThreshold) {\n                    state.slipEventsCount += 1;\n                    state.cooldownTimerSec = 10.0; // 10s cooldown per user requirement\n                }\n            }\n        }\n    }\n\n    let topSpeed = Math.max(flow.get('sessionTopSpeed') || 0, speedKmh);\n    let count = (flow.get('sessionPoints') || 0) + 1;\n\n    flow.set('engineState', state);\n    flow.set('sessionTopSpeed', topSpeed);\n    flow.set('sessionPeakG', state.peakGripG);\n    flow.set('sessionHarshEvents', state.rawHarshEventsCount);\n    flow.set('sessionPoints', count);\n\n        let latVal = (d.lat !== undefined && d.lat !== null && Number.isFinite(Number(d.lat))) ? Number(d.lat) : null;\n    let lonVal = (d.lon !== undefined && d.lon !== null && Number.isFinite(Number(d.lon))) ? Number(d.lon) : null;\n    let hasValidFix = (String(d.status || '').toUpperCase() === 'A') && latVal !== null && lonVal !== null && (Math.abs(latVal) > 0.001 || Math.abs(lonVal) > 0.001);\n    let recLatSql = hasValidFix ? latVal : 'NULL';\n    let recLonSql = hasValidFix ? lonVal : 'NULL';\n    let recTime = (d.timestamp && String(d.timestamp).trim() !== '-' && !String(d.timestamp).includes('Searching')) ? d.timestamp : new Date().toISOString();\n\n    let sqlMsg = {\n        topic: `INSERT INTO telemetry_points (session_id, timestamp, speed, temp, hum, lat, lon, accelX, accelY, accelZ, gyroX, gyroY, gyroZ) ` +\n               `VALUES ('${tripId}', '${recTime}', ${speedKmh}, ${engineTempC}, ${d.hum||0}, ${recLatSql}, ${recLonSql}, ${latGX}, ${lonGY}, ${vertGZ}, ${rollRateDegS}, ${pitchRateDegS}, ${yawRateDegS});`\n    };\n\n    return [sqlMsg, null, null];\n}\n\nreturn null;",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 1355,
+        "wires": [
+            [
+                "561b6df3d957ac8e"
+            ],
+            [
+                "409a676ed439b95d"
+            ],
+            [
+                "fn_pdf_trigger_prep"
+            ]
+        ],
+        "outputLabels": [
+            "SQLite Query",
+            "Debrief HUD HTML",
+            "Trip Finished (Trigger PDF)"
+        ]
+    },
+    {
+        "id": "561b6df3d957ac8e",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_recording",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Recorder",
+        "x": 680,
+        "y": 1310,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "32ec6f130bc4846a",
+        "type": "inject",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Refresh Dropdowns on Start",
+        "props": [
+            {
+                "p": "selectedDriver",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "p": "selectedVehicle",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "p": "selectedDriverEmail",
+                "pt": "flow",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "topic": "",
+        "x": 140,
+        "y": 940,
+        "wires": [
+            [
+                "c4c39e1674914137",
+                "06cf225e2c9d00b7"
+            ]
+        ]
+    },
+    {
+        "id": "c4c39e1674914137",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Query Drivers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT name, email FROM drivers ORDER BY name ASC;",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 940,
+        "wires": [
+            [
+                "fb3df7abd15174f1"
+            ]
+        ]
+    },
+    {
+        "id": "fb3df7abd15174f1",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Read",
+        "x": 580,
+        "y": 940,
+        "wires": [
+            [
+                "8750fa935081a4c6"
+            ]
+        ]
+    },
+    {
+        "id": "8750fa935081a4c6",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Format Drivers Dropdown",
+        "func": "let rows = msg.payload || [];\nflow.set('driversDatabase', rows);\n\nlet list = rows.map(r => r.name);\nlet current = flow.get('selectedDriver') || \"\";\n\nif (current && !list.includes(current)) {\n    current = \"\";\n    flow.set('selectedDriver', \"\");\n}\n\nif (current) {\n    let found = rows.find(r => r.name === current);\n    if (found) flow.set('selectedDriverEmail', found.email || \"\");\n} else {\n    flow.set('selectedDriverEmail', \"\");\n}\n\nreturn {\n    options: list,\n    payload: current\n};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 940,
+        "wires": [
+            [
+                "9b53a93155f0c831",
+                "01f4eedbc9a5eb14"
+            ]
+        ]
+    },
+    {
+        "id": "9b53a93155f0c831",
+        "type": "ui_dropdown",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Driver Dropdown",
+        "label": "Pilot:",
+        "tooltip": "",
+        "place": "Choose Pilot",
+        "group": "d76caec142fa844d",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "driver_selected",
+        "topicType": "msg",
+        "className": "",
+        "x": 1040,
+        "y": 940,
+        "wires": [
+            [
+                "ea8f47744b0c79f2"
+            ]
+        ]
+    },
+    {
+        "id": "ea8f47744b0c79f2",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Save Selected Driver",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectedDriver",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 940,
+        "wires": [
+            [
+                "d85c783368f53954",
+                "01f4eedbc9a5eb14"
+            ]
+        ]
+    },
+    {
+        "id": "d85c783368f53954",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Sync Driver Email",
+        "func": "let driver = msg.payload;\nlet db = flow.get('driversDatabase') || [];\nlet found = db.find(d => d.name === driver);\nflow.set('selectedDriverEmail', found ? (found.email || \"\") : \"\");\nreturn null;",
+        "outputs": 0,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1500,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "761e1b00612e55b7",
+        "type": "ui_text_input",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "New Driver Input",
+        "label": "",
+        "tooltip": "Pilot Name",
+        "group": "d76caec142fa844d",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 140,
+        "y": 1010,
+        "wires": [
+            [
+                "331c4ccaa83042f9"
+            ]
+        ]
+    },
+    {
+        "id": "59482fb9f1c1a102",
+        "type": "ui_text_input",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "New Driver Email",
+        "label": "",
+        "tooltip": "Pilot Email",
+        "group": "d76caec142fa844d",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "mode": "email",
+        "delay": 300,
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 140,
+        "y": 1060,
+        "wires": [
+            [
+                "38318efac6c635c9"
+            ]
+        ]
+    },
+    {
+        "id": "331c4ccaa83042f9",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Store Driver Input",
+        "rules": [
+            {
+                "t": "set",
+                "p": "driverInputBuffer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1010,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38318efac6c635c9",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Store Driver Email",
+        "rules": [
+            {
+                "t": "set",
+                "p": "driverEmailBuffer",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1060,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61225113b941c894",
+        "type": "ui_button",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Add Driver Btn",
+        "group": "d76caec142fa844d",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "➕ Add",
+        "tooltip": "Add Pilot",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 580,
+        "y": 1030,
+        "wires": [
+            [
+                "62cc6bde90a1da71"
+            ]
+        ]
+    },
+    {
+        "id": "62cc6bde90a1da71",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Build Insert Driver",
+        "func": "let name = (flow.get('driverInputBuffer') || \"\").trim();\nlet email = (flow.get('driverEmailBuffer') || \"\").trim();\n\n// Validation: Both fields required\nif (!name || !email) {\n    let alertMsg = {\n        payload: `\n<div class=\"hud-banner hud-banner-alert\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-alert\">[ALERT]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #fde68a;\">REQUIRED FIELDS: ENTER BOTH PILOT NAME AND EMAIL</span>\n    </div>\n    <div style=\"font-size: 11px; color: #d97706; font-weight: 600;\">ACTION BLOCKED</div>\n</div>`\n    };\n    return [null, alertMsg, null];\n}\n\n// Clear memory cache so previous entries don't persist\nflow.set('driverInputBuffer', '');\nflow.set('driverEmailBuffer', '');\nflow.set('selectedDriver', name);\n\n// Output 1: SQLite Query (escaped single quotes)\nmsg.topic = `INSERT OR REPLACE INTO drivers (name, email) VALUES ('${name.replace(/'/g, \"''\")}', '${email.replace(/'/g, \"''\")}');`;\n\n// Output 2: Confirmation card on HUD\nlet statusMsg = {\n    payload: `\n<div class=\"hud-banner hud-banner-success\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-registered\">[REGISTERED]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #e0f2fe;\">PILOT: <strong style=\"color: #38bdf8;\">${name}</strong> &nbsp;|&nbsp; EMAIL: <strong style=\"color: #38bdf8;\">${email}</strong></span>\n    </div>\n    <div style=\"font-size: 11px; color: #38bdf8; font-weight: 600;\">DATABASE UPDATED</div>\n</div>`\n};\n\n// Output 3: Clear text input widgets\nlet clearMsg = { payload: \"\" };\n\nreturn [msg, statusMsg, clearMsg];",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1030,
+        "wires": [
+            [
+                "99b8bab30469a459"
+            ],
+            [
+                "409a676ed439b95d"
+            ],
+            [
+                "761e1b00612e55b7",
+                "59482fb9f1c1a102"
+            ]
+        ]
+    },
+    {
+        "id": "99b8bab30469a459",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Insert",
+        "x": 1040,
+        "y": 1030,
+        "wires": [
+            [
+                "c4c39e1674914137"
+            ]
+        ]
+    },
+    {
+        "id": "06cf225e2c9d00b7",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Query Vehicles",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "SELECT name FROM vehicles ORDER BY name ASC;",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1130,
+        "wires": [
+            [
+                "4d7d0c31be272630"
+            ]
+        ]
+    },
+    {
+        "id": "4d7d0c31be272630",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Read",
+        "x": 580,
+        "y": 1130,
+        "wires": [
+            [
+                "615db16ceb269df4"
+            ]
+        ]
+    },
+    {
+        "id": "615db16ceb269df4",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Format Vehicles Dropdown",
+        "func": "let rows = msg.payload || [];\nlet list = rows.map(r => r.name);\nlet current = flow.get('selectedVehicle') || \"\";\n\nif (current && !list.includes(current)) {\n    current = \"\";\n    flow.set('selectedVehicle', \"\");\n}\n\nreturn {\n    options: list,\n    payload: current\n};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 1130,
+        "wires": [
+            [
+                "39bea081b66abe8c",
+                "01f4eedbc9a5eb14",
+                "fn_v2_sync_vehicle_specs"
+            ]
+        ]
+    },
+    {
+        "id": "39bea081b66abe8c",
+        "type": "ui_dropdown",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Vehicle Dropdown",
+        "label": "Vehicle:",
+        "tooltip": "",
+        "place": "Choose Vehicle",
+        "group": "d76caec142fa844d",
+        "order": 6,
+        "width": 12,
+        "height": 1,
+        "options": [],
+        "payload": "",
+        "topic": "vehicle_selected",
+        "topicType": "msg",
+        "className": "",
+        "x": 1040,
+        "y": 1130,
+        "wires": [
+            [
+                "fn_v2_sync_vehicle_specs",
+                "bfa13e44d907afaf"
+            ]
+        ]
+    },
+    {
+        "id": "bfa13e44d907afaf",
+        "type": "change",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Save Selected Vehicle",
+        "rules": [
+            {
+                "t": "set",
+                "p": "selectedVehicle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1280,
+        "y": 1130,
+        "wires": [
+            [
+                "01f4eedbc9a5eb14"
+            ]
+        ]
+    },
+    {
+        "id": "3ba770f657eae7f0",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Insert",
+        "x": 1040,
+        "y": 1200,
+        "wires": [
+            [
+                "06cf225e2c9d00b7"
+            ]
+        ]
+    },
+    {
+        "id": "01f4eedbc9a5eb14",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Format HUD Status",
+        "func": "let driver = flow.get('selectedDriver') || \"Choose Pilot\";\nlet vehicle = flow.get('selectedVehicle') || \"Choose Vehicle\";\n\nmsg.payload = `<div class=\"hud-setup-readout\">` +\n    `<span class=\"hud-setup-label\">Active Setup:</span> ` +\n    `<span class=\"hud-setup-driver\">${driver}</span> ` +\n    `<span class=\"hud-setup-separator\">driving</span> ` +\n    `<span class=\"hud-setup-vehicle\">${vehicle}</span>` +\n    `</div>`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1280,
+        "y": 1030,
+        "wires": [
+            [
+                "12b5c082372e753a"
+            ]
+        ]
+    },
+    {
+        "id": "12b5c082372e753a",
+        "type": "ui_text",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "group": "grp_v2_navigation",
+        "order": 2,
+        "width": "12",
+        "height": "1",
+        "name": "Active Setup Readout",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 14,
+        "color": "#000000",
+        "x": 1500,
+        "y": 1030,
+        "wires": []
+    },
+    {
+        "id": "409a676ed439b95d",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_recording",
+        "group": "d76caec142fa844d",
+        "name": "Session Status & Debrief",
+        "order": 10,
+        "width": 16,
+        "height": 2,
+        "format": "<div id=\"telemetry-hud-box\">\n    <!-- Standby Card -->\n    <div class=\"hud-banner hud-banner-standby\">\n        <div style=\"display: flex; align-items: center; gap: 10px;\">\n            <span class=\"hud-badge hud-badge-standby\">[STANDBY]</span>\n            <span style=\"font-size: 12px; font-weight: 600; color: #cbd5e1;\">SYSTEM READY // SELECT PILOT AND VEHICLE TO START SESSION</span>\n        </div>\n        <div style=\"font-size: 11px; color: #64748b; font-weight: 600;\">LABSIS TELEMETRY v2.0</div>\n    </div>\n</div>\n\n<script>\n(function(scope) {\n    scope.$watch('msg.payload', function(val) {\n        if (val) {\n            var el = document.getElementById('telemetry-hud-box');\n            if (el) el.innerHTML = val;\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 680,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_v2_add_vehicle",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "group": "d76caec142fa844d",
+        "name": "Add Vehicle & Specs HUD",
+        "order": 11,
+        "width": 16,
+        "height": 0,
+        "format": "<!-- CYBER COCKPIT MODAL OVERLAY (PERFECTLY CENTERED, BULLETPROOF CASCADE) -->\n<style>\n#cyber-fleet-modal {\n    position: fixed !important;\n    top: 0 !important;\n    left: 0 !important;\n    width: 100vw !important;\n    height: 100vh !important;\n    background: rgba(3, 7, 18, 0.88) !important;\n    backdrop-filter: blur(10px) !important;\n    -webkit-backdrop-filter: blur(10px) !important;\n    z-index: 999999 !important;\n    display: none;\n    box-sizing: border-box !important;\n    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;\n}\n\n#cyber-fleet-dialog {\n    position: fixed !important;\n    top: 50% !important;\n    left: 50% !important;\n    transform: translate(-50%, -50%) !important;\n    width: 90% !important;\n    max-width: 820px !important;\n    max-height: 88vh !important;\n    overflow-y: auto !important;\n    background: #0c1427 !important;\n    border: 1px solid rgba(6, 182, 212, 0.5) !important;\n    border-radius: 12px !important;\n    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(6, 182, 212, 0.35) !important;\n    padding: 22px !important;\n    color: #f8fafc !important;\n    box-sizing: border-box !important;\n    margin: 0 !important;\n}\n\n.fleet-select-input {\n    width: 100% !important;\n    background: #070c18 !important;\n    color: #f8fafc !important;\n    border: 1px solid #334155 !important;\n    border-radius: 6px !important;\n    padding: 8px 10px !important;\n    font-size: 11px !important;\n    font-weight: 600 !important;\n    outline: none !important;\n    box-sizing: border-box !important;\n}\n\n.fleet-select-input:disabled {\n    opacity: 0.5 !important;\n    cursor: not-allowed !important;\n}\n\n.fleet-mode-btn {\n    flex: 1;\n    padding: 8px 12px;\n    font-size: 11px;\n    font-weight: 700;\n    border: 1px solid;\n    border-radius: 6px;\n    cursor: pointer;\n    transition: all 0.2s;\n}\n\n/* Hide obsolete empty template card for Add Vehicle in Setup group */\nmd-card[node-id=\"ui_v2_add_vehicle\"],\nmd-card.nr-dashboard-template[node-id=\"ui_v2_add_vehicle\"] {\n    display: none !important;\n    height: 0 !important;\n    min-height: 0 !important;\n    max-height: 0 !important;\n    margin: 0 !important;\n    padding: 0 !important;\n    border: none !important;\n    box-shadow: none !important;\n    visibility: hidden !important;\n}\n\n</style>\n\n<div id=\"cyber-fleet-modal\" onclick=\"if(event.target.id === 'cyber-fleet-modal') window.closeCyberFleetModal();\">\n    <div id=\"cyber-fleet-dialog\" onclick=\"event.stopPropagation();\">\n        \n        <!-- Header -->\n        <div style=\"display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(51, 65, 85, 0.7); padding-bottom: 12px; margin-bottom: 16px;\">\n            <div style=\"display: flex; align-items: center; gap: 10px;\">\n                <span style=\"background: rgba(6, 182, 212, 0.15); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.5); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;\">[CATALOG]</span>\n                <span style=\"font-size: 14px; font-weight: 800; color: #f8fafc; letter-spacing: 0.5px;\">ADD VEHICLE TO FLEET</span>\n                <span style=\"font-size: 11px; color: #94a3b8; font-weight: 600;\">(25,373 MODELS 1995-2020)</span>\n            </div>\n            <button type=\"button\" id=\"fleet-modal-close-btn\" onclick=\"window.closeCyberFleetModal()\"\n                    style=\"background: rgba(30, 41, 59, 0.85); border: 1px solid rgba(148, 163, 184, 0.35); color: #cbd5e1; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 6px; cursor: pointer; transition: all 0.2s;\">\n                <i class=\"fa fa-times\" style=\"margin-right: 4px;\"></i> CLOSE\n            </button>\n        </div>\n\n        <!-- Mode Selector -->\n        <div style=\"display: flex; gap: 10px; margin-bottom: 16px;\">\n            <button type=\"button\" id=\"fleet-tab-catalog\" class=\"fleet-mode-btn\" onclick=\"window.setFleetMode('catalog')\"\n                    style=\"background: rgba(6, 182, 212, 0.25); border-color: #06b6d4; color: #38bdf8; box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);\">\n                <i class=\"fa fa-car\" style=\"margin-right: 6px;\"></i> COMMERCIAL CATALOG\n            </button>\n            <button type=\"button\" id=\"fleet-tab-custom\" class=\"fleet-mode-btn\" onclick=\"window.setFleetMode('custom')\"\n                    style=\"background: rgba(30, 41, 59, 0.5); border-color: #334155; color: #94a3b8;\">\n                <i class=\"fa fa-bolt\" style=\"margin-right: 6px;\"></i> CUSTOM / PROTOTYPE (ISEP FORMULA)\n            </button>\n        </div>\n\n        <!-- MODE 1: COMMERCIAL CATALOG -->\n        <div id=\"fleet-panel-catalog\">\n            <div style=\"display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;\">\n                <!-- 1. Brand -->\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #38bdf8; margin-bottom: 5px; letter-spacing: 0.3px;\">1. BRAND / MAKE</label>\n                    <select id=\"fleet-select-make\" class=\"fleet-select-input\" onchange=\"window.fleetOnMakeChange(this.value)\">\n                        <option value=\"\" disabled selected>Select Brand...</option>\n                    </select>\n                </div>\n\n                <!-- 2. Model / Series -->\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #38bdf8; margin-bottom: 5px; letter-spacing: 0.3px;\">2. MODEL / SERIES</label>\n                    <select id=\"fleet-select-model\" class=\"fleet-select-input\" disabled onchange=\"window.fleetOnModelChange(this.value)\">\n                        <option value=\"\" disabled selected>Select Brand First</option>\n                    </select>\n                </div>\n\n                <!-- 3. Engine / Trim / Version -->\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #38bdf8; margin-bottom: 5px; letter-spacing: 0.3px;\">3. ENGINE / VERSION</label>\n                    <select id=\"fleet-select-trim\" class=\"fleet-select-input\" disabled onchange=\"window.fleetOnTrimChange(this.value)\">\n                        <option value=\"\" disabled selected>Select Model First</option>\n                    </select>\n                </div>\n            </div>\n\n            <!-- HUD Technical Specs Card -->\n            <div id=\"fleet-hud-specs\" style=\"display: none; background: rgba(10, 16, 30, 0.95); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 8px; padding: 14px; margin-bottom: 16px; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.1);\">\n                <div style=\"display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;\">\n                    <div>\n                        <div id=\"hud-spec-title\" style=\"font-size: 14px; font-weight: 800; color: #f8fafc; letter-spacing: 0.3px;\">--</div>\n                        <div id=\"hud-spec-summary\" style=\"font-size: 11px; color: #38bdf8; font-weight: 600; margin-top: 2px;\">--</div>\n                    </div>\n                    <span id=\"hud-spec-drivetrain-badge\" style=\"background: rgba(6, 182, 212, 0.2); color: #06b6d4; border: 1px solid #06b6d4; font-weight: 800; font-size: 11px; padding: 3px 8px; border-radius: 4px;\">--</span>\n                </div>\n\n                <!-- 6 Spec Tiles -->\n                <div style=\"display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;\">\n                    <div style=\"padding: 8px 4px; text-align: center; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px;\">\n                        <div style=\"font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.5px;\">POWER</div>\n                        <div id=\"hud-stat-power\" style=\"font-size: 13px; font-weight: 800; color: #38bdf8; margin-top: 2px;\">--</div>\n                    </div>\n                    <div style=\"padding: 8px 4px; text-align: center; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px;\">\n                        <div style=\"font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.5px;\">WEIGHT</div>\n                        <div id=\"hud-stat-weight\" style=\"font-size: 13px; font-weight: 800; color: #fbbf24; margin-top: 2px;\">--</div>\n                    </div>\n                    <div style=\"padding: 8px 4px; text-align: center; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px;\">\n                        <div style=\"font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.5px;\">TORQUE</div>\n                        <div id=\"hud-stat-torque\" style=\"font-size: 13px; font-weight: 800; color: #34d399; margin-top: 2px;\">--</div>\n                    </div>\n                    <div style=\"padding: 8px 4px; text-align: center; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px;\">\n                        <div style=\"font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.5px;\">DRIVETRAIN</div>\n                        <div id=\"hud-stat-drivetrain\" style=\"font-size: 13px; font-weight: 800; color: #f43f5e; margin-top: 2px;\">--</div>\n                    </div>\n                    <div style=\"padding: 8px 4px; text-align: center; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px;\">\n                        <div style=\"font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.5px;\">0-100 KM/H</div>\n                        <div id=\"hud-stat-accel\" style=\"font-size: 13px; font-weight: 800; color: #a78bfa; margin-top: 2px;\">--</div>\n                    </div>\n                    <div style=\"padding: 8px 4px; text-align: center; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(51, 65, 85, 0.5); border-radius: 6px;\">\n                        <div style=\"font-size: 9px; font-weight: 700; color: #94a3b8; letter-spacing: 0.5px;\">TOP SPEED</div>\n                        <div id=\"hud-stat-speed\" style=\"font-size: 13px; font-weight: 800; color: #f8fafc; margin-top: 2px;\">--</div>\n                    </div>\n                </div>\n            </div>\n\n            <!-- Add Button -->\n            <button type=\"button\" id=\"fleet-btn-add-catalog\" onclick=\"window.fleetAddCatalogVehicle()\" disabled\n                    style=\"width: 100%; padding: 11px; background: #334155; opacity: 0.5; cursor: not-allowed; color: #f8fafc; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; border: none; border-radius: 6px; transition: all 0.2s;\">\n                <i class=\"fa fa-plus-circle\" style=\"margin-right: 6px;\"></i> ADD VEHICLE TO FLEET\n            </button>\n        </div>\n\n        <!-- MODE 2: CUSTOM PROTOTYPE -->\n        <div id=\"fleet-panel-custom\" style=\"display: none;\">\n            <div style=\"display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;\">\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #fbbf24; margin-bottom: 5px;\">PROTOTYPE / VEHICLE NAME</label>\n                    <input type=\"text\" id=\"fleet-custom-name\" placeholder=\"e.g. Formula ISEP FST-09e\" class=\"fleet-select-input\">\n                </div>\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #fbbf24; margin-bottom: 5px;\">POWER (HP)</label>\n                    <input type=\"number\" id=\"fleet-custom-power\" placeholder=\"e.g. 230\" class=\"fleet-select-input\">\n                </div>\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #fbbf24; margin-bottom: 5px;\">WEIGHT (KG)</label>\n                    <input type=\"number\" id=\"fleet-custom-weight\" placeholder=\"e.g. 235\" class=\"fleet-select-input\">\n                </div>\n                <div>\n                    <label style=\"display: block; font-size: 10px; font-weight: 700; color: #fbbf24; margin-bottom: 5px;\">DRIVETRAIN</label>\n                    <select id=\"fleet-custom-drivetrain\" class=\"fleet-select-input\">\n                        <option value=\"RWD\">RWD (Rear)</option>\n                        <option value=\"AWD\">AWD (All-Wheel)</option>\n                        <option value=\"FWD\">FWD (Front)</option>\n                    </select>\n                </div>\n            </div>\n\n            <button type=\"button\" onclick=\"window.fleetAddCustomVehicle()\"\n                    style=\"width: 100%; padding: 11px; background: linear-gradient(135deg, #d97706, #b45309); color: #f8fafc; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; border: none; border-radius: 6px; cursor: pointer; transition: all 0.2s;\">\n                <i class=\"fa fa-bolt\" style=\"margin-right: 6px;\"></i> ADD PROTOTYPE TO FLEET\n            </button>\n        </div>\n    </div>\n</div>\n\n<script>\n(function(scope) {\n    window.cyberFleetScope = scope;\n\n    var makes = [\n        \"AC\", \"ACURA\", \"ALFA ROMEO\", \"ALPINE\", \"ARIEL\", \"ARO\", \"ARTEGA\", \"ASTON MARTIN\", \"AUDI\", \"AURUS\",\n        \"BENTLEY\", \"BMW\", \"BRISTOL\", \"BUFORI\", \"BUGATTI\", \"BUICK\", \"CADILLAC\", \"CATERHAM\", \"CHEVROLET\", \"CHRYSLER\",\n        \"CITROEN\", \"CUPRA\", \"DACIA\", \"DAEWOO\", \"DAIHATSU\", \"DATSUN\", \"DODGE\", \"DONKERVOORT\", \"DR MOTOR\", \"DS AUTOMOBILES\",\n        \"EAGLE\", \"FERRARI\", \"FIAT\", \"FISKER\", \"FORD\", \"FSO\", \"GEELY\", \"GENESIS\", \"GMC\", \"GTA Motor\",\n        \"HINDUSTAN\", \"HOLDEN\", \"HONDA\", \"HUMMER\", \"HYUNDAI\", \"INFINITI\", \"ISUZU\", \"JAGUAR\", \"JEEP\", \"KIA\",\n        \"KOENIGSEGG\", \"KTM\", \"Karma\", \"LADA\", \"LAMBORGHINI\", \"LANCIA\", \"LAND ROVER\", \"LEXUS\", \"LINCOLN\", \"LOTUS\",\n        \"MARUSSIA\", \"MARUTI SUZUKI\", \"MASERATI\", \"MAYBACH\", \"MAZDA\", \"MCLAREN\", \"MERCEDES BENZ\", \"MERCURY\", \"MG\", \"MINI\",\n        \"MITSUBISHI\", \"MORGAN\", \"Mahindra\", \"Mercedes-AMG\", \"NIO\", \"NISSAN\", \"OLDSMOBILE\", \"OPEL\", \"PAGANI\", \"PANOZ\",\n        \"PERODUA\", \"PEUGEOT\", \"PLYMOUTH\", \"PONTIAC\", \"PORSCHE\", \"PROTON\", \"Pininfarina\", \"Polestar\", \"QOROS\", \"RAM Trucks\",\n        \"RENAULT\", \"ROLLS-ROYCE\", \"SAAB\", \"SALEEN\", \"SAMSUNG\", \"SANTANA\", \"SATURN\", \"SCION\", \"SEAT\", \"SKODA\",\n        \"SMART\", \"SPYKER\", \"SSANGYONG\", \"SUBARU\", \"SUZUKI\", \"TATA MOTORS\", \"TESLA\", \"TOYOTA\", \"TVR\", \"VAUXHALL\",\n        \"VOLKSWAGEN\", \"VOLVO\", \"WIESMANN\", \"Xpeng\", \"ZENDER\", \"Zenvo\"\n    ];\n\n    window.currentFleetModels = [];\n    window.currentFleetTrims = [];\n    window.selectedFleetMake = '';\n    window.selectedFleetModel = '';\n    window.selectedFleetTrim = null;\n\n    // Move modal to body so it escapes all Angular Material containing blocks\n    function ensureModalInBody() {\n        var modal = document.getElementById('cyber-fleet-modal');\n        if (modal && modal.parentElement !== document.body) {\n            document.body.appendChild(modal);\n        }\n    }\n    setTimeout(ensureModalInBody, 50);\n    setTimeout(ensureModalInBody, 500);\n\n    // Initialize Make select\n    function initMakeSelect() {\n        var sel = document.getElementById('fleet-select-make');\n        if (!sel || sel.options.length > 1) return;\n        makes.forEach(function(m) {\n            var opt = document.createElement('option');\n            opt.value = m;\n            opt.textContent = m;\n            sel.appendChild(opt);\n        });\n    }\n    setTimeout(initMakeSelect, 100);\n\n    // Window open & close functions\n    window.openCyberFleetModal = function() {\n        ensureModalInBody();\n        initMakeSelect();\n        var modal = document.getElementById('cyber-fleet-modal');\n        if (modal) {\n            modal.style.setProperty('display', 'block', 'important');\n        }\n        scope.isOpen = true;\n    };\n\n    window.closeCyberFleetModal = function() {\n        var modal = document.getElementById('cyber-fleet-modal');\n        if (modal) {\n            modal.style.setProperty('display', 'none', 'important');\n        }\n        scope.isOpen = false;\n    };\n\n    // Mode switch\n    window.setFleetMode = function(mode) {\n        var pCat = document.getElementById('fleet-panel-catalog');\n        var pCus = document.getElementById('fleet-panel-custom');\n        var bCat = document.getElementById('fleet-tab-catalog');\n        var bCus = document.getElementById('fleet-tab-custom');\n        if (mode === 'catalog') {\n            if (pCat) pCat.style.display = 'block';\n            if (pCus) pCus.style.display = 'none';\n            if (bCat) {\n                bCat.style.background = 'rgba(6, 182, 212, 0.25)';\n                bCat.style.borderColor = '#06b6d4';\n                bCat.style.color = '#38bdf8';\n                bCat.style.boxShadow = '0 0 12px rgba(6, 182, 212, 0.3)';\n            }\n            if (bCus) {\n                bCus.style.background = 'rgba(30, 41, 59, 0.5)';\n                bCus.style.borderColor = '#334155';\n                bCus.style.color = '#94a3b8';\n                bCus.style.boxShadow = 'none';\n            }\n        } else {\n            if (pCat) pCat.style.display = 'none';\n            if (pCus) pCus.style.display = 'block';\n            if (bCus) {\n                bCus.style.background = 'rgba(245, 158, 11, 0.25)';\n                bCus.style.borderColor = '#f59e0b';\n                bCus.style.color = '#fbbf24';\n                bCus.style.boxShadow = '0 0 12px rgba(245, 158, 11, 0.3)';\n            }\n            if (bCat) {\n                bCat.style.background = 'rgba(30, 41, 59, 0.5)';\n                bCat.style.borderColor = '#334155';\n                bCat.style.color = '#94a3b8';\n                bCat.style.boxShadow = 'none';\n            }\n        }\n    };\n\n    // Make change\n    window.fleetOnMakeChange = function(make) {\n        window.selectedFleetMake = make;\n        window.selectedFleetModel = '';\n        window.selectedFleetTrim = null;\n        window.currentFleetModels = [];\n        window.currentFleetTrims = [];\n\n        var mSel = document.getElementById('fleet-select-model');\n        var tSel = document.getElementById('fleet-select-trim');\n        var hud = document.getElementById('fleet-hud-specs');\n        var btnAdd = document.getElementById('fleet-btn-add-catalog');\n\n        if (mSel) {\n            mSel.innerHTML = '<option value=\"\" disabled selected>Loading Models...</option>';\n            mSel.disabled = true;\n        }\n        if (tSel) {\n            tSel.innerHTML = '<option value=\"\" disabled selected>Select Model First</option>';\n            tSel.disabled = true;\n        }\n        if (hud) hud.style.display = 'none';\n        if (btnAdd) {\n            btnAdd.disabled = true;\n            btnAdd.style.background = '#334155';\n            btnAdd.style.opacity = '0.5';\n            btnAdd.style.cursor = 'not-allowed';\n        }\n\n        if (make) {\n            scope.send({\n                action: 'get_models',\n                make: make,\n                payload: { action: 'get_models', make: make }\n            });\n        }\n    };\n\n    // Model change\n    window.fleetOnModelChange = function(model) {\n        window.selectedFleetModel = model;\n        window.selectedFleetTrim = null;\n        window.currentFleetTrims = [];\n\n        var tSel = document.getElementById('fleet-select-trim');\n        var hud = document.getElementById('fleet-hud-specs');\n        var btnAdd = document.getElementById('fleet-btn-add-catalog');\n\n        if (tSel) {\n            tSel.innerHTML = '<option value=\"\" disabled selected>Loading Versions...</option>';\n            tSel.disabled = true;\n        }\n        if (hud) hud.style.display = 'none';\n        if (btnAdd) {\n            btnAdd.disabled = true;\n            btnAdd.style.background = '#334155';\n            btnAdd.style.opacity = '0.5';\n            btnAdd.style.cursor = 'not-allowed';\n        }\n\n        if (window.selectedFleetMake && model) {\n            scope.send({\n                action: 'get_trims',\n                make: window.selectedFleetMake,\n                serie: model,\n                payload: { action: 'get_trims', make: window.selectedFleetMake, serie: model }\n            });\n        }\n    };\n\n    // Trim change\n    window.fleetOnTrimChange = function(trimIdx) {\n        var idx = parseInt(trimIdx);\n        var t = window.currentFleetTrims[idx];\n        window.selectedFleetTrim = t;\n\n        var hud = document.getElementById('fleet-hud-specs');\n        var btnAdd = document.getElementById('fleet-btn-add-catalog');\n\n        if (!t) {\n            if (hud) hud.style.display = 'none';\n            if (btnAdd) {\n                btnAdd.disabled = true;\n                btnAdd.style.background = '#334155';\n                btnAdd.style.opacity = '0.5';\n                btnAdd.style.cursor = 'not-allowed';\n            }\n            return;\n        }\n\n        // Populate HUD specs\n        if (hud) hud.style.display = 'block';\n        document.getElementById('hud-spec-title').textContent = t.model || '--';\n        document.getElementById('hud-spec-summary').textContent = t.spec_summary || 'Standard Factory Spec';\n        document.getElementById('hud-spec-drivetrain-badge').textContent = t.drivetrain || 'FWD';\n\n        document.getElementById('hud-stat-power').innerHTML = (t.power_hp ? t.power_hp : '--') + ' <span style=\"font-size:8px;color:#94a3b8;\">HP</span>';\n        document.getElementById('hud-stat-weight').innerHTML = (t.weight_kg ? t.weight_kg : '--') + ' <span style=\"font-size:8px;color:#94a3b8;\">kg</span>';\n        document.getElementById('hud-stat-torque').innerHTML = (t.torque_nm ? t.torque_nm : '--') + ' <span style=\"font-size:8px;color:#94a3b8;\">Nm</span>';\n        document.getElementById('hud-stat-drivetrain').textContent = t.drivetrain || '--';\n        document.getElementById('hud-stat-accel').textContent = t.accel_0_100_s ? (t.accel_0_100_s + 's') : '--';\n        document.getElementById('hud-stat-speed').innerHTML = (t.top_speed_kmh ? t.top_speed_kmh : '--') + ' <span style=\"font-size:8px;color:#94a3b8;\">km/h</span>';\n\n        if (btnAdd) {\n            btnAdd.disabled = false;\n            btnAdd.style.background = 'linear-gradient(135deg, #059669, #0d9488)';\n            btnAdd.style.opacity = '1';\n            btnAdd.style.cursor = 'pointer';\n        }\n    };\n\n    // Add Catalog Vehicle\n    window.fleetAddCatalogVehicle = function() {\n        var t = window.selectedFleetTrim;\n        if (!t) return;\n        var fullName = t.spec_summary ? (t.model + \" // \" + t.spec_summary) : t.model;\n        var veh = {\n            name: fullName,\n            catalog_id: t.id,\n            weight_kg: t.weight_kg,\n            power_hp: t.power_hp,\n            drivetrain: t.drivetrain,\n            spec_summary: t.spec_summary\n        };\n        scope.send({\n            action: 'add_vehicle',\n            vehicle: veh,\n            payload: { action: 'add_vehicle', vehicle: veh }\n        });\n        window.closeCyberFleetModal();\n    };\n\n    // Add Custom Prototype\n    window.fleetAddCustomVehicle = function() {\n        var nameInput = document.getElementById('fleet-custom-name');\n        var powerInput = document.getElementById('fleet-custom-power');\n        var weightInput = document.getElementById('fleet-custom-weight');\n        var driveInput = document.getElementById('fleet-custom-drivetrain');\n\n        var name = nameInput ? nameInput.value.trim() : '';\n        if (!name) return;\n\n        var power = powerInput && powerInput.value ? Number(powerInput.value) : 0;\n        var weight = weightInput && weightInput.value ? Number(weightInput.value) : null;\n        var drivetrain = driveInput ? driveInput.value : 'RWD';\n\n        var fullName = \"[PROTOTYPE] \" + name + \" // \" + power + \"HP \" + drivetrain;\n        var veh = {\n            name: fullName,\n            catalog_id: null,\n            weight_kg: weight,\n            power_hp: power,\n            drivetrain: drivetrain,\n            spec_summary: \"Custom Prototype \" + power + \"HP \" + drivetrain\n        };\n        scope.send({\n            action: 'add_vehicle',\n            vehicle: veh,\n            payload: { action: 'add_vehicle', vehicle: veh }\n        });\n\n        if (nameInput) nameInput.value = '';\n        if (powerInput) powerInput.value = '';\n        if (weightInput) weightInput.value = '';\n\n        window.closeCyberFleetModal();\n    };\n\n    // Bind '+ NEW CAR' button\n    function hookNewCarButton() {\n        var btn = document.querySelector('[node-id=\"ui_v2_btn_new_car\"] button, [node-id=\"ui_v2_btn_new_car\"] .md-button');\n        if (!btn) {\n            var btns = document.querySelectorAll('button, .md-button');\n            for (var i = 0; i < btns.length; i++) {\n                if (btns[i].innerText && btns[i].innerText.indexOf('NEW CAR') !== -1) {\n                    btn = btns[i];\n                    break;\n                }\n            }\n        }\n        if (btn && !btn._hasFleetHook) {\n            btn._hasFleetHook = true;\n            btn.addEventListener('click', function(e) {\n                e.preventDefault();\n                e.stopPropagation();\n                window.openCyberFleetModal();\n            }, true);\n        }\n    }\n    setTimeout(hookNewCarButton, 200);\n    setTimeout(hookNewCarButton, 800);\n    setTimeout(hookNewCarButton, 2000);\n\n    // Escape key closes modal\n    document.addEventListener('keydown', function(e) {\n        if (e.key === 'Escape') {\n            window.closeCyberFleetModal();\n        }\n    });\n\n    // Listen to incoming messages from backend\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n\n        // Toggle from external message\n        if (msg.toggle || (msg.payload && msg.payload.toggle) || msg.topic === 'toggle_new_car') {\n            window.openCyberFleetModal();\n            return;\n        }\n\n        var p = msg.payload;\n        if (!p) return;\n\n        // Process models list\n        if (p.type === 'models') {\n            window.currentFleetModels = p.models || [];\n            var mSel = document.getElementById('fleet-select-model');\n            if (mSel) {\n                mSel.innerHTML = '';\n                var def = document.createElement('option');\n                def.value = '';\n                def.disabled = true;\n                def.textContent = window.currentFleetModels.length ? 'Select Model...' : 'Select Brand First';\n                mSel.appendChild(def);\n\n                window.currentFleetModels.forEach(function(m) {\n                    var opt = document.createElement('option');\n                    opt.value = m;\n                    opt.textContent = m;\n                    mSel.appendChild(opt);\n                });\n\n                if (window.currentFleetModels.length > 0) {\n                    mSel.disabled = false;\n                    mSel.value = window.currentFleetModels[0];\n                    window.fleetOnModelChange(window.currentFleetModels[0]);\n                } else {\n                    mSel.disabled = true;\n                }\n            }\n        }\n\n        // Process trims list\n        if (p.type === 'trims') {\n            window.currentFleetTrims = p.trims || [];\n            var tSel = document.getElementById('fleet-select-trim');\n            if (tSel) {\n                tSel.innerHTML = '';\n                var def = document.createElement('option');\n                def.value = '';\n                def.disabled = true;\n                def.textContent = window.currentFleetTrims.length ? 'Select Version...' : 'Select Model First';\n                tSel.appendChild(def);\n\n                window.currentFleetTrims.forEach(function(t, idx) {\n                    var opt = document.createElement('option');\n                    opt.value = idx;\n                    opt.textContent = (t.spec_summary || (t.power_hp + ' HP ' + t.drivetrain)) + ' (' + t.year_start + ')';\n                    tSel.appendChild(opt);\n                });\n\n                if (window.currentFleetTrims.length > 0) {\n                    tSel.disabled = false;\n                    tSel.value = \"0\";\n                    window.fleetOnTrimChange(0);\n                } else {\n                    tSel.disabled = true;\n                }\n            }\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 180,
+        "y": 1200,
+        "wires": [
+            [
+                "fn_v2_catalog_dispatcher"
+            ]
+        ]
+    },
+    {
+        "id": "fn_v2_catalog_dispatcher",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Catalog Dispatcher",
+        "func": "let p = (typeof msg.payload === 'object' && msg.payload !== null) ? msg.payload : {};\nlet action = msg.action || p.action || msg.topic || \"\";\nlet make = msg.make || p.make || \"\";\nlet serie = msg.serie || p.serie || \"\";\nlet vehicle = msg.vehicle || p.vehicle || null;\n\n// 1. GET MODELS FOR A MAKE\nif (action === \"get_models\" && make) {\n    let cleanMake = String(make).replace(/'/g, \"''\");\n    let sql = `SELECT DISTINCT serie FROM car_catalog WHERE make = '${cleanMake}' ORDER BY serie;`;\n    return [{ topic: sql, _action: \"get_models\", _make: make }, null, null];\n}\n\n// 2. GET TRIMS FOR A MAKE & SERIE\nif (action === \"get_trims\" && make && serie) {\n    let cleanMake = String(make).replace(/'/g, \"''\");\n    let cleanSerie = String(serie).replace(/'/g, \"''\");\n    let sql = `SELECT id, model, year_start, year_end, displacement_cc, power_hp, power_rpm, torque_nm, drivetrain, weight_kg, top_speed_kmh, accel_0_100_s, spec_summary FROM car_catalog WHERE make = '${cleanMake}' AND serie = '${cleanSerie}' ORDER BY year_start DESC, power_hp DESC, id DESC;`;\n    return [{ topic: sql, _action: \"get_trims\", _make: make, _serie: serie }, null, null];\n}\n\n// 3. ADD VEHICLE TO GARAGE\nif (action === \"add_vehicle\" && vehicle) {\n    let v = vehicle;\n    let name = String(v.name || \"\").trim();\n    if (!name) {\n        let alertMsg = {\n            payload: `\n<div class=\"hud-banner hud-banner-alert\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-alert\">[ALERT]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #fde68a;\">CANNOT ADD VEHICLE WITH EMPTY NAME</span>\n    </div>\n    <div style=\"font-size: 11px; color: #d97706; font-weight: 600;\">ACTION BLOCKED</div>\n</div>`\n        };\n        return [null, null, alertMsg];\n    }\n\n    let catId = v.catalog_id ? Number(v.catalog_id) : \"NULL\";\n    let weight = v.weight_kg ? Number(v.weight_kg) : \"NULL\";\n    let power = v.power_hp ? Number(v.power_hp) : \"NULL\";\n    let drivetrain = v.drivetrain ? `'${String(v.drivetrain).replace(/'/g, \"''\")}'` : \"NULL\";\n    let spec = v.spec_summary ? `'${String(v.spec_summary).replace(/'/g, \"''\")}'` : \"NULL\";\n\n    flow.set('selectedVehicle', name); // Auto-select newly added vehicle!\n    if (Number(v.weight_kg) > 0) flow.set('vehicleWeight', Number(v.weight_kg));\n    if (Number(v.power_hp) > 0) flow.set('vehiclePower', Number(v.power_hp));\n    if (v.drivetrain) flow.set('vehicleDrivetrain', String(v.drivetrain));\n    if (v.spec_summary) flow.set('vehicleSpecSummary', String(v.spec_summary));\n\n    let insertSql = {\n        topic: `INSERT OR REPLACE INTO vehicles (name, catalog_id, weight_kg, power_hp, drivetrain, spec_summary) VALUES ('${name.replace(/'/g, \"''\")}', ${catId}, ${weight}, ${power}, ${drivetrain}, ${spec});`\n    };\n\n    let bannerMsg = {\n        payload: `\n<div class=\"hud-banner hud-banner-standby\">\n    <div style=\"display: flex; align-items: center; gap: 10px;\">\n        <span class=\"hud-badge hud-badge-completed\">[GARAGE]</span>\n        <span style=\"font-size: 12px; font-weight: 600; color: #a7f3d0;\">VEHICLE ADDED TO FLEET: <strong style=\"color: #34d399;\">${name}</strong></span>\n    </div>\n    <div style=\"font-size: 11px; color: #38bdf8; font-weight: 600;\">FLEET UPDATED</div>\n</div>`\n    };\n\n    return [null, insertSql, bannerMsg];\n}\n\nreturn null;",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 1200,
+        "wires": [
+            [
+                "sqlite_catalog_read"
+            ],
+            [
+                "3ba770f657eae7f0"
+            ],
+            [
+                "409a676ed439b95d"
+            ]
+        ]
+    },
+    {
+        "id": "sqlite_catalog_read",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "SQLite Catalog Read",
+        "x": 680,
+        "y": 1200,
+        "wires": [
+            [
+                "fn_v2_catalog_formatter"
+            ]
+        ]
+    },
+    {
+        "id": "fn_v2_catalog_formatter",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Catalog Formatter",
+        "func": "let action = msg._action || \"\";\nlet topic = msg.topic || \"\";\n\nif (action === \"get_models\" || topic.includes(\"SELECT DISTINCT serie\")) {\n    let rows = msg.payload || [];\n    let models = rows.map(r => r.serie).filter(Boolean);\n    return { payload: { type: \"models\", models: models } };\n}\n\nif (action === \"get_trims\" || topic.includes(\"car_catalog WHERE make =\")) {\n    let rows = msg.payload || [];\n    return { payload: { type: \"trims\", trims: rows } };\n}\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 900,
+        "y": 1200,
+        "wires": [
+            [
+                "ui_v2_add_vehicle"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_btn_new_car",
+        "type": "ui_button",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "New Car Toggle Btn",
+        "group": "d76caec142fa844d",
+        "order": 7,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "+ NEW CAR",
+        "tooltip": "Click to open car catalog and add new vehicle",
+        "color": "#f8fafc",
+        "bgcolor": "#0891b2",
+        "className": "",
+        "icon": "fa-car",
+        "payload": "{\"toggle\": true}",
+        "payloadType": "json",
+        "topic": "toggle_new_car",
+        "topicType": "str",
+        "x": 180,
+        "y": 1150,
+        "wires": [
+            [
+                "ui_v2_add_vehicle"
+            ]
+        ]
+    },
+    {
+        "id": "ui_v2_mass_setup",
+        "type": "ui_template",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "group": "d76caec142fa844d",
+        "name": "Crew & Ballast Mass Setup",
+        "order": 5,
+        "width": 16,
+        "height": 1,
+        "format": "<!-- CREW & BALLAST MASS SETUP (ROW 2 BELOW PILOT) -->\n<style>\n    .hud-mass-container input[type=number]::-webkit-inner-spin-button,\n    .hud-mass-container input[type=number]::-webkit-outer-spin-button {\n        -webkit-appearance: none;\n        margin: 0;\n    }\n    .hud-mass-container input[type=number] {\n        -moz-appearance: textfield;\n    }\n</style>\n\n<div class=\"hud-mass-container\" style=\"display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; height: 100%; max-height: 44px; padding: 0 4px; box-sizing: border-box; overflow: hidden; flex-wrap: nowrap; font-family: 'Inter', sans-serif;\">\n    <!-- Section Title -->\n    <div style=\"display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 110px;\">\n        <i class=\"fa fa-users\" style=\"color: #38bdf8; font-size: 13px;\"></i>\n        <span style=\"font-size: 11px; font-weight: 700; color: #f8fafc; letter-spacing: 0.5px; white-space: nowrap;\">CREW & MASS:</span>\n    </div>\n\n    <!-- Pilot Weight Input -->\n    <div style=\"display: flex; align-items: center; gap: 5px; flex: 1; min-width: 0;\">\n        <span style=\"font-size: 10px; font-weight: 700; color: #94a3b8; white-space: nowrap; flex-shrink: 0;\">PILOT:</span>\n        <div style=\"position: relative; width: 100%; min-width: 0;\">\n            <input type=\"number\" ng-model=\"pilotWeight\" ng-change=\"updateMass()\" min=\"0\" max=\"300\"\n                   style=\"width: 100%; background: #070c18; color: #38bdf8; font-weight: 700; border: 1px solid #334155; border-radius: 6px; padding: 4px 22px 4px 6px; font-size: 11px; outline: none; box-sizing: border-box;\">\n            <span style=\"position: absolute; right: 5px; top: 50%; transform: translateY(-50%); font-size: 10px; color: #64748b; font-weight: 600; pointer-events: none;\">kg</span>\n        </div>\n    </div>\n\n    <!-- Passengers & Cargo / Ballast Input -->\n    <div style=\"display: flex; align-items: center; gap: 5px; flex: 1; min-width: 0;\">\n        <span style=\"font-size: 10px; font-weight: 700; color: #94a3b8; white-space: nowrap; flex-shrink: 0;\">PASSENGERS:</span>\n        <div style=\"position: relative; width: 100%; min-width: 0;\">\n            <input type=\"number\" ng-model=\"passengerWeight\" ng-change=\"updateMass()\" min=\"0\" max=\"600\"\n                   style=\"width: 100%; background: #070c18; color: #fbbf24; font-weight: 700; border: 1px solid #334155; border-radius: 6px; padding: 4px 22px 4px 6px; font-size: 11px; outline: none; box-sizing: border-box;\">\n            <span style=\"position: absolute; right: 5px; top: 50%; transform: translateY(-50%); font-size: 10px; color: #64748b; font-weight: 600; pointer-events: none;\">kg</span>\n        </div>\n    </div>\n\n    <!-- Live Total Payload & Estimated Gross Mass Badge (Fixed Width to prevent layout flutter) -->\n    <div style=\"display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 6px; padding: 4px 8px; white-space: nowrap; flex-shrink: 0; min-width: 230px; box-sizing: border-box;\">\n        <div style=\"font-size: 10px; color: #94a3b8; font-weight: 600;\">PAYLOAD: <strong style=\"color: #34d399; font-size: 11px;\">+{{ (pilotWeight || 0) + (passengerWeight || 0) }} kg</strong></div>\n        <span style=\"color: #475569;\">|</span>\n        <div style=\"font-size: 10px; color: #94a3b8; font-weight: 600;\">GROSS MASS: <strong style=\"color: #38bdf8; font-size: 11px;\">{{ (curbWeight || 1635) + (pilotWeight || 0) + (passengerWeight || 0) }} kg</strong></div>\n    </div>\n</div>\n\n<script>\n(function(scope) {\n    scope.pilotWeight = 75;\n    scope.passengerWeight = 0;\n    scope.curbWeight = 1635;\n    setTimeout(function() {\n        if (!scope.isMountedSent) {\n            scope.isMountedSent = true;\n            scope.updateMass();\n        }\n    }, 350);\n\n    // Called ONLY when the user manually changes Pilot or Passenger inputs\n    scope.updateMass = function() {\n        var pw = Number(scope.pilotWeight) || 0;\n        var pasw = Number(scope.passengerWeight) || 0;\n        var totalPayload = pw + pasw;\n        scope.send({\n            payload: {\n                pilotWeight: pw,\n                passengerWeight: pasw,\n                payloadWeight: totalPayload,\n                curbWeight: scope.curbWeight,\n                totalMassKg: scope.curbWeight + totalPayload\n            }\n        });\n    };\n\n    // Watch for incoming vehicle curb weight updates from the server\n    scope.$watch('msg', function(msg) {\n        if (!msg) return;\n        var p = msg.payload || msg;\n        if (p && p.curbWeight !== undefined) {\n            var newW = Number(p.curbWeight);\n            if (!isNaN(newW) && newW > 0 && newW !== scope.curbWeight) {\n                // Update local scope cleanly without triggering recursive scope.send() loop!\n                scope.curbWeight = newW;\n            }\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": false,
+        "fwdInMessages": false,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 380,
+        "y": 1080,
+        "wires": [
+            [
+                "fn_v2_save_mass"
+            ]
+        ]
+    },
+    {
+        "id": "fn_v2_save_mass",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Save Crew & Vehicle Mass",
+        "func": "let p = msg.payload || msg;\nlet rawPw = Number(p.pilotWeight);\nlet pw = (p.pilotWeight !== undefined && p.pilotWeight !== null && p.pilotWeight !== '' && Number.isFinite(rawPw) && rawPw >= 0) ? rawPw : 75;\nlet rawPasw = Number(p.passengerWeight);\nlet pasw = (p.passengerWeight !== undefined && p.passengerWeight !== null && p.passengerWeight !== '' && Number.isFinite(rawPasw) && rawPasw >= 0) ? rawPasw : 0;\nlet payloadTotal = pw + pasw;\n\nflow.set('pilotWeight', pw);\nflow.set('passengerWeight', pasw);\nflow.set('payloadWeight', payloadTotal);\n\nlet curbWeight = Number(flow.get('vehicleWeight')) || (Number(p.curbWeight) > 0 ? Number(p.curbWeight) : 1635);\nlet totalMass = curbWeight + payloadTotal;\nflow.set('totalMassKg', totalMass);\n\nreturn null;",
+        "outputs": 0,
+        "noerr": 0,
+        "x": 620,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "fn_v2_sync_vehicle_specs",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Sync Vehicle Specs & Mass",
+        "func": "let vehName = (typeof msg.payload === 'string') ? msg.payload : (msg.payload && msg.payload.name ? msg.payload.name : \"\");\nif (!vehName) {\n    vehName = flow.get('selectedVehicle') || \"\";\n}\nflow.set('selectedVehicle', vehName);\n\nif (!vehName) return null;\n\n// Query vehicles table to get curb weight, power, and drivetrain\nlet cleanName = vehName.replace(/'/g, \"''\");\nlet sql = `SELECT weight_kg, power_hp, drivetrain, spec_summary FROM vehicles WHERE name = '${cleanName}' LIMIT 1;`;\n\nreturn [{ topic: sql, _vehName: vehName }];",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1040,
+        "y": 1180,
+        "wires": [
+            [
+                "sqlite_veh_specs_read"
+            ]
+        ]
+    },
+    {
+        "id": "sqlite_veh_specs_read",
+        "type": "sqlite",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "mydb": "32600c48776033fd",
+        "sqlquery": "msg.topic",
+        "sql": "",
+        "name": "Read Vehicle Specs",
+        "x": 1260,
+        "y": 1180,
+        "wires": [
+            [
+                "fn_v2_apply_vehicle_specs"
+            ]
+        ]
+    },
+    {
+        "id": "fn_v2_apply_vehicle_specs",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_setup",
+        "name": "Apply Specs to Physics Engine",
+        "func": "let rows = msg.payload || [];\nlet curbWeight = 1635;\nlet powerHp = 204;\nlet drivetrain = \"FWD\";\nlet specSummary = \"\";\n\nif (rows.length > 0 && rows[0].weight_kg) {\n    curbWeight = Number(rows[0].weight_kg);\n    powerHp = Number(rows[0].power_hp) || 204;\n    drivetrain = rows[0].drivetrain || \"FWD\";\n    specSummary = rows[0].spec_summary || \"\";\n}\n\nflow.set('vehicleWeight', curbWeight);\nflow.set('vehiclePower', powerHp);\nflow.set('vehicleDrivetrain', drivetrain);\nflow.set('vehicleSpecSummary', specSummary);\n\nlet storedPw = flow.get('pilotWeight');\nlet pw = (storedPw !== undefined && storedPw !== null && Number.isFinite(Number(storedPw))) ? Number(storedPw) : 75;\nlet storedPasw = flow.get('passengerWeight');\nlet pasw = (storedPasw !== undefined && storedPasw !== null && Number.isFinite(Number(storedPasw))) ? Number(storedPasw) : 0;\nlet payload = pw + pasw;\nflow.set('payloadWeight', payload);\nlet totalMass = curbWeight + payload;\nflow.set('totalMassKg', totalMass);\n\nreturn [\n    { payload: { curbWeight: curbWeight, totalMass: totalMass, powerHp: powerHp } },\n    { payload: flow.get('selectedVehicle') }\n];",
+        "outputs": 2,
+        "noerr": 0,
+        "x": 1490,
+        "y": 1180,
+        "wires": [
+            [
+                "ui_v2_mass_setup"
+            ],
+            [
+                "01f4eedbc9a5eb14"
+            ]
+        ]
+    },
+    {
+        "id": "link_pdf_email_in",
+        "type": "link in",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_safety",
+        "name": "In: Debrief PDF Email",
+        "links": [
+            "link_pdf_email_out"
+        ],
+        "x": 1360,
+        "y": 280,
+        "wires": [
+            [
+                "7f684ab1d2c07cd2"
+            ]
+        ]
+    },
+    {
+        "id": "fn_pdf_trigger_prep",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_pdf_engine",
+        "name": "Trigger Debrief Prep (1s Delay)",
+        "func": "let tripId = msg.payload || msg.tripId;\nlet driver = msg.driver || flow.get('selectedDriver') || 'Pilot';\nlet driverEmail = msg.driverEmail || flow.get('selectedDriverEmail') || '';\n\n// Wait 1.0s to allow SQLite async writes to complete\nsetTimeout(() => {\n    node.send({\n        payload: tripId,\n        tripId: tripId,\n        driver: driver,\n        driverEmail: driverEmail\n    });\n}, 1000);\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 980,
+        "y": 1355,
+        "wires": [
+            [
+                "exec_pdf_generator"
+            ]
+        ]
+    },
+    {
+        "id": "exec_pdf_generator",
+        "type": "exec",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_pdf_engine",
+        "command": "node \"C:/Users/danie/labsis_telemetry/generate_trip_debrief.js\"",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "45",
+        "winHide": true,
+        "oldrc": false,
+        "name": "Generate Debrief PDF (Edge Headless)",
+        "x": 1200,
+        "y": 1355,
+        "wires": [
+            [
+                "fn_pdf_email_dispatch_prep"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "fn_pdf_email_dispatch_prep",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_pdf_engine",
+        "name": "Format Email & Attachment",
+        "func": "let res = {};\ntry {\n    let out = String(msg.payload || '');\n    let marker = '--- RESULT JSON ---';\n    let idx = out.indexOf(marker);\n    if (idx !== -1) {\n        res = JSON.parse(out.substring(idx + marker.length).trim());\n    } else {\n        res = JSON.parse(out);\n    }\n} catch (e) {\n    node.error('Failed to parse PDF generator output: ' + e.message);\n    return null;\n}\n\nif (!res.success || !res.pdfPath) {\n    node.warn('PDF generator failed: ' + JSON.stringify(res));\n    return null;\n}\n\n// Always dispatch to admin (alerts@example.com) AND the driver's DB/session email (deduplicated)\nlet recipients = [\"alerts@example.com\"];\nlet driverEmail = String(res.driverEmail || flow.get('selectedDriverEmail') || \"\").trim();\nif (driverEmail && driverEmail !== 'N/A' && !recipients.includes(driverEmail)) {\n    recipients.push(driverEmail);\n}\nlet driverName = res.driverName || flow.get('selectedDriver') || 'Pilot';\n\nnode.log('Dispatching PDF Debrief to ' + recipients.join(', ') + ' for session ' + res.sessionId);\n\nlet scoreTopic = res.isInsufficientData ? ' [INSUFFICIENT DATA]' : ' [Score: ' + res.score + '/100]';\nlet scoreBody = res.isInsufficientData ? 'INSUFFICIENT DATA (< 1500 SAMPLES / 5 MIN REQUIRED)' : (res.score + ' / 100 (' + res.tier + ')');\n\nreturn {\n    to: recipients.join(', '),\n    topic: 'Labsis Telemetry - Trip Debrief Report #' + res.sessionId + scoreTopic,\n    payload: 'Hello ' + driverName + ',\\n\\nYour telemetry session has concluded. Attached is your official Labsis Telemetry Performance & Dynamics Debrief Report.\\n\\n• Session ID: ' + res.sessionId + '\\n• Certified Score: ' + scoreBody + '\\n• Distance Travelled: ' + res.totalDistanceKm + ' km\\n• Total Safety Events: ' + res.incidentsCount + '\\n\\nPlease review your GPS trajectory and driving dynamics breakdown in the attached PDF document.\\n\\nDrive safe,\\nLabsis Telemetry Engineering Team',\n    attachments: [\n        {\n            filename: 'Session_' + res.sessionId + '_Debrief.pdf',\n            path: res.pdfPath\n        }\n    ]\n};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 1355,
+        "wires": [
+            [
+                "link_pdf_email_out"
+            ]
+        ]
+    },
+    {
+        "id": "link_pdf_email_out",
+        "type": "link out",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_pdf_engine",
+        "name": "Out: Send Debrief PDF",
+        "mode": "link",
+        "links": [
+            "link_pdf_email_in"
+        ],
+        "x": 1610,
+        "y": 1355,
+        "wires": []
+    },
+    {
+        "id": "27da4118d672735b",
+        "type": "debug",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 770,
+        "wires": []
+    },
+    {
+        "id": "fn_v2_telemetry_gateway",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Telemetry Filter Gateway (5 Hz Speed)",
+        "func": "let d = msg.payload;\nif (!d || typeof d !== 'object') return msg;\n\nlet rawSpeed = Number(d.speed) || 0;\nlet now = Date.now();\n\n// Memória de contexto entre pacotes de 5 Hz\nlet lastValidSpeed = context.get('lastValidSpeed') || 0;\nlet zeroStartTime = context.get('zeroStartTime') || 0;\nlet spikeCount = context.get('spikeCount') || 0;\n\n// 1. FILTRO DE SALTOS GPS (GPS Doppler Spike Clamp)\n// Quando o GPS perde satélites dentro de casa/túneis, ocorrem saltos irreais de velocidade sem aceleração IMU\nlet accelY = Number(d.accelY) || 0;\nlet speedDelta = rawSpeed - lastValidSpeed;\nlet isGlitch = false;\n\nif (lastValidSpeed > 0) {\n    isGlitch = (speedDelta > 15.0 && Math.abs(accelY) < 1.0);\n} else {\n    isGlitch = (rawSpeed > 25.0 && Math.abs(accelY) < 0.3);\n}\n\nif (isGlitch) {\n    spikeCount++;\n    if (spikeCount < 5) {\n        // Rejeita o salto espúrio e segura a velocidade física plausível\n        rawSpeed = lastValidSpeed;\n    } else {\n        spikeCount = 0;\n    }\n} else {\n    spikeCount = 0;\n}\ncontext.set('spikeCount', spikeCount);\n\nlet filteredSpeed = rawSpeed;\n\n// 2. GATEWAY DE PARAGEM (300 ms - suporta apenas 1 pacote perdido a 5 Hz)\nif (rawSpeed <= 0.5) {\n    if (lastValidSpeed > 2.0) {\n        if (zeroStartTime === 0) {\n            zeroStartTime = now;\n        }\n        let elapsedMs = now - zeroStartTime;\n        // Tolera apenas 1 pacote perdido (~200 ms). Ao 2º pacote (~400 ms), corta logo para zero\n        if (elapsedMs < 300) {\n            filteredSpeed = lastValidSpeed;\n        } else {\n            // Paragem real confirmada\n            filteredSpeed = 0;\n            lastValidSpeed = 0;\n        }\n    } else {\n        filteredSpeed = 0;\n    }\n} else {\n    // Velocidade positiva normal: faz reset do timer de paragem\n    zeroStartTime = 0;\n    lastValidSpeed = rawSpeed;\n    filteredSpeed = rawSpeed;\n}\n\ncontext.set('lastValidSpeed', lastValidSpeed);\ncontext.set('zeroStartTime', zeroStartTime);\n\n// Sobrescreve payload.speed com o valor filtrado\nmsg.payload.speed = Number(filteredSpeed.toFixed(1));\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 510,
+        "wires": [
+            [
+                "chg_v2_temp",
+                "chg_v2_speed",
+                "chg_v2_hum",
+                "chg_v2_time",
+                "chg_v2_accx",
+                "chg_v2_accy",
+                "chg_v2_accz",
+                "chg_v2_gyroz",
+                "fn_v2_dynamics",
+                "dbg_v2_debug",
+                "81e969863fd839b3",
+                "b90d005375ffcee7",
+                "27da4118d672735b",
+                "fn_v2_slide",
+                "ui_v2_template_map"
+            ]
+        ]
+    },
+    {
+        "id": "parse_and_scale_accel",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_telemetry",
+        "name": "Parse & Transform Ingress (GPS & Accel)",
+        "func": "// 1. Parse JSON string if coming directly from MQTT In\nif (typeof msg.payload === \"string\") {\n    try {\n        msg.payload = JSON.parse(msg.payload);\n    } catch (e) {\n        node.error(\"Invalid JSON: \" + e.message, msg);\n        return null;\n    }\n}\n\n// Helper: Transforma e valida coordenadas NMEA (ddmm.mmmmm) em Graus Decimais (WGS84)\nfunction parseAndValidateCoord(val, hemi, maxBound) {\n    if (val === undefined || val === null || val === \"-\" || val === \"\" || val === \"0.0\" || val === 0) return null;\n    let num = Number(val);\n    if (isNaN(num) || !isFinite(num) || num === 0) return null;\n\n    // Se estiver no formato NMEA ddmm.mmmmm (ex: 4110.56968):\n    if (Math.abs(num) > 180.0 || (typeof val === 'string' && val.indexOf('.') === 4)) {\n        let degrees = Math.floor(Math.abs(num) / 100);\n        let minutes = Math.abs(num) - (degrees * 100);\n        num = degrees + (minutes / 60.0);\n    }\n    if (hemi === \"S\" || hemi === \"W\" || Number(val) < 0) {\n        num = -Math.abs(num);\n    }\n    if (Math.abs(num) > maxBound) return null;\n    return Number(num.toFixed(7));\n}\n\nif (msg.payload && typeof msg.payload === \"object\") {\n    //Passar de MG para G\n    if (msg.payload.accelX !== undefined && msg.payload.accelX !== null) {\n    msg.payload.accelX = Number(msg.payload.accelX) / 1000.0;\n    }\n    if (msg.payload.accelY !== undefined && msg.payload.accelY !== null) {\n    msg.payload.accelY = Number(msg.payload.accelY) / 1000.0;\n    }\n    if (msg.payload.accelZ !== undefined && msg.payload.accelZ !== null) {\n    msg.payload.accelZ = Number(msg.payload.accelZ) / 1000.0;\n    }\n\n    // 3. Transpor coordenadas NMEA para Graus Decimais limpos\n    if (String(msg.payload.status || '').toUpperCase() === 'A') {\n        msg.payload.lat = parseAndValidateCoord(msg.payload.lat, msg.payload.ns, 90);\n        msg.payload.lon = parseAndValidateCoord(msg.payload.lon, msg.payload.ew, 180);\n    } else {\n        msg.payload.lat = null;\n        msg.payload.lon = null;\n    }\n\n    // 4. Sanitizar timestamp\n    let ts = String(msg.payload.timestamp || '').trim();\n    if (!ts || ts === '-' || ts.includes('Searching')) {\n        msg.payload.timestamp = new Date().toISOString();\n    }\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 400,
+        "wires": [
+            [
+                "fn_v2_telemetry_gateway"
+            ]
+        ]
+    },
+    {
+        "id": "fn_v2_slide",
+        "type": "function",
+        "z": "828bad109fa30b48",
+        "g": "grp_canvas_navigation",
+        "name": "Smooth Slide (30 FPS Optimized)",
+        "func": "// ============================================================================\n// CONFIGURAÇÃO DOS EIXOS\n// ============================================================================\nconst FORWARD_AXIS = 'Y'; \nconst FORWARD_SIGN = 1;   \nconst YAW_SIGN = -1;      \n\nconst DT_30HZ = 1.0 / 30.0; // 33.3 ms (30 FPS - ideal para Leaflet/Worldmap)\nconst G_TO_MS2 = 9.80665;\n\nfunction parseAndValidateCoord(val, hemi, maxBound) {\n    if (val === undefined || val === null || val === \"-\" || val === \"\") return NaN;\n    let num = Number(val);\n    if (isNaN(num) || !isFinite(num)) return NaN;\n\n    if (Math.abs(num) > 180.0 || (typeof val === 'string' && val.indexOf('.') === 4)) {\n        let degrees = Math.floor(Math.abs(num) / 100);\n        let minutes = Math.abs(num) - (degrees * 100);\n        num = degrees + (minutes / 60.0);\n    }\n    if (hemi === \"S\" || hemi === \"W\" || Number(val) < 0) {\n        num = -Math.abs(num);\n    }\n    if (Math.abs(num) > maxBound) return NaN;\n    return num;\n}\n\nfunction angleDiff(target, current) {\n    return ((target - current + 540.0) % 360.0) - 180.0;\n}\n\nlet current = msg.payload;\nif (typeof current === 'string') {\n    try { current = JSON.parse(current); } catch (e) { return null; }\n}\nif (!current || typeof current !== 'object') return null;\n\nlet lat = parseAndValidateCoord(current.lat, current.ns, 90);\nlet lon = parseAndValidateCoord(current.lon, current.ew, 180);\nif (isNaN(lat) || isNaN(lon) || (lat === 0 && lon === 0)) return null;\n\nlet state = context.get(\"fusionState\") || {\n    initialized: false,\n    estLat: lat,\n    estLon: lon,\n    errLat: 0.0,\n    errLon: 0.0,\n    velMs: 0.0,\n    lastGpsVelMs: 0.0,\n    headingDeg: 0.0,\n    accelForwardG: 0.0,\n    accelBiasG: 0.0,\n    gyroYawDegS: 0.0,\n    lastPacketTime: Date.now(),\n    baseMsg: null\n};\n\nstate.baseMsg = msg;\n\n// 1. Leituras IMU com amortecimento de solavancos\nlet rawAccelLon = (FORWARD_AXIS === 'Y') ? Number(current.accelY || 0) : Number(current.accelX || 0);\nstate.accelForwardG = Math.max(-1.5, Math.min(1.5, (isNaN(rawAccelLon) ? 0.0 : rawAccelLon) * FORWARD_SIGN));\n\nlet rawGyroZ = Number(current.gyroZ || 0);\nstate.gyroYawDegS = (isNaN(rawGyroZ) ? 0.0 : rawGyroZ) * YAW_SIGN;\n\nlet gpsSpeedKmh = Number(current.speed || 0);\nlet gpsVelMs = (isNaN(gpsSpeedKmh) || gpsSpeedKmh < 0.5) ? 0.0 : (gpsSpeedKmh / 3.6);\n\nlet now = Date.now();\nlet dtGps = Math.min(Math.max((now - state.lastPacketTime) / 1000.0, 0.05), 1.0);\nstate.lastPacketTime = now;\n\nif (!state.initialized) {\n    state.estLat = lat;\n    state.estLon = lon;\n    state.velMs = gpsVelMs;\n    state.lastGpsVelMs = gpsVelMs;\n    state.headingDeg = Number(current.course || 0);\n    state.initialized = true;\n} else {\n    // 2. Rumo: Usa course do GPS se velocidade > 1 m/s (~3.6 km/h)\n    if (current.course && current.course !== \"\" && gpsVelMs > 1.0) {\n        let gpsCourse = Number(current.course);\n        if (!isNaN(gpsCourse)) {\n            let diff = angleDiff(gpsCourse, state.headingDeg);\n            state.headingDeg = (state.headingDeg + 0.4 * diff + 360.0) % 360.0;\n        }\n    }\n\n    // 3. Estimação de Bias / Inclinação com taxa de convergência estável\n    let gpsAccelMs2 = (gpsVelMs - state.lastGpsVelMs) / dtGps;\n    let imuAccelMs2 = state.accelForwardG * G_TO_MS2;\n    let instantBiasG = (imuAccelMs2 - gpsAccelMs2) / G_TO_MS2;\n    state.accelBiasG = 0.90 * state.accelBiasG + 0.10 * instantBiasG;\n    state.lastGpsVelMs = gpsVelMs;\n\n    // 4. Velocidade: Âncora no GPS Doppler\n    if (gpsVelMs < 0.3) {\n        state.velMs = 0.0;\n    } else {\n        state.velMs = 0.85 * gpsVelMs + 0.15 * state.velMs;\n    }\n\n    // 5. Erro residual com amortecimento suave\n    state.errLat = lat - state.estLat;\n    state.errLon = lon - state.estLon;\n\n    if (Math.abs(state.errLat) > 0.0003 || Math.abs(state.errLon) > 0.0003) {\n        state.estLat = lat;\n        state.estLon = lon;\n        state.errLat = 0.0;\n        state.errLon = 0.0;\n    }\n}\n\ncontext.set(\"fusionState\", state);\n\n// 6. Timer 30 Hz (33 ms)\nlet timer = context.get(\"loop30Hz\");\nif (!timer) {\n    timer = setInterval(function() {\n        let st = context.get(\"fusionState\");\n        if (!st || !st.initialized || !st.baseMsg) return;\n        if (Date.now() - st.lastPacketTime > 1500) return;\n\n        // Se o veículo estiver parado, trava a velocidade e dissipa o erro sem translação (evita drift fantasma)\n        if (st.velMs < 0.25) {\n            st.velMs = 0.0;\n            let stepErrLat = st.errLat * 0.15;\n            let stepErrLon = st.errLon * 0.15;\n            st.estLat += stepErrLat;\n            st.estLon += stepErrLon;\n            st.errLat -= stepErrLat;\n            st.errLon -= stepErrLon;\n        } else {\n            // Em movimento: Dead Reckoning inercial\n            let netAccelG = Math.max(-0.8, Math.min(0.8, st.accelForwardG - st.accelBiasG));\n            let netAccelMs2 = netAccelG * G_TO_MS2;\n            st.velMs = Math.max(0.0, st.velMs + netAccelMs2 * DT_30HZ);\n\n            if (st.velMs > 0.8) {\n                st.headingDeg = (st.headingDeg + st.gyroYawDegS * DT_30HZ + 360.0) % 360.0;\n            }\n\n            let headingRad = st.headingDeg * (Math.PI / 180.0);\n            let dNorthMeters = st.velMs * Math.cos(headingRad) * DT_30HZ;\n            let dEastMeters  = st.velMs * Math.sin(headingRad) * DT_30HZ;\n\n            let dLat = dNorthMeters / 111320.0;\n            let cosLat = Math.cos(st.estLat * (Math.PI / 180.0));\n            let dLon = (cosLat > 0.0001) ? (dEastMeters / (111320.0 * cosLat)) : 0.0;\n\n            let stepErrLat = st.errLat * 0.12;\n            let stepErrLon = st.errLon * 0.12;\n\n            st.estLat += dLat + stepErrLat;\n            st.estLon += dLon + stepErrLon;\n            st.errLat -= stepErrLat;\n            st.errLon -= stepErrLon;\n        }\n\n        context.set(\"fusionState\", st);\n\n        if (!context.get(\"polygonCleared\")) {\n            node.send({ payload: { name: \"Carro\", deleted: true } });\n            context.set(\"polygonCleared\", true);\n        }\n\n        let outMsg = RED.util.cloneMessage(st.baseMsg);\n        outMsg.payload.name = outMsg.payload.name || \"Carro\";\n        outMsg.payload.icon = \"car\";\n        outMsg.payload.iconColor = \"#251f20b4\";\n        outMsg.payload.lat = Number(st.estLat.toFixed(7));\n        outMsg.payload.lon = Number(st.estLon.toFixed(7));\n        delete outMsg.payload.speed;\n        outMsg.payload.speed_kmh = (st.velMs * 3.6).toFixed(1) + \" km/h\";\n        outMsg.payload.bearing = Number(st.headingDeg.toFixed(1));\n\n        node.send(outMsg);\n    }, 33);\n\n    context.set(\"loop30Hz\", timer);\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "let timer = context.get(\"loop30Hz\");\nif (timer) {\n    clearInterval(timer);\n    context.set(\"loop30Hz\", null);\n}",
+        "libs": [],
+        "x": 1100,
+        "y": 500,
+        "wires": [
+            [
+                "wm_v2_worldmap"
+            ]
+        ]
+    },
+    {
+        "id": "d031960728fdecb8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "grp_v2_telemetry_main",
+        "type": "ui_group",
+        "name": "Vehicle Telemetry & Dynamics",
+        "tab": "tab_telemetry_v2_fresh",
+        "order": 2,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "grp_v2_navigation",
+        "type": "ui_group",
+        "name": "Live GPS Track & Navigation",
+        "tab": "tab_telemetry_v2_fresh",
+        "order": 3,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "grp_v2_status_hud",
+        "type": "ui_group",
+        "name": "System Status",
+        "tab": "tab_telemetry_v2_fresh",
+        "order": 1,
+        "disp": false,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d89bc162e13ba339",
+        "type": "telegram bot",
+        "botname": "Labsis2627Bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "32600c48776033fd",
+        "type": "sqlitedb",
+        "db": "C:/Users/danie/labsis_telemetry/labsis_telemetry.db",
+        "mode": "RWC"
+    },
+    {
+        "id": "d76caec142fa844d",
+        "type": "ui_group",
+        "name": "Vehicle, Pilot & Race Controls",
+        "tab": "tab_telemetry_v2_fresh",
+        "order": 4,
+        "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "tab_telemetry_v2_fresh",
+        "type": "ui_tab",
+        "name": "Car Telemetry LABSIS",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bf7d7a870686cd0c",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-web-worldmap": "5.9.0",
+            "node-red-node-email": "5.2.5",
+            "node-red-contrib-telegrambot": "19.0.3",
+            "node-red-node-sqlite": "2.0.1"
+        }
+    }
+]
